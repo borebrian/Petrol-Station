@@ -1,0 +1,64 @@
+﻿.rounded1{
+    border-radius:20px;
+}
+
+/*body{
+    font-family:'Century Gothic';
+}*/
+.mycolor {
+    background-color: #68213A;
+    color:white;
+    border-radius:10px;
+    border:none;
+    
+    
+}
+.mycolor:hover{
+    background-color:white;
+    color:black;
+}
+.colpad{
+    margin-bottom:16px;
+    top: 0px;
+    left: 0px;
+}
+.categoryselector {
+    padding: 15px;
+    border-radius: 40px;
+    width:200px;
+    color: #68213A;
+    background-color: white;
+    border: 1px solid #68213A;
+}
+    .categoryselector:hover {
+        padding: 15px;
+        border-radius:40px;
+        width: 300px;
+        color: #68213A;
+        background-color: white;
+        color: #68213A;
+        border: 1px solid #68213A;
+    }
+.panelHead{
+    background-color: #483F42;
+}
+.sales { 
+    background-color: white;
+    color: #707070;
+    border-radius: 10px;
+    border: 2px #707070 solid;
+}
+    .sales:hover {
+        background-color: #68213A;
+        color: white;
+        border-radius: 10px;
+        border: 2px white solid;
+    }
+.myalert {
+    background-color: white;
+    border: 1px solid #68213A;
+    border-radius:10px;
+}
+/*.myalert:hover{
+    font-size:20px;
+}*/

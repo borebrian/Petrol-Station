@@ -1,0 +1,352 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B24CDC4D-7C21-4AA6-97BB-4EFAC67128A0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Petrol_Station</RootNamespace>
+    <AssemblyName>Petrol Station</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44313</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Agents\Admin_category.aspx" />
+    <Content Include="Agents\Agent_registration.aspx" />
+    <Content Include="Agents\ALL_TESTS.aspx" />
+    <Content Include="Agents\Dashboard.aspx" />
+    <Content Include="Agents\Fuel_selection.aspx" />
+    <Content Include="Agents\Log_in.aspx" />
+    <Content Include="Agents\Manager_reg.aspx" />
+    <Content Include="Agents\Manage_agents.aspx" />
+    <Content Include="Agents\Manage_petrol_station.aspx" />
+    <Content Include="Agents\Petrol_station_selection.aspx" />
+    <Content Include="Agents\Reset_pass.aspx" />
+    <Content Include="Agents\Sales.aspx" />
+    <Content Include="Agents\Sales_category.aspx" />
+    <Content Include="Agents\Set_new_password.aspx" />
+    <Content Include="Agents\Station_reg.aspx" />
+    <Content Include="Agents\Verification.aspx" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.css" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap.css" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap.min.css" />
+    <Content Include="bootstrap-3.3.7-dist\css\Custome.css" />
+    <Content Include="bootstrap-3.3.7-dist\css\sTYLE.css" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap-3.3.7-dist\Images\add.png" />
+    <Content Include="bootstrap-3.3.7-dist\Images\Admin.png" />
+    <Content Include="bootstrap-3.3.7-dist\Images\logo.png" />
+    <Content Include="bootstrap-3.3.7-dist\Images\logout.png" />
+    <Content Include="bootstrap-3.3.7-dist\js\bootstrap.js" />
+    <Content Include="bootstrap-3.3.7-dist\js\bootstrap.min.js" />
+    <Content Include="bootstrap-3.3.7-dist\js\Custome.js" />
+    <Content Include="bootstrap-3.3.7-dist\js\JQ.js" />
+    <Content Include="bootstrap-3.3.7-dist\js\Modals.js" />
+    <Content Include="bootstrap-3.3.7-dist\js\npm.js" />
+    <Content Include="bootstrap-validator-master\.gitignore" />
+    <Content Include="bootstrap-validator-master\dist\validator.js" />
+    <Content Include="bootstrap-validator-master\dist\validator.min.js" />
+    <Content Include="bootstrap-validator-master\docs\assets\css\docs.css" />
+    <Content Include="bootstrap-validator-master\docs\assets\css\pygments-manni.css" />
+    <Content Include="bootstrap-validator-master\docs\assets\ico\apple-touch-icon-144-precomposed.png" />
+    <Content Include="bootstrap-validator-master\docs\assets\ico\favicon.png" />
+    <Content Include="bootstrap-validator-master\docs\assets\js\application.js" />
+    <Content Include="bootstrap-validator-master\docs\dist\validator.js" />
+    <Content Include="bootstrap-validator-master\docs\dist\validator.min.js" />
+    <Content Include="bootstrap-validator-master\docs\index.html" />
+    <Content Include="bootstrap-validator-master\docs\_includes\ads.html" />
+    <Content Include="bootstrap-validator-master\docs\_includes\footer.html" />
+    <Content Include="bootstrap-validator-master\docs\_includes\header.html" />
+    <Content Include="bootstrap-validator-master\docs\_includes\nav-main.html" />
+    <Content Include="bootstrap-validator-master\docs\_includes\nav-validator.html" />
+    <Content Include="bootstrap-validator-master\docs\_includes\social-buttons.html" />
+    <Content Include="bootstrap-validator-master\docs\_layouts\default.html" />
+    <Content Include="bootstrap-validator-master\Gruntfile.js" />
+    <Content Include="bootstrap-validator-master\js\tests\index-jquery-1.10.2.html" />
+    <Content Include="bootstrap-validator-master\js\tests\index-jquery-3.1.1.html" />
+    <Content Include="bootstrap-validator-master\js\tests\unit\phantom.js" />
+    <Content Include="bootstrap-validator-master\js\tests\unit\validator.js" />
+    <Content Include="bootstrap-validator-master\js\tests\vendor\jquery-1.10.2.js" />
+    <Content Include="bootstrap-validator-master\js\tests\vendor\jquery-3.1.1.js" />
+    <Content Include="bootstrap-validator-master\js\tests\vendor\jquery.mockjax.js" />
+    <Content Include="bootstrap-validator-master\js\tests\vendor\qunit.css" />
+    <Content Include="bootstrap-validator-master\js\tests\vendor\qunit.js" />
+    <Content Include="bootstrap-validator-master\js\validator.js" />
+    <Content Include="Debts.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\fuelachebiemitwhite.png" />
+    <Content Include="Images\hd.jpg" />
+    <Content Include="TEST.css" />
+    <Content Include="TESTINGS.js" />
+    <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Agents\Admin_category.aspx.cs">
+      <DependentUpon>Admin_category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Admin_category.aspx.designer.cs">
+      <DependentUpon>Admin_category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Agent_registration.aspx.cs">
+      <DependentUpon>Agent_registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Agent_registration.aspx.designer.cs">
+      <DependentUpon>Agent_registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\ALL_TESTS.aspx.cs">
+      <DependentUpon>ALL_TESTS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\ALL_TESTS.aspx.designer.cs">
+      <DependentUpon>ALL_TESTS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Fuel_selection.aspx.cs">
+      <DependentUpon>Fuel_selection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Fuel_selection.aspx.designer.cs">
+      <DependentUpon>Fuel_selection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Log_in.aspx.cs">
+      <DependentUpon>Log_in.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Log_in.aspx.designer.cs">
+      <DependentUpon>Log_in.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Manager_reg.aspx.cs">
+      <DependentUpon>Manager_reg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Manager_reg.aspx.designer.cs">
+      <DependentUpon>Manager_reg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Manage_agents.aspx.cs">
+      <DependentUpon>Manage_agents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Manage_agents.aspx.designer.cs">
+      <DependentUpon>Manage_agents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Manage_petrol_station.aspx.cs">
+      <DependentUpon>Manage_petrol_station.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Manage_petrol_station.aspx.designer.cs">
+      <DependentUpon>Manage_petrol_station.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Petrol_station_selection.aspx.cs">
+      <DependentUpon>Petrol_station_selection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Petrol_station_selection.aspx.designer.cs">
+      <DependentUpon>Petrol_station_selection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Reset_pass.aspx.cs">
+      <DependentUpon>Reset_pass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Reset_pass.aspx.designer.cs">
+      <DependentUpon>Reset_pass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Sales.aspx.cs">
+      <DependentUpon>Sales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Sales.aspx.designer.cs">
+      <DependentUpon>Sales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Sales_category.aspx.cs">
+      <DependentUpon>Sales_category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Sales_category.aspx.designer.cs">
+      <DependentUpon>Sales_category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Set_new_password.aspx.cs">
+      <DependentUpon>Set_new_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Set_new_password.aspx.designer.cs">
+      <DependentUpon>Set_new_password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Station_reg.aspx.cs">
+      <DependentUpon>Station_reg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Station_reg.aspx.designer.cs">
+      <DependentUpon>Station_reg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Verification.aspx.cs">
+      <DependentUpon>Verification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Verification.aspx.designer.cs">
+      <DependentUpon>Verification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Classes\Inserting.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Debts.aspx.cs">
+      <DependentUpon>Debts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Debts.aspx.designer.cs">
+      <DependentUpon>Debts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.css.map" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap.css.map" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap.min.css.map" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="bootstrap-validator-master\bower.json" />
+    <Content Include="bootstrap-validator-master\CHANGELOG.md" />
+    <Content Include="bootstrap-validator-master\docs\LICENSE" />
+    <Content Include="bootstrap-validator-master\js\.jshintrc" />
+    <Content Include="bootstrap-validator-master\LICENSE" />
+    <Content Include="bootstrap-validator-master\package.json" />
+    <Content Include="bootstrap-validator-master\README.md" />
+    <Content Include="bootstrap-validator-master\_config.yml" />
+    <None Include="packages.config" />
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Manager\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49869</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44313/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

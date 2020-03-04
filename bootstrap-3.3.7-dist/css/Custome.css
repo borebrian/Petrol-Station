@@ -1,0 +1,190 @@
+﻿/*/*@font-face {
+    font-family: Century Gothic1;
+    src: url('../bootstrap-3.3.7-dist/fonts/Century.ttf');
+}*/
+/*body{
+    font-family:'Century Gothic1';
+}*/
+.container-fluid {
+    font-family: 'Century Gothic1';
+}
+.form-control {
+    border: solid 1px #337ab7;
+}
+/* Sticky footer styles-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+	-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+/*body > .container {
+    padding: 60px 15px 0;
+}*/
+
+/*.container .text-muted {
+    margin: 20px 0;
+}*/
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+code {
+    font-size: 80%;
+}
+
+
+
+/* Custom page CSS
+	-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+/*.container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+}*/
+
+    .container .text-muted {
+        margin: 20px 0;
+    }
+li {
+    color: white;
+}
+#invoice-POS {
+    box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+    padding: 2mm;
+    margin: 0 auto;
+    width: 44mm;
+    background: #FFF;
+    :: selection
+
+{
+    background: #f31544;
+    color: #FFF;
+}
+
+::moz-selection {
+    background: #f31544;
+    color: #FFF;
+}
+
+h1 {
+    font-size: 1.5em;
+    color: #222;
+}
+
+h2 {
+    font-size: .9em;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 2em;
+}
+
+p {
+    font-size: .7em;
+    color: #666;
+    line-height: 1.2em;
+}
+
+#top, #mid, #bot { /* Targets all id with 'col-' */
+    border-bottom: 1px solid #EEE;
+}
+
+#top {
+    min-height: 100px;
+}
+
+#mid {
+    min-height: 80px;
+}
+
+#bot {
+    min-height: 50px;
+}
+
+#top .logo {
+    //float: left;
+    height: 60px;
+    width: 60px;
+    background: url(http://michaeltruong.ca/images/logo1.png) no-repeat;
+    background-size: 60px 60px;
+}
+
+.clientlogo {
+    float: left;
+    height: 60px;
+    width: 60px;
+    background: url(http://michaeltruong.ca/images/client.jpg) no-repeat;
+    background-size: 60px 60px;
+    border-radius: 50px;
+}
+
+.info {
+    display: block;
+    //float:left;
+    margin-left: 0;
+}
+
+.title {
+    float: right;
+}
+
+    .title p {
+        text-align: right;
+    }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    //padding: 5px 0 5px 15px;
+    //border: 1px solid #EEE
+}
+
+.tabletitle {
+    //padding: 5px;
+    font-size: .5em;
+    background: #EEE;
+}
+
+.service {
+    border-bottom: 1px solid #EEE;
+}
+
+.item {
+    width: 24mm;
+}
+
+.itemtext {
+    font-size: .5em;
+}
+
+#legalcopy {
+    margin-top: 5mm;
+}
+}
