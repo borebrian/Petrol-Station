@@ -56,7 +56,9 @@ namespace Petrol_Station.Agents
 
         protected void LinkButton1_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("../Agents/Agent_registration");
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", " final()", true);
+
+            //Response.Redirect("../Agents/Agent_registration");
         }
         protected void clear(object sender, EventArgs e)
         {

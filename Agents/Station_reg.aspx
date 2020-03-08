@@ -73,13 +73,16 @@
                      <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click1"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp Next</asp:LinkButton></div>
                 </div>
             </div>
-<%--        </div>
+        </div>
    <div id="modalfuel" class="modal fade" role="dialog">
-  <div class="modal-dialog">--%>
+  <div class="modal-dialog">
 
-  <div class="alert alert-info" style="background-color:white;">
-            <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 ">
+  <div class="well" style="background-color:black;opacity:0.8;border-radius:20px;padding:10px;border:none">
+      
+            <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 " style="color:white;">
       <div class="row text-center" style="margin-bottom:20px;">
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
+
                     <div class="alert alert-info" style="background-color:#68213A;color:white;border:none">
 
   <strong>Provide fuel details of the petrol stations</strong>
@@ -89,13 +92,19 @@
       <div class="row">
             <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 ">
                 <div class="row">
-            <div class="col-lg-3 col-lg-3 col-lg-3 col-lg-12 ">
+            <div class="col-lg-3 col-lg-3 col-lg-3 col-lg-12 " style="color:white">
                 Select petrol station:
 
                 <asp:DropDownList ID="DropDownList1" runat="server" class="form-control rounded1"  DataSourceID="SqlDataSource1" DataTextField="Station_name" DataValueField="Station_name"></asp:DropDownList>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Select petrol station"
+                                        ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
+                                    <br />
+                                    <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator8" ErrorMessage="Invalid characters" runat="server"
+                                        ValidationGroup="nl" Visible="true"   ControlToValidate="DropDownList1" ValidationExpression="^[a-z,A-Z]{1,20}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                    </asp:RegularExpressionValidator>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Fuel_systemConnectionString %>" SelectCommand="SELECT count(Station_name) as total,Station_name FROM Station_registration group by Station_name"></asp:SqlDataSource>
                 </div>
-            <div class="col-lg-3 col-lg-3 col-lg-3 col-lg-12 ">
+            <div class="col-lg-3 col-lg-3 col-lg-3 col-lg-12 " style="color:white">
                 Select fuel type:
            <asp:DropDownList ID="DropDownList2" runat="server" class="form-control rounded1" >
                <asp:ListItem>PETROL</asp:ListItem>
@@ -103,9 +112,14 @@
                <asp:ListItem>PARAFFIN</asp:ListItem>
                 </asp:DropDownList>
                
-
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="DropDownList2" ErrorMessage="Select fuel"
+                                        ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
+                                    <br />
+                                    <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator7" ErrorMessage="Invalid characters" runat="server"
+                                        ValidationGroup="nl" Visible="true"   ControlToValidate="DropDownList2" ValidationExpression="^[a-z,A-Z]{1,20}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                    </asp:RegularExpressionValidator>
             </div>
-            <div class="col-lg-3 col-lg-3 col-lg-3 col-lg-12 ">
+            <div class="col-lg-3 col-lg-3 col-lg-3 col-lg-12 " style="color:white">
 
                 Enter tank capacity in Litres:
                     <asp:TextBox ID="TextBox4" runat="server" class="form-control rounded1" placeholder="Enter tank capacity"></asp:TextBox>
@@ -116,7 +130,7 @@
                                         ValidationGroup="nl" Visible="true"   ControlToValidate="TextBox4" ValidationExpression="^[0-9.]{1,20}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
                 </div>
-                    <div class="col-lg-3 col-lg-3 col-lg-3 col-lg-12 ">
+                    <div class="col-lg-3 col-lg-3 col-lg-3 col-lg-12 " style="color:white">
                 Enter current fuel capacity in Litres:
 
                     <asp:TextBox ID="TextBox6" runat="server" class="form-control rounded1" placeholder="Enter current capacity"></asp:TextBox>
@@ -142,6 +156,10 @@
                                <i class="glyphicon glyphicon-plus-sign"></i>&nbsp  Add
                                 
                             </a>
+                             <a href="#" class="btn btn-default " runat="server" onclick="">
+                               <i class="glyphicon glyphicon-ok-sign"></i>&nbsp  Finish
+                                
+                            </a>
 
                 </div>
                 </div></div>
@@ -155,5 +173,6 @@
       
     
    
+    </div>
     </div>
 </asp:Content>

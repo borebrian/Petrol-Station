@@ -14,3 +14,11 @@ function twilio() {
     });
     $('#modal2').modal("show");
 }
+function final() {
+    $("#modalfuel").modal({
+        show: false,
+        backdrop: 'static'
+
+    });
+    $('#modalfuel').modal("show");
+}
