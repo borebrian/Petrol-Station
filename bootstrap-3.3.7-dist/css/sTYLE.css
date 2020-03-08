@@ -6,12 +6,13 @@
     font-family:'Century Gothic';
 }*/
 .mycolor {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
     background-color: #68213A;
     color:white;
     border-radius:10px;
-    border:none;
-    
-    
+    height: 52px;
 }
 .mycolor:hover{
     background-color:white;

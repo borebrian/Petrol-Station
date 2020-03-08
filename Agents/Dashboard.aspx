@@ -190,10 +190,10 @@
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                     <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded1" placeholder="Enter price here" style="border:1px #707070 solid;"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" Display="Dynamic" runat="server" ControlToValidate="TextBox1" ErrorMessage="Enter price" SetFocusOnError="true"
-                                        ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
+                                        ForeColor="Red" ValidationGroup="bb"></asp:RequiredFieldValidator>
                                     <br />
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ErrorMessage="Invalid characters" runat="server"
-                                        ValidationGroup="nl" Visible="true" Display="Dynamic" ControlToValidate="TextBox1" ValidationExpression="^[0-9]{1,13}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                        ValidationGroup="bb" Visible="true" Display="Dynamic" ControlToValidate="TextBox1" ValidationExpression="^[0-9]{1,13}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
                         </div>
                   

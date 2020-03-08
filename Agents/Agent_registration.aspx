@@ -24,7 +24,7 @@
                         </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 colpad colpad">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12    ">
                     <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded1" placeholder="Enter national id"></asp:TextBox>
 
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Enter ID"
@@ -34,7 +34,7 @@
                                         ValidationGroup="nl" Visible="true" ControlToValidate="TextBox1" ValidationExpression="^[a-zA-Z0-9]{1,13}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
                         </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 colpad">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12  ">
                     <asp:TextBox ID="TextBox2" runat="server" class="form-control rounded1 text-capitalize" placeholder="Enter full names"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ErrorMessage="Enter full names"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
@@ -44,7 +44,7 @@
                                     </asp:RegularExpressionValidator>
                         </div>
 
-                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 colpad">
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12  ">
                     <asp:TextBox ID="TextBox3" runat="server" class="form-control rounded1" placeholder="Enter username"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="Enter username"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
@@ -53,7 +53,7 @@
                                         ValidationGroup="nl" Visible="true" ControlToValidate="TextBox3" ValidationExpression="^[a-zA-Z0-9]{1,30}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
                         </div>
-                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 colpad">
+                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12  ">
                     <asp:TextBox ID="TextBox4" runat="server"  ReadOnly="true" Text="12345678"  class="form-control rounded1" placeholder="Set password"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" type="password" ErrorMessage="Enter password"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
@@ -65,7 +65,7 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 colpad">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12  ">
                     <asp:TextBox ID="TextBox5" runat="server" class="form-control rounded1" placeholder="Enter town name"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox5" ErrorMessage="Enter town name"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
@@ -75,7 +75,7 @@
                                     </asp:RegularExpressionValidator>
                         </div>
                     
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 colpad">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12  ">
                     <asp:TextBox ID="TextBox7" runat="server" class="form-control rounded1" placeholder="Enter phone number here" Text="07"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextBox7" ErrorMessage="Enter password"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
@@ -89,15 +89,15 @@
                 <div class="row text-center">
                                       
 
-                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 colpad">
+                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  ">
 
                     <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-plus-sign"></i> &nbsp Agents </asp:LinkButton>
                                           </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 colpad">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  ">
                     <asp:LinkButton ID="LinkButton2"  ValidationGroup="nl" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton2_Click"> Submit data</asp:LinkButton>
 
                                           </div>
-                                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 colpad">
+                                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  ">
 
                     <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-ok"></i>&nbsp Complete registration </asp:LinkButton>
                                           </div>

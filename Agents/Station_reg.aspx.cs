@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -56,9 +58,38 @@ namespace Petrol_Station.Agents
 
         protected void LinkButton1_Click1(object sender, EventArgs e)
         {
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", " final()", true);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "final() ", true);
 
             //Response.Redirect("../Agents/Agent_registration");
+        }
+        protected void finish(object sender, EventArgs e)
+        {
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "final() ", true);
+
+            //Response.Redirect("../Agents/Agent_registration");
+        }
+        protected void insertdetails(object sender, EventArgs e)
+        {
+
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand("SELECT *FROM Fuel WHERE Station_ref='"+ DropDownList1.SelectedItem.Value + "', ANDC Fuel_type='"+ DropDownList2.SelectedItem.Value + "'", con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                response.Text = "You already submitted this record please confirm";
+                con.Close();
+
+            }
+            else
+            {
+                con.Close();
+                OpenClass p = new OpenClass();
+                p.inserting("INSERT INTO  Fuel(Station_ref,Fuel_type,Tank_capacity,Current_capacity) VALUES('" + DropDownList1.SelectedItem.Value + "','" + DropDownList2.SelectedItem.Value + "','" + TextBox4.Text + "','" + TextBox6.Text + "')");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "final()", true);
+                response.Text = "Submitted successfully!";
+            }
         }
         protected void clear(object sender, EventArgs e)
         {

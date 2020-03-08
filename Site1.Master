@@ -17,21 +17,15 @@
 <body style="background-image:url('../Images/hd.jpg');background-repeat:no-repeat;background-size:cover;height:600px;">
     <form id="form1" runat="server">
         <div>
-            <div class="modal-dialog">
-
-  <%--<div class="alert alert-info" runat="server" id="test">
-  <strong>Enter admin password to continue!</strong>
-      <div class="row">--%>
-         
-
-
-      </div>
-      
-
-</div>
-
-      </div>
+           
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                  <div id="masterd" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+       <div class="well" style="background-color:black;opacity:0.8;border-radius:20px;padding:10px;border:none">
+           </div>
+
+
+  </div></div>
             </asp:ContentPlaceHolder>
         </div>
     </form>

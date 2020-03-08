@@ -22,3 +22,11 @@ function final() {
     });
     $('#modalfuel').modal("show");
 }
+function general() {
+    $("#masterd").modal({
+        show: false,
+        backdrop: 'static'
+
+    });
+    $('#masterd').modal("show");
+}
