@@ -169,7 +169,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 
             </div></div></div>
-        </div>
+        </div></div>
         <div id="modal1" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -202,5 +202,33 @@
                  
             </div>
       </div><%--</div>--%>
+    </div>
+        <div id="modal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+  <div class="alert alert-success">
+  <strong>Enter admin password to continue!</strong>
+      <div class="row">
+            <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 ">
+
+                 <asp:TextBox ID="TextBox4" MaxLength="8" runat="server" class="form-control rounded1" placeholder="Enter password here"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" ErrorMessage="Enter password here"
+                                        ForeColor="Red" ValidationGroup="vv"></asp:RequiredFieldValidator>
+                                    <br />
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ErrorMessage="Invalid characters" runat="server"
+                                        ValidationGroup="vv" Display="Dynamic" Visible="true" ControlToValidate="TextBox4" ValidationExpression="^[0-9a-zA-Z]{1,15}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                    </asp:RegularExpressionValidator>
+                <asp:LinkButton ValidationGroup="vv" ID="LinkButton2" CssClass="btn btn-primary mycolor" runat="server" >Proceed</asp:LinkButton>
+                                 <asp:Label ID="Label13"  runat="server" Text=""></asp:Label>
+            </div>
+
+
+
+      </div>
+      
+
+</div>
+
+      </div>
     </div>
 </asp:Content>

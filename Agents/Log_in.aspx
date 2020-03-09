@@ -12,17 +12,17 @@
     <div class="container-fluid" style="padding:0px;">
         <div class="well" draggable="true" style="background-color:transparent;border:none;">
 
-            <
+            
               <div class="row text-center" style="margin-bottom:20px;">
                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  hidden-xs"></div>
                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                    <div class="well" style="background-color:#68213A;opacity:0.8;border-radius:40px;">
+                    <div class="well" style="background-color:#68213A;opacity:0.8;border-radius:40px;border:none">
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>
                  
                     
-                        <div class="alert alert-info" style="background-color:#68213A;color:white;">
+                        <div class="alert alert-info" style="background-color:#68213A;color:white;border:none">
                             <strong>Please log in to proceed.<asp:Label ID="Label2" runat="server" Text=""></asp:Label>
                             </strong>
                         </div>
@@ -55,8 +55,9 @@
                      </div>
                          <div class="row text-center">
                     <div class="btn-group">
-                                                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary sales" ValidationGroup="nl" style="border:white 1px solid;background-color:#68213A;color:white" runat="server" OnClick="LinkButton1_Click">Log in</asp:LinkButton>
-                                                                <asp:LinkButton ID="LinkButton4" CssClass="btn btn-primary sales" style="border:white 1px solid;background-color:#68213A;color:white" runat="server" OnClick="LinkButton4_Click">Forgot password</asp:LinkButton>
+                                                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default " ValidationGroup="nl" runat="server" OnClick="LinkButton1_Click">Log in</asp:LinkButton>
+                                                                <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-default " OnClick="LinkButton4_Click">Forgot password</asp:LinkButton><br />
+                        <asp:Label ID="Label4" runat="server" Text="" ForeColor="red"></asp:Label>
                         </div><br />
 
                    

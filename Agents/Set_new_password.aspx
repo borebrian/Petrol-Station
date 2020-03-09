@@ -22,8 +22,8 @@
                     <h3></h3>
                  
                     
-                        <div class="alert alert-info" style="background-color:#68213A;color:white;">
-                            <strong>Please set new unique password to proceed.<asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                        <div class="alert alert-info" style="background-color:#68213A;color:white;border:none;">
+                            <strong><asp:Label ID="Label2" runat="server" Text="Please set new unique password with atleast six characters."></asp:Label>
                             </strong>
                         </div>
                 </div>
@@ -31,11 +31,11 @@
                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                              <asp:Label ID="Label1" runat="server" Text="Set new password:" style="color:white;"></asp:Label>
                                <asp:TextBox ID="TextBox5" runat="server" class="form-control rounded1" type="password" placeholder="Enter new password"></asp:TextBox>
-                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="TextBox1" ErrorMessage="Enter username"
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="TextBox5" ErrorMessage="Enter password"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
                                     <br />
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" Display="Dynamic" ErrorMessage="Invalid characters" runat="server"
-                                        ValidationGroup="nl" Visible="true" ControlToValidate="TextBox5" ValidationExpression="^[0-9A-Za-z]{1,15}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                        ValidationGroup="nl" Visible="true" ControlToValidate="TextBox5" ValidationExpression="^[0-9A-Za-z]{6,15}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
 
                          </div>
@@ -43,11 +43,11 @@
                              <asp:Label ID="Label3" runat="server" Text="Repeat password:" style="color:white;"></asp:Label>
  
                                <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded1" Display="Dynamic" type="password" placeholder="Repeat Password"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox5" ErrorMessage="Enter password"
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox1" ErrorMessage="Repeat password"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
                                     <br />
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator5" Display="Dynamic" ErrorMessage="Invalid characters" runat="server"
-                                        ValidationGroup="nl" Visible="true" ControlToValidate="TextBox1" ValidationExpression="^[0-9A-Za-z]{1,15}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                        ValidationGroup="nl" Visible="true" ControlToValidate="TextBox1" ValidationExpression="^[0-9A-Za-z]{6,15}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
                      
 
@@ -56,7 +56,7 @@
                          <div class="row text-center">
                     <div class="btn-group">
                                                                 <%--<asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary sales" ValidationGroup="nl" style="border:white 1px solid;background-color:#68213A;color:white" runat="server">Log in</asp:LinkButton>--%>
-                                                                <asp:LinkButton ID="LinkButton4" CssClass="btn btn-primary sales" style="border:white 1px solid;background-color:#68213A;color:white" runat="server">Submit</asp:LinkButton>
+                                                                <asp:LinkButton ID="LinkButton4" CssClass="btn btn-primary sales" style="border:white 1px solid;background-color:#68213A;color:white"    ValidationGroup="nl" runat="server" OnClick="LinkButton4_Click">Submit</asp:LinkButton>
                         </div><br />
 
                    

@@ -43,17 +43,25 @@ namespace Petrol_Station.Agents
             OpenClass.AddToSession("Reff", TextBox1.Text);
             if (OpenClass.CheckIfReffExist(TextBox1.Text))
             {
-                OpenClass.inserting("Insert into Station_registration(Station_ref,National_ID,Station_name,Fuel_type,Location,Tank_capacity,Current_capacity) VALUES('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + DropDownList1.SelectedItem.Value + "','" + TextBox5.Text + "','" + TextBox7.Text + "','" + TextBox4.Text + "')");
+                OpenClass.inserting("Insert into Station_registration(Station_ref,National_ID,Station_name,Location) VALUES('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox5.Text + "')");
                 OpenClass.ClearInputs(Page.Controls);
             }
             else
             {
 
-                OpenClass.inserting("Insert into Station_registration(Station_ref,National_ID,Station_name,Fuel_type,Location,Tank_capacity,Current_capacity) VALUES('" +Session["Reff"] + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + DropDownList1.SelectedItem.Value + "','" + TextBox5.Text + "','" + TextBox7.Text + "','" + TextBox4.Text + "')");
+                OpenClass.inserting("Insert into Station_registration(Station_ref,National_ID,Station_name,Location) VALUES('" +Session["Reff"] + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox5.Text + "')");
                 OpenClass.ClearInputs(Page.Controls);
             }
         }
-            
-       
+
+        protected void LinkButton1_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("../Agents/Agent_registration");
+        }
+        protected void clear(object sender, EventArgs e)
+        {
+            TextBox3.Text = "";
+            TextBox5.Text = "";
+        }
     }
 }

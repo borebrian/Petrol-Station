@@ -14,9 +14,23 @@
         <link href="bootstrap-3.3.7-dist/css/Custome.css" rel="stylesheet" />
     </asp:ContentPlaceHolder>
 </head>
-<body style="background-image:url('../Images/hd.jpg');background-repeat:no-repeat;background-size:cover;">
+<body style="background-image:url('../Images/hd.jpg');background-repeat:no-repeat;background-size:cover;height:600px;">
     <form id="form1" runat="server">
         <div>
+            <div class="modal-dialog">
+
+  <%--<div class="alert alert-info" runat="server" id="test">
+  <strong>Enter admin password to continue!</strong>
+      <div class="row">--%>
+         
+
+
+      </div>
+      
+
+</div>
+
+      </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>

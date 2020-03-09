@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -28,7 +30,10 @@ namespace Petrol_Station.Agents
         protected void clickArea_Click(object sender, EventArgs e)
         {
             //Response.Write("you clicked the div clickArea");
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "part()", true);
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction","part()", true);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", " twilio()", true);
+
+
 
         }
 
@@ -48,6 +53,28 @@ namespace Petrol_Station.Agents
         {
             Response.Redirect("../Agents/Sales_category.aspx");
 
+        }
+        public void setTank()
+        {
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand("SELECT *FROM Station_registration WHERE Station_ref", con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                con.Close();
+
+
+
+
+            }
+            else
+            {
+              
+                con.Close();
+
+            }
         }
     }
 }

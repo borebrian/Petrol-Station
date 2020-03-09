@@ -12,7 +12,7 @@
     <div class="container-fluid" style="padding:0px;">
         <div class="well" draggable="true" style="background-color:transparent;border:none;">
 
-            <
+            
               <div class="row text-center" style="margin-bottom:20px;">
                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  hidden-xs"></div>
                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
@@ -22,20 +22,29 @@
                     <h3></h3>
                  
                     
-                        <div class="alert alert-info" style="background-color:#68213A;color:white;">
-                            <strong>Please enter admin email to proceed.<asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                        <div class="alert alert-info" style="background-color:#68213A;border:none;color:white;">
+                            <strong><asp:Label ID="Label2" runat="server" Text="Please enter National ID used during registration!"></asp:Label>
                             </strong>
                         </div>
                 </div>
                      <div class="row">
                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                             <asp:Label ID="Label1" runat="server" Text="Username:" style="color:white;"></asp:Label>
-                               <asp:TextBox ID="TextBox5" runat="server" class="form-control rounded1" placeholder="Enter admin email to continue"></asp:TextBox>
-                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="TextBox5" SetFocusOnError="true" ErrorMessage="Enter email here"
-                                        ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
+                               <asp:TextBox ID="TextBox5" runat="server" class="form-control rounded1" placeholder="Enter National ID"></asp:TextBox>
+                               <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded1" placeholder="Enter verification code"></asp:TextBox>
+
+                        
                                     <br />
+                             <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox5"  ErrorMessage="Enter National ID"
+                                        ForeColor="Red" ValidationGroup="n"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Enter verification code"
+                                        ForeColor="Red" ValidationGroup="k"></asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1"  Display="Dynamic" ErrorMessage="Invalid characters" runat="server"
-                                        ValidationGroup="nl" Visible="true" ControlToValidate="TextBox5" ValidationExpression="^[@.0-9A-Za-z]{1,50}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                        ValidationGroup="n" Visible="true" ControlToValidate="TextBox5" ValidationExpression="^[0-9]{1,8}$" SetFocusOnError="true"   CssClass="validator" ForeColor="Red">
+                                    </asp:RegularExpressionValidator>
+                         
+                                    <br />
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2"  Display="Dynamic" ErrorMessage="Invalid characters" runat="server"
+                                        ValidationGroup="k" Visible="true" ControlToValidate="TextBox1" ValidationExpression="^[0-9]{4,4}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
 
                          </div>
@@ -44,9 +53,13 @@
 
                          <div class="row text-center">
                     <div class="btn-group">
-                                                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary sales" ValidationGroup="nl" style="border:white 1px solid;background-color:#68213A;color:white" runat="server" OnClick="LinkButton1_Click">Back to log in</asp:LinkButton>
-                                                                <asp:LinkButton ID="LinkButton4" CssClass="btn btn-primary sales" style="border:white 1px solid;background-color:#68213A;color:white" runat="server" OnClick="LinkButton4_Click">Proceed</asp:LinkButton>
-                        </div><br />
+                                                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default " ValidationGroup="nl" runat="server" OnClick="LinkButton1_Click">Back to log in</asp:LinkButton>
+                                                                <asp:LinkButton ID="LinkButton4"  ValidationGroup="n" CssClass="btn btn-default "  runat="server" OnClick="LinkButton4_Click">Proceed</asp:LinkButton>
+                         <asp:LinkButton ID="LinkButton3"  ValidationGroup="k" CssClass="btn btn-default " runat="server" OnClick="LinkButton3_Click" >Verify</asp:LinkButton>
+                     
+                        <asp:Label ID="Label3"  runat="server" Text=""></asp:Label>
+                        </div>
+                                <asp:LinkButton ID="LinkButton2" CssClass="btn btn-primary default" runat="server" OnClick="LinkButton2_Click">Resend code</asp:LinkButton><br />
 
                    
                       
