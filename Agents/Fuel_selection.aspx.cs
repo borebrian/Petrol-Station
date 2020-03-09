@@ -13,18 +13,31 @@ namespace Petrol_Station.Agents
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string CSY = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;
-            using (SqlConnection cont = new SqlConnection(CSY))
+            if (Session["User"] == null)
             {
-                SqlCommand cmd1 = new SqlCommand("SELECT count(Fuel_type) as total,Fuel_type FROM Station_registration group by Fuel_type", cont);
-                cont.Open();
 
-                Repeater1.DataSource = cmd1.ExecuteReader();
-
-                Repeater1.DataBind();
-                cont.Close();
-
+                Response.Redirect("../Agents/Log_in.aspx");
             }
+            else
+            {
+                string CSY = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;
+                using (SqlConnection cont = new SqlConnection(CSY))
+                {
+                    SqlCommand cmd1 = new SqlCommand("SELECT *FROM Fuel where Station_ref='" + Session["Station_ref"] + "'", cont);
+                    //SqlCommand cmd2 = new SqlCommand("SELECT Fuel_type FROM Station_registration where Station_ref='" + Session["Station_ref"] + "'  group by Fuel_type", cont);
+
+                    cont.Open();
+
+                    Repeater1.DataSource = cmd1.ExecuteReader();
+
+                    Repeater1.DataBind();
+                    //SqlDataReader d = cmd2.ExecuteReader();
+
+                    cont.Close();
+
+                }
+            }
+              
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
@@ -42,7 +55,9 @@ namespace Petrol_Station.Agents
         {
 
             RepeaterItem item = (sender as LinkButton).NamingContainer as RepeaterItem;
-            Session.Add("Fuel_type", (item.FindControl("Label1") as Label).Text);
+            Session["Station_ref"]= (item.FindControl("Label3") as Label).Text.ToString();
+            Session.Add("Fuel_type", (item.FindControl("Label1") as Label).Text.ToString());
+
             Response.Redirect("../Agents/Dashboard.aspx");
 
         }
@@ -52,5 +67,6 @@ namespace Petrol_Station.Agents
             Response.Redirect("../Agents/Petrol_station_selection.aspx");
 
         }
+        
     }
 }

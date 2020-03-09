@@ -35,7 +35,7 @@ namespace Administration
                         Session.Add("National_ID", myDataReadert["National_ID"]);
 
                         Session.Add("Name", myDataReadert["Full_names"]);
-                        Session.Add("Reff", myDataReadert["Station_ref"]);
+                        //Session.Add("Reff", myDataReadert["Station_ref"]);
 
                     }
                     else

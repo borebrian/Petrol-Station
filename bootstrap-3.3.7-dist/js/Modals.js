@@ -30,3 +30,11 @@ function general() {
     });
     $('#masterd').modal("show");
 }
+function seting() {
+    $("#modalfueltest").modal({
+        show: false,
+        backdrop: 'static'
+
+    });
+    $('#modalfueltest').modal("show");
+}

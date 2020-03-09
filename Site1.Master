@@ -14,14 +14,14 @@
         <link href="bootstrap-3.3.7-dist/css/Custome.css" rel="stylesheet" />
     </asp:ContentPlaceHolder>
 </head>
-<body style="background-image:url('../Images/hd.jpg');background-repeat:no-repeat;background-size:cover;height:600px;">
+<body style="background-image:url('../Images/hd.jpg');background-repeat:no-repeat;background-size:cover;height:700px;">
     <form id="form1" runat="server">
         <div>
            
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                   <div id="masterd" class="modal fade" role="dialog">
   <div class="modal-dialog">
-       <div class="well" style="background-color:black;opacity:0.8;border-radius:20px;padding:10px;border:none">
+       <div class="well" style="background-color:black;opacity:0.9;border-radius:20px;padding:10px;border:none">
            </div>
 
 

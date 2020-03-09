@@ -11,7 +11,11 @@ namespace Petrol_Station
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("/Agents/Log_in.aspx");
+            //Response.Redirect("/Agents/Log_in.aspx");
+            float a = 1;
+            float b = 2;
+            float c = (a / b);
+            TextBox1.Text = c.ToString();
         }
     }
 }

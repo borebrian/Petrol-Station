@@ -1,10 +1,15 @@
-﻿.rounded1{
-    border-radius:20px;
+﻿@font-face {
+    font-family: Century Gothic1;
+    src: url('/Century.ttf');
 }
 
-/*body{
-    font-family:'Century Gothic';
-}*/
+body {
+    font-family: 'Century Gothic1';
+}
+
+.container-fluid {
+    font-family: 'Century Gothic1';
+}
 .mycolor {
     border-style: none;
     border-color: inherit;
@@ -12,7 +17,7 @@
     background-color: #68213A;
     color:white;
     border-radius:10px;
-    height: 52px;
+    /*height: 52px;*/
 }
 .mycolor:hover{
     background-color:white;
@@ -64,3 +69,21 @@
 /*.myalert:hover{
     font-size:20px;
 }*/
+.rounded11{
+    border-bottom-right-radius:15px;
+    border-top-right-radius:15px;
+
+}
+.rounded1 {
+    border-radius: 15px;
+    border: 2px solid #68213A;
+    text-align:center;
+}
+.white {
+    border: 2px white solid;
+    border-radius: 15px;
+    text-align:center;
+    background-color: #68213A;
+    color: white;
+    padding: 10px;
+}

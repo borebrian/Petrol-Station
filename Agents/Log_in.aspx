@@ -14,23 +14,30 @@
 
             
               <div class="row text-center" style="margin-bottom:20px;">
-                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  hidden-xs"></div>
-                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                    <div class="well" style="background-color:#68213A;opacity:0.8;border-radius:40px;border:none">
+                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5  hidden-xs"></div>
+                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 ">
+                    <div class="well" style="background-color:#68213A;opacity:0.9;border-radius:40px;border:none">
                 <div class="row text-center">
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
-                    <h3></h3>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:120px; width:120px;" />
+                    <h3 style="color:white;">Login</h3>
                  
                     
-                        <div class="alert alert-info" style="background-color:#68213A;color:white;border:none">
+<%--                        <div class="alert alert-info" style="background-color:#68213A;color:white;border:none">
                             <strong>Please log in to proceed.<asp:Label ID="Label2" runat="server" Text=""></asp:Label>
                             </strong>
-                        </div>
+                        </div>--%>
                 </div>
                      <div class="row">
-                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                             <asp:Label ID="Label1" runat="server" Text="Username:" style="color:white;"></asp:Label>
-                               <asp:TextBox ID="TextBox5" runat="server" class="form-control rounded1" placeholder="Enter username"></asp:TextBox>
+                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                             <%--<asp:Label ID="Label1" runat="server" Text="Username:" style="color:white;"></asp:Label>--%>
+                             <div class="input-group">
+                                  <span class = "input-group-btn">
+                                  <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-default rounded11"><i class="glyphicon glyphicon-user"></i></asp:LinkButton>
+
+                                                  
+                                 </span>
+                               <asp:TextBox ID="TextBox5" runat="server" class="form-control  rounded11" placeholder="Enter username"></asp:TextBox>
+                                 </div>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="TextBox1" ErrorMessage="Enter username"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
                                     <br />
@@ -39,10 +46,15 @@
                                     </asp:RegularExpressionValidator>
 
                          </div>
-                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                             <asp:Label ID="Label3" runat="server" Text="Password:" style="color:white;"></asp:Label>
- 
-                               <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded1" Display="Dynamic" type="password" placeholder="Enter Password"></asp:TextBox>
+                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12   text-center">
+                             <%--<asp:Label ID="Label3" runat="server" Text="Password:" style="color:white;"></asp:Label>--%>
+                            <div class="input-group">
+                                  <span class = "input-group-btn">
+                                  <asp:LinkButton ID="LinkButton3" runat="server" class="btn btn-default"><i class="glyphicon glyphicon-lock"></i></asp:LinkButton>
+
+                                                  
+                                 </span>
+                               <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded11" Display="Dynamic" type="password" placeholder="Enter Password"></asp:TextBox></div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox5" ErrorMessage="Enter password"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
                                     <br />
@@ -54,16 +66,16 @@
                          </div>
                      </div>
                          <div class="row text-center">
-                    <div class="btn-group">
-                                                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default " ValidationGroup="nl" runat="server" OnClick="LinkButton1_Click">Log in</asp:LinkButton>
-                                                                <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-default " OnClick="LinkButton4_Click">Forgot password</asp:LinkButton><br />
+              
+                                                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default white " ValidationGroup="nl" runat="server" OnClick="LinkButton1_Click">Log in</asp:LinkButton>
+                                                                <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-default white " OnClick="LinkButton4_Click">Forgot password</asp:LinkButton><br />
                         <asp:Label ID="Label4" runat="server" Text="" ForeColor="red"></asp:Label>
                         </div><br />
 
                    
                       
                     
-                </div>
+         
                     </div>
                  </div>
                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  hidden-xs">

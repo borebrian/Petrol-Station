@@ -30,13 +30,21 @@ namespace Petrol_Station.Agents
             {
                 TextBox2.Text = Session["M_ID"].ToString();
             }
-
-
+            if (Session["firepopup"] == "true")
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "final() ", true);
 
             }
-           
+            else
+            {
 
-        
+            }
+
+
+
+        }
+
+
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
@@ -47,12 +55,16 @@ namespace Petrol_Station.Agents
             {
                 OpenClass.inserting("Insert into Station_registration(Station_ref,National_ID,Station_name,Location) VALUES('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox5.Text + "')");
                 OpenClass.ClearInputs(Page.Controls);
+                Response.Redirect("../Agents/Station_reg.aspx");
+                Label3.Text = "Data inserted successfully!";
             }
             else
             {
 
                 OpenClass.inserting("Insert into Station_registration(Station_ref,National_ID,Station_name,Location) VALUES('" +Session["Reff"] + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox5.Text + "')");
                 OpenClass.ClearInputs(Page.Controls);
+                Label3.Text = "Data inserted successfully!";
+
             }
         }
 
@@ -64,16 +76,17 @@ namespace Petrol_Station.Agents
         }
         protected void finish(object sender, EventArgs e)
         {
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "final() ", true);
 
-            //Response.Redirect("../Agents/Agent_registration");
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "final() ", true);
+
+            Response.Redirect("../Agents/Petrol_station_selection.aspx");
         }
         protected void insertdetails(object sender, EventArgs e)
         {
 
             string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
             SqlConnection con = new SqlConnection(str);
-            SqlCommand cmd = new SqlCommand("SELECT *FROM Fuel WHERE Station_ref='"+ DropDownList1.SelectedItem.Value + "', ANDC Fuel_type='"+ DropDownList2.SelectedItem.Value + "'", con);
+            SqlCommand cmd = new SqlCommand("SELECT *FROM Fuel WHERE Station_ref='"+ DropDownList1.SelectedItem.Value + "' AND Fuel_type='"+ DropDownList2.SelectedItem.Value + "'", con);
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
@@ -86,10 +99,14 @@ namespace Petrol_Station.Agents
             {
                 con.Close();
                 OpenClass p = new OpenClass();
-                p.inserting("INSERT INTO  Fuel(Station_ref,Fuel_type,Tank_capacity,Current_capacity) VALUES('" + DropDownList1.SelectedItem.Value + "','" + DropDownList2.SelectedItem.Value + "','" + TextBox4.Text + "','" + TextBox6.Text + "')");
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "final()", true);
+                p.inserting("INSERT INTO  Fuel(Station_ref,Fuel_type,Tank_capacity,Current_capacity,Price_itre) VALUES('" + DropDownList1.SelectedItem.Value + "','" + DropDownList2.SelectedItem.Value + "','" + TextBox4.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "')");
+                Session["firepopup"] = null;
                 response.Text = "Submitted successfully!";
+
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "final()", true);
             }
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "final() ", true);
+
         }
         protected void clear(object sender, EventArgs e)
         {

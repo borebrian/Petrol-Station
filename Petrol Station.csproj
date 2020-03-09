@@ -188,8 +188,8 @@
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap.css" />
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap.min.css" />
     <Content Include="bootstrap-3.3.7-dist\css\Custome.css" />
-    <Content Include="bootstrap-3.3.7-dist\css\sTYLE.css" />
     <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap-3.3.7-dist\css\sTYLE.css" />
     <Content Include="bootstrap-3.3.7-dist\Images\add.png" />
     <Content Include="bootstrap-3.3.7-dist\Images\Admin.png" />
     <Content Include="bootstrap-3.3.7-dist\Images\logo.png" />
@@ -231,7 +231,6 @@
     <Content Include="bootstrap-validator-master\js\validator.js" />
     <Content Include="Debts.aspx" />
     <Content Include="ErroeHandler.aspx" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\fuelachebiemitwhite.png" />
     <Content Include="Images\hd.jpg" />
     <Content Include="SMS\ManageSMS.aspx" />
@@ -407,14 +406,6 @@
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css.map" />
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap.css.map" />
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap.min.css.map" />
-    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="bootstrap-validator-master\bower.json" />
     <Content Include="bootstrap-validator-master\CHANGELOG.md" />
     <Content Include="bootstrap-validator-master\docs\LICENSE" />
@@ -438,6 +429,11 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="Century.ttf" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">

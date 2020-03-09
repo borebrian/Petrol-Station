@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Petrol_Station.Agents.Dashboard" %>
 
     <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
        <script src="bootstrap-3.3.7-dist/js/JQ.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/JQ.js"></script>
@@ -32,17 +32,25 @@
       <div class="container">
         <div class="navbar-header" style="color:white;" >
 
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
+            <%--<asp:LinkButton ID="LinkButton5" class="navbar-toggle  " data-target="#navbar" aria-expanded="false" aria-controls="navbar" runat="server"><i class="glyphicon glyphicon-off"></i></asp:LinkButton>--%>
+          <%--<button type="button" >--%>
+         <%--   <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
+          </button>--%>
 
-          <a class="navbar-brand" href="#" style="font-weight:bolder;color:white;font-size:13px;">
+          <a class="navbar-brand" href="#" style="font-weight:bolder;color:white;font-size:10px;">
               <asp:Label ID="Label1" runat="server" Text="Mwalimu"></asp:Label>
               <asp:Label ID="Label2" runat="server" Text="|"></asp:Label>
-              <asp:Label ID="Label3" runat="server" Text="Chebiemit Petrol station"></asp:Label>
+              <asp:Label ID="Label14" runat="server" Text=""></asp:Label>
+              <asp:Label ID="Label16" runat="server" Text="|"></asp:Label>
+           
+              <asp:Label ID="Label18" runat="server" Text=""></asp:Label>
+                  
+
+
+     
 
 
 
@@ -56,14 +64,7 @@
 
     
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Receipts History <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li>                                 <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton1_Click">Log out</asp:LinkButton>
-</li>
-              
-              </ul>
-            </li>
+           
           </ul>
 
         </div><!--/.nav-collapse -->
@@ -74,8 +75,20 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                 <div class="panel panel-primary " style="border:none;border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-right-radius:40px;border-bottom-left-radius:40px;" runat="server" id="div1">
                     <div class="panel-heading text-center" style="background-color:#483F42;border-top-left-radius:30px;border-top-right-radius:30px;color:white;font-weight:bold;" >
-                        <asp:Label ID="Label4" runat="server" Text="Current Petrol Capacity"></asp:Label>
-                    </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                        <asp:Label ID="Label4" runat="server" Text="Current"></asp:Label>
+                        <asp:Label ID="Label15" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="Label19" runat="server" Text="capacity"></asp:Label>
+
+
+
+                        </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                        <asp:Label ID="Label3" runat="server" Text="Lavel indicator"></asp:Label>
+
+</div>
+                    </div></div>
                     <div class="panel-body" >
                       <div class="row">
                           <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 "  style="margin-left:0px;margin-right:0px;">
@@ -88,9 +101,9 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div style="height:60px;width:200px;background-color:white;border-top-left-radius:50px;border-top-right-radius:50px;border:2px solid #483F42;color:#483F42;padding-top:20px" class="text-center">
-                                    
-                                    <asp:Label ID="Label7" runat="server" Text="Price/Litre:"></asp:Label><asp:Label ID="Label8" runat="server" Text="110"></asp:Label><asp:Label ID="Label9" runat="server" Text="/="></asp:Label>
+                                <div style="height:60px;width:200px;background-color:white;border-top-left-radius:50px;border-top-right-radius:50px;border:2px solid #483F42;color:#483F42;padding-top:20px;font-size:15px;" class="text-center">
+                                    <strong>
+                                    <asp:Label ID="Label7" runat="server" Text="Price/Litre:"></asp:Label><asp:Label ID="Label8" runat="server" Text="110"></asp:Label><asp:Label ID="Label9" runat="server" Text="/="></asp:Label></strong>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +113,7 @@
                     
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-                                <div id="clickArea" runat="server"  style="height:200px;width:200px;background-color:#68213A;border:2px solid #483F42;border-bottom-left-radius:50px;border-bottom-right-radius:50px;">
+                                <div id="clickArea" runat="server"  style="height:200px;width:200px;border:2px solid #483F42;border-bottom-left-radius:50px;border-bottom-right-radius:50px;">
  <div style="height:20px;width:196px;background-color:white;border-bottom-right-radius:10px;border-bottom-left-radius:10px;" id="tank" runat="server" class="text-center">
      <asp:Label ID="Label5" runat="server" Text="1499.654"></asp:Label><asp:Label ID="Label6" runat="server" Text="Litres"></asp:Label>
                                 </div>
@@ -147,9 +160,9 @@
                           </div>
                           
                       </div>
-                         
+                   </div>
                 </div></div>
-            </div>
+          
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                 
                 <div class="panel panel-primary " style="border:none;border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-right-radius:40px;border-bottom-left-radius:40px;" runat="server" id="div2">
@@ -169,20 +182,22 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 
             </div></div></div>
-        </div></div>
+        </div>
         <div id="modal1" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
 <%--    <div class="modal-content">--%>
         <div class="well" style="background-color:white;opacity:0.9;border-radius:30px;">
+             <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 text-right" >
+            <asp:LinkButton ID="LinkButton6" CssClass="btn btn-default" runat="server"><i class="glyphicon glyphicon-remove-sign"></i></asp:LinkButton></div>
                 <div class="row text-center">
                     <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>
                  
                     
                         <div class="alert alert-info" style="background-color:#68213A;color:white;">
-                            <strong>Please set petrol price per litre.asp:Label ID="Label13" runat="server" Text=""></asp:Label>
+                            <strong>Please set petrol price per litre.<asp:Label ID="Label17" runat="server" Text=""></asp:Label>
                             </strong>
                         </div>
                 </div>
@@ -230,5 +245,5 @@
 </div>
 
       </div>
-    </div>
+    </div></div>
 </asp:Content>

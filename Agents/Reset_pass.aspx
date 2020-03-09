@@ -14,9 +14,9 @@
 
             
               <div class="row text-center" style="margin-bottom:20px;">
-                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  hidden-xs"></div>
-                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                    <div class="well" style="background-color:#68213A;opacity:0.8;border-radius:40px;">
+                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4  hidden-xs"></div>
+                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 ">
+                    <div class="well" style="background-color:#68213A;opacity:0.9;border-radius:40px;border:none">
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>
@@ -52,19 +52,18 @@
                          </div>
 
                          <div class="row text-center">
-                    <div class="btn-group">
-                                                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default " ValidationGroup="nl" runat="server" OnClick="LinkButton1_Click">Back to log in</asp:LinkButton>
-                                                                <asp:LinkButton ID="LinkButton4"  ValidationGroup="n" CssClass="btn btn-default "  runat="server" OnClick="LinkButton4_Click">Proceed</asp:LinkButton>
-                         <asp:LinkButton ID="LinkButton3"  ValidationGroup="k" CssClass="btn btn-default " runat="server" OnClick="LinkButton3_Click" >Verify</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default white" ValidationGroup="nl" runat="server" OnClick="LinkButton1_Click">Back to log in</asp:LinkButton>
+                                                                <asp:LinkButton ID="LinkButton4"  ValidationGroup="n" CssClass="btn btn-default white"  runat="server" OnClick="LinkButton4_Click">Proceed</asp:LinkButton>
+                         <asp:LinkButton ID="LinkButton3"  ValidationGroup="k" CssClass="btn btn-default white" runat="server" OnClick="LinkButton3_Click" >Verify</asp:LinkButton>
                      
                         <asp:Label ID="Label3"  runat="server" Text=""></asp:Label>
                         </div>
-                                <asp:LinkButton ID="LinkButton2" CssClass="btn btn-primary default" runat="server" OnClick="LinkButton2_Click">Resend code</asp:LinkButton><br />
+                                <asp:LinkButton ID="LinkButton2" CssClass="btn btn-primary white " runat="server" OnClick="LinkButton2_Click">Resend code</asp:LinkButton><br />
 
                    
                       
                     
-                </div>
+            
                     </div>
                  </div>
                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  hidden-xs">
