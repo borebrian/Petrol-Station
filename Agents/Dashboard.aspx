@@ -76,8 +76,9 @@
                 <div class="panel panel-primary " style="border:none;border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-right-radius:40px;border-bottom-left-radius:40px;" runat="server" id="div1">
                     <div class="panel-heading text-center" style="background-color:#483F42;border-top-left-radius:30px;border-top-right-radius:30px;color:white;font-weight:bold;" >
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
-                        <asp:Label ID="Label4" runat="server" Text="Current"></asp:Label>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center ">
+                                <asp:Image class="all-icons" ID="Image3" runat="server" ImageUrl="~/Images/tank2.png" /><br />
+                        <%--<asp:Label ID="Label4" runat="server" Text="Current"></asp:Label>--%>
                         <asp:Label ID="Label15" runat="server" Text=""></asp:Label>
                         <asp:Label ID="Label19" runat="server" Text="capacity"></asp:Label>
 
@@ -85,6 +86,7 @@
 
                         </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                <asp:Image class="all-icons" ID="Image4" runat="server" ImageUrl="~/bootstrap-3.3.7-dist/Images/meter1.png" /><br />
                         <asp:Label ID="Label3" runat="server" Text="Lavel indicator"></asp:Label>
 
 </div>
@@ -125,17 +127,7 @@
                         </div>
                         
                     </div>
-                              <div class="row " style="margin-top:7px;">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" >
-                                 <div class="btn-group">
-
-                                                                <%--<asp:LinkButton ID="LinkButton2" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton2_Click">Go to sales</asp:LinkButton>--%>
-                                                                <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton3_Click">Administration</asp:LinkButton>
-
-                                     </div>
-
-                                </div>
-                              </div>
+                             
                           </div>
                           <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 " style="margin-left:0px;margin-right:0px;">
                               <div class="row">
@@ -160,6 +152,20 @@
                           </div>
                           
                       </div>
+                         <div class="row " style="margin-top:7px;">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" >
+                                 <%--<div class="btn-group">--%>
+
+                                                                <%--<asp:LinkButton ID="LinkButton2" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton2_Click">Go to sales</asp:LinkButton>--%>
+                                                                <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton3_Click"><i class="glyphicon glyphicon-user"></i>&nbsp Admin</asp:LinkButton>
+                                     <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton3_Click"><i class="glyphicon glyphicon-dashboard"></i> &nbsp Refill tank</asp:LinkButton>
+                                     
+
+
+                                     <%--</div>--%>
+
+                                </div>
+                              </div>
                    </div>
                 </div></div>
           
@@ -167,7 +173,8 @@
                 
                 <div class="panel panel-primary " style="border:none;border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-right-radius:40px;border-bottom-left-radius:40px;" runat="server" id="div2">
                     <div class="panel-heading text-center" style="background-color:#68213A;border-top-left-radius:30px;border-top-right-radius:30px;color:white;font-weight:bold;">
-                        Todays Sales
+                        <asp:Image class="all-icons" ID="Image5" runat="server" ImageUrl="~/Images/sales.png" />&nbsp
+                        <asp:Label ID="Label20" runat="server"  Text="Todays Sales"></asp:Label>
             </div>
                     <div class="panel-body">
                         <div class="row">

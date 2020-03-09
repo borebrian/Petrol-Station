@@ -192,8 +192,10 @@
     <Content Include="bootstrap-3.3.7-dist\css\sTYLE.css" />
     <Content Include="bootstrap-3.3.7-dist\Images\add.png" />
     <Content Include="bootstrap-3.3.7-dist\Images\Admin.png" />
+    <Content Include="bootstrap-3.3.7-dist\Images\download.png" />
     <Content Include="bootstrap-3.3.7-dist\Images\logo.png" />
     <Content Include="bootstrap-3.3.7-dist\Images\logout.png" />
+    <Content Include="bootstrap-3.3.7-dist\Images\meter1.png" />
     <Content Include="bootstrap-3.3.7-dist\js\bootstrap.js" />
     <Content Include="bootstrap-3.3.7-dist\js\bootstrap.min.js" />
     <Content Include="bootstrap-3.3.7-dist\js\Custome.js" />
@@ -233,6 +235,10 @@
     <Content Include="ErroeHandler.aspx" />
     <Content Include="Images\fuelachebiemitwhite.png" />
     <Content Include="Images\hd.jpg" />
+    <Content Include="Images\meter.png" />
+    <Content Include="Images\sales.png" />
+    <Content Include="Images\tank.png" />
+    <Content Include="Images\tank2.png" />
     <Content Include="SMS\ManageSMS.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
