@@ -78,6 +78,15 @@ namespace Petrol_Station.Agents
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
+        /// div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
+
+        /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
@@ -94,15 +103,6 @@ namespace Petrol_Station.Agents
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.Timer Timer1;
-
-        /// <summary>
-        /// div1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
 
         /// <summary>
         /// Image3 control.
@@ -148,6 +148,24 @@ namespace Petrol_Station.Agents
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// UpdatePanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+
+        /// <summary>
+        /// Timer2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer Timer2;
 
         /// <summary>
         /// Label8 control.
@@ -238,6 +256,15 @@ namespace Petrol_Station.Agents
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton5;
+
+        /// <summary>
+        /// LinkButton7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton7;
 
         /// <summary>
         /// div2 control.
@@ -346,6 +373,15 @@ namespace Petrol_Station.Agents
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
+
+        /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
         /// TextBox4 control.

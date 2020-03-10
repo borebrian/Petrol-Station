@@ -6,7 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using InsertingRecords;
+using SMS;
 namespace Petrol_Station.Agents
 {
     public partial class Dashboard : System.Web.UI.Page
@@ -18,8 +19,10 @@ namespace Petrol_Station.Agents
                 Response.Redirect("../Agents/Log_in.aspx");
             }
             else{
-
-                actions();
+                //INITIALIZE TWILIO AUTH
+                Auth s = new Auth();
+                s.InitTwilio();
+                //actions();
             }
         }
         protected void Button1_Click(object sender, EventArgs e)
@@ -27,7 +30,7 @@ namespace Petrol_Station.Agents
             Label5.Text = "dshfsjfshfs";
             //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Clicked')", true);
         }
-        protected void clickArea_Click(object sender, EventArgs e)
+        protected void changePrice(object sender, EventArgs e)
         {
             //Response.Write("you clicked the div clickArea");
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "part()", true);
@@ -42,7 +45,36 @@ namespace Petrol_Station.Agents
             Response.Redirect("../Agents/Sales_category.aspx");
 
         }
+        protected void updatePrice(object sender, EventArgs e)
+        {
+            OpenClass open = new OpenClass();
+            open.inserting("Update Fuel set Price_itre='" + TextBox1.Text+ "' WHERE Station_ref='" + Session["Station_ref"] + "'");
+            Label4.Text = "Submitted successfully!";
+            Label14.ForeColor = System.Drawing.Color.Green;
 
+            //LETS SEND MESSAGE TO AGENTS FOR NEW PRICE
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand("select *from Agents_Reg WHERE Station_ref='"+Session["Station_ref"]+"'", con);
+            con.Open();
+            SqlDataReader myDataReadert = cmd.ExecuteReader();
+            if (myDataReadert.Read())
+            {
+                string message1 = "The "+Session["Fuel_type"] +" price has changed as follows:";
+                string message2 = "Price per litre:"+TextBox1.Text+".";
+                string message3 = "Please contact station manager for more details.";
+                  OpenClass send = new OpenClass();
+                send.SendMessage(myDataReadert["Twilio_phone"].ToString(), p.Add254(myDataReadert["Phone"]), myDataReadert["Twilio_SID"].ToString(), myDataReadert["Twilio_Auth"].ToString(), "Hae " + TextBox2.Text + message1 + "." + message2 + TextBox3.Text + "," + message3 + TextBox4.Text + "." + message4);
+                con.Close();
+
+            }
+            else
+            {
+                con.Close();
+
+            }
+
+        }
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
             Response.Redirect("../Agents/Admin_category.aspx");
@@ -171,7 +203,7 @@ namespace Petrol_Station.Agents
                         this.clickArea.Attributes.Add("onclick", Page.ClientScript.GetPostBackEventReference(this.clickArea, string.Empty));
                         if (IsPostBack && Request["__EVENTTARGET"] == clickArea.UniqueID)
                         {
-                            clickArea_Click(clickArea, EventArgs.Empty);
+                            //clickArea_Click(clickArea, EventArgs.Empty);
                         }
                     }
                 }

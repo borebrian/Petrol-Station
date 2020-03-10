@@ -74,15 +74,18 @@
     </nav>
     <div class="container-fluid" style="margin-top:60px;">
          <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-             <asp:UpdatePanel runat="server" id="UpdatePanel1" updatemode="Conditional">           
+             
+        <div class="row">
+           
+            <%--//START OF TANK--%>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                
+                <div class="panel panel-primary " style="border:none;border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-right-radius:40px;border-bottom-left-radius:40px;" runat="server" id="div1">
+                    <div class="panel-heading text-center" style="background-image:url('../SVG/bg1.svg');background-size:cover;background-repeat:no-repeat;background-color:#68213A;border-top-left-radius:30px;border-top-right-radius:30px;color:white;font-weight:bold;" >
+                        <asp:UpdatePanel runat="server" id="UpdatePanel1" updatemode="Conditional">           
             <ContentTemplate>
                  <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick">  
                 </asp:Timer>  
-        <div class="row">
-           
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                <div class="panel panel-primary " style="border:none;border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-right-radius:40px;border-bottom-left-radius:40px;" runat="server" id="div1">
-                    <div class="panel-heading text-center" style="background-image:url('../SVG/bg1.svg');background-size:cover;background-repeat:no-repeat;background-color:#68213A;border-top-left-radius:30px;border-top-right-radius:30px;color:white;font-weight:bold;" >
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center ">
                                 <asp:Image class="all-icons" ID="Image3" runat="server" ImageUrl="~/Images/tank2.png" /><br />
@@ -98,8 +101,17 @@
                         <asp:Label ID="Label3" runat="server" Text="Level indicator"></asp:Label>
 
 </div>
-                    </div></div>
+                    </div>
+                </ContentTemplate>
+                            </asp:UpdatePanel>
+
+                    </div>
+
                     <div class="panel-body" >
+                          <asp:UpdatePanel runat="server" id="UpdatePanel2" updatemode="Conditional">           
+            <ContentTemplate>
+                 <asp:Timer ID="Timer2" runat="server" Interval="2000" OnTick="Timer1_Tick">  </asp:Timer>
+
                       <div class="row">
                           <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 "  style="margin-left:0px;margin-right:0px;">
                                   <div class="row">
@@ -201,6 +213,8 @@
                     </div>
                              
                           </div>
+
+                           
                           <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 " style="margin-left:0px;margin-right:0px;">
                               <div class="row">
                                   <asp:Label ID="Label10" runat="server" Text="Enough" style="color:green;font-weight:bold;"></asp:Label>
@@ -224,14 +238,15 @@
                           </div>
                           
                       </div>
+                </ContentTemplate></asp:UpdatePanel>
                          <div class="row " style="margin-top:7px;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" >
                                  <%--<div class="btn-group">--%>
 
                                                                 <%--<asp:LinkButton ID="LinkButton2" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton2_Click">Go to sales</asp:LinkButton>--%>
                                                                 <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton3_Click"><i class="glyphicon glyphicon-user"></i>&nbsp Admin</asp:LinkButton>
-                                     <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton3_Click"><i class="glyphicon glyphicon-dashboard"></i> &nbsp Refill tank</asp:LinkButton>
-                                     
+                                     <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary sales"   runat="server" OnClick="LinkButton3_Click"><i class="glyphicon glyphicon-dashboard"></i> &nbsp Refill tank</asp:LinkButton>
+                                      <asp:LinkButton ID="LinkButton7" CssClass="btn btn-primary sales" runat="server" OnClick="changePrice"><i class="glyphicon glyphicon-pencil"></i> &nbsp Change price</asp:LinkButton>
 
 
                                      <%--</div>--%>
@@ -240,7 +255,7 @@
                               </div>
                    </div>
                 </div></div>
-          
+          <%--START OF PANEL BODY -TANK--%>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                 
                 <div class="panel panel-primary " style="border:none;border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-right-radius:40px;border-bottom-left-radius:40px;" runat="server" id="div2">
@@ -263,6 +278,8 @@
             </div></div></div>
            
         </div>
+
+                <%---------------------------------------------------------------------END OF TANK------------------------------------------------------%>
         <div id="modal1" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -292,7 +309,8 @@
                                     </asp:RegularExpressionValidator>
                         </div>
                   
-                  <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-primary categoryselector"><i class="glyphicon glyphicon-usd"></i>&nbsp Update payment</asp:LinkButton>
+                  <asp:LinkButton ID="LinkButton4" runat="server" ValidationGroup="bb" CssClass="btn btn-primary categoryselector" OnClick="updatePrice"><i class="glyphicon glyphicon-usd"></i>&nbsp Update payment</asp:LinkButton>
+                  <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
               </div>
                  
             </div>
@@ -326,7 +344,6 @@
 
       </div>
     </div>
-                </ContentTemplate>
-                 </asp:UpdatePanel>
+               
                 </div>
 </asp:Content>
