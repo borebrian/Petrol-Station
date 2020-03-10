@@ -37,6 +37,32 @@ namespace SMS
             
            
         }
+        public void inserting(String sql)
+        {
+
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+
+        }
+        public String Add254(string Phone)
+        {
+
+            string code = "+254";
+            string newPhone = Phone.Remove(0, 1);
+            string final = String.Concat(code, newPhone);
+
+
+            return final.ToString();
+
+
+
+
+        }
         public void SendMessage(String number,String message)
         {
 

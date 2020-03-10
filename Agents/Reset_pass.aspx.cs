@@ -160,6 +160,7 @@ namespace Petrol_Station.Agents
         }
         void send1()
         {
+            getSms();
             OpenClass p = new OpenClass();
             p.testifavailable("SELECT *FROM System_Users where  National_ID='" + Session["User"] + "'");
             if (p.res)

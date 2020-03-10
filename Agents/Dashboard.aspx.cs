@@ -12,6 +12,7 @@ namespace Petrol_Station.Agents
 {
     public partial class Dashboard : System.Web.UI.Page
     {
+        Auth generalClass = new Auth();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
@@ -22,7 +23,7 @@ namespace Petrol_Station.Agents
                 //INITIALIZE TWILIO AUTH
                 Auth s = new Auth();
                 s.InitTwilio();
-                //actions();
+                actions();
             }
         }
         protected void Button1_Click(object sender, EventArgs e)
@@ -32,6 +33,8 @@ namespace Petrol_Station.Agents
         }
         protected void changePrice(object sender, EventArgs e)
         {
+            TextBox1.Text = Session["Price_itre"].ToString();
+            Label17.Text = Session["Fuel_type"].ToString();
             //Response.Write("you clicked the div clickArea");
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "part()", true);
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", " twilio()", true);
@@ -47,9 +50,10 @@ namespace Petrol_Station.Agents
         }
         protected void updatePrice(object sender, EventArgs e)
         {
-            OpenClass open = new OpenClass();
-            open.inserting("Update Fuel set Price_itre='" + TextBox1.Text+ "' WHERE Station_ref='" + Session["Station_ref"] + "'");
-            Label4.Text = "Submitted successfully!";
+            
+
+            generalClass.inserting("Update Fuel set Price_itre='" + TextBox1.Text+ "' WHERE Station_ref='" + Session["Station_ref"] + "'");
+            Label4.Text = "Submitted and notification message sent to Agent successfully!";
             Label14.ForeColor = System.Drawing.Color.Green;
 
             //LETS SEND MESSAGE TO AGENTS FOR NEW PRICE
@@ -60,19 +64,27 @@ namespace Petrol_Station.Agents
             SqlDataReader myDataReadert = cmd.ExecuteReader();
             if (myDataReadert.Read())
             {
-                string message1 = "The "+Session["Fuel_type"] +" price has changed as follows:";
-                string message2 = "Price per litre:"+TextBox1.Text+".";
-                string message3 = "Please contact station manager for more details.";
-                  OpenClass send = new OpenClass();
-                send.SendMessage(myDataReadert["Twilio_phone"].ToString(), p.Add254(myDataReadert["Phone"]), myDataReadert["Twilio_SID"].ToString(), myDataReadert["Twilio_Auth"].ToString(), "Hae " + TextBox2.Text + message1 + "." + message2 + TextBox3.Text + "," + message3 + TextBox4.Text + "." + message4);
+                string message1 = "The " + Session["Fuel_type"] + " price has changed as follows: ";
+                string message2 = "Price per litre:" + TextBox1.Text + ". ";
+                string message3 =message1+message2+ "Please contact station manager for more details.";
+                Label4.ForeColor = System.Drawing.Color.Green;
+                actions();
+
+
+                generalClass.SendMessage(generalClass.Add254(myDataReadert["Phone"].ToString()),message3);
                 con.Close();
 
             }
             else
             {
                 con.Close();
+                Label4.Text = "Submitted successfully but notification was not sent to Agent because there was no corresponding contact!";
+                Label4.ForeColor = System.Drawing.Color.Red;
+                actions();
+
 
             }
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "part()", true);
 
         }
         protected void LinkButton3_Click(object sender, EventArgs e)
@@ -143,6 +155,7 @@ namespace Petrol_Station.Agents
                         Label5.Text = dr["Current_capacity"].ToString();
                         Label14.Text = Session["Station_name"].ToString();
                         Label8.Text = dr["Price_itre"].ToString();
+                        Session.Add("Price_itre", dr["Price_itre"]);
                         Label18.Text = Session["Fuel_type"].ToString();
                         Label15.Text = Session["Fuel_type"].ToString();
 

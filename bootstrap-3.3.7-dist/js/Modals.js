@@ -31,10 +31,18 @@ function general() {
     $('#masterd').modal("show");
 }
 function seting() {
-    $("#modalfueltest").modal({
+    $("#refill").modal({
         show: false,
         backdrop: 'static'
 
     });
-    $('#modalfueltest').modal("show");
+    $('#refill').modal("show");
+}
+function refill() {
+    $("#refill").modal({
+        show: false,
+        backdrop: 'static'
+
+    });
+    $('#refill').modal("show");
 }

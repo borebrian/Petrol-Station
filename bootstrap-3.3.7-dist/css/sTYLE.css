@@ -104,7 +104,7 @@ body {
     font-size: 15px;
     font-family: Watch;
     /*color: #68213A;*/
-    font-size: 30px;
+    font-size: 20px;
 }
 .rounded1 {
     border-radius: 15px;
@@ -171,4 +171,11 @@ body {
     background-color:green;
     width: 20%;
     /*float:right;*/
-}*/
+}
+*/
+
+.meter-readings1 {
+    font-family: Watch;
+    /*color: #68213A;*/
+    font-size: 10px;
+}
