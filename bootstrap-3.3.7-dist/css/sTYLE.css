@@ -1,10 +1,22 @@
 ﻿@font-face {
     font-family: Century Gothic1;
-    src: url('/Century.ttf');
+    src: url('/Fonts/Century.ttf');
+}
+@font-face {
+    font-family: Watch;
+    src: url('/Fonts/watch.ttf');
+}
+html {
+    /* To make use of full height of page*/
+    min-height: 100%;
+    margin: 0;
 }
 
 body {
+    min-height: 100%;
+    margin: 0;
     font-family: 'Century Gothic1';
+   
 }
 
 .container-fluid {
@@ -80,6 +92,20 @@ body {
     border-top-right-radius:15px;
 
 }
+.price-holder {
+    height: 60px;
+    width: 200px;
+    background-color: white;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border: 2px solid #483F42;
+    color: #483F42;
+    padding-top: 5px;
+    font-size: 15px;
+    font-family: Watch;
+    /*color: #68213A;*/
+    font-size: 30px;
+}
 .rounded1 {
     border-radius: 15px;
     border: 2px solid #68213A;
@@ -93,3 +119,56 @@ body {
     color: white;
     padding: 10px;
 }
+.capacity {
+    font-size: 15px;
+    font-family: Watch;
+}
+.backtank {
+    height: 200px;
+    width: 200px;
+    border: 2px solid #483F42;
+    border-top: none;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.frontank {
+    height: 20px;
+    width: 196px;
+    background-color: white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.toptank {
+    height: 40px;
+    width: 120px;
+    background-color: #483F42;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    margin-left: 40px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom:none;
+}
+.borderholder{
+    width:100%;
+    height:100%;
+    background-color:transparent;
+}
+.alt1{
+    height:100%;
+    background-color:white;
+    border-bottom-right-radius:100px;
+    border-bottom-left-radius:100px;
+    width:5%;
+    float:left;
+    background-color;red;
+}
+/*.alt2 {
+    height: 100%;
+    background-color: white;
+    border-bottom-left-radius: -20px;
+    border-bottom-right-radius: -20px;
+    background-color:green;
+    width: 20%;
+    /*float:right;*/
+}*/

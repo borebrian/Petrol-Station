@@ -9,6 +9,8 @@
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
         <script src="../bootstrap-3.3.7-dist/js/Modals.js"></script>
         <link href="../bootstrap-3.3.7-dist/css/sTYLE.css" rel="stylesheet" />
+        <link href="../bootstrap-3.3.7-dist/css/fuel_styles.css" rel="stylesheet" />
+        <a href="../bootstrap-3.3.7-dist/js/">../bootstrap-3.3.7-dist/js/</a>
          <script type="text/javascript">
         $("#clickArea").live("click", function () {
             $("[id*=Button1]").click();
@@ -24,6 +26,7 @@
              <%--<div class="container">--%>
                
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="width:40px;height:40px;margin:2px;" />
+               
            <%--</div>--%>
 
             </a>
@@ -65,16 +68,21 @@
     
 
            
-          </ul>
 
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     <div class="container-fluid" style="margin-top:60px;">
+         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+             <asp:UpdatePanel runat="server" id="UpdatePanel1" updatemode="Conditional">           
+            <ContentTemplate>
+                 <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick">  
+                </asp:Timer>  
         <div class="row">
+           
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
                 <div class="panel panel-primary " style="border:none;border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-right-radius:40px;border-bottom-left-radius:40px;" runat="server" id="div1">
-                    <div class="panel-heading text-center" style="background-color:#483F42;border-top-left-radius:30px;border-top-right-radius:30px;color:white;font-weight:bold;" >
+                    <div class="panel-heading text-center" style="background-image:url('../SVG/bg1.svg');background-size:cover;background-repeat:no-repeat;background-color:#68213A;border-top-left-radius:30px;border-top-right-radius:30px;color:white;font-weight:bold;" >
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center ">
                                 <asp:Image class="all-icons" ID="Image3" runat="server" ImageUrl="~/Images/tank2.png" /><br />
@@ -86,8 +94,8 @@
 
                         </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
-                                <asp:Image class="all-icons" ID="Image4" runat="server" ImageUrl="~/bootstrap-3.3.7-dist/Images/meter1.png" /><br />
-                        <asp:Label ID="Label3" runat="server" Text="Lavel indicator"></asp:Label>
+                                <asp:Image class="all-icons" ID="Image4" runat="server" ImageUrl="~/Images/meter1.png" /><br />
+                        <asp:Label ID="Label3" runat="server" Text="Level indicator"></asp:Label>
 
 </div>
                     </div></div>
@@ -96,16 +104,17 @@
                           <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 "  style="margin-left:0px;margin-right:0px;">
                                   <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div style="height:40px;width:120px;background-color:#483F42;border-top-left-radius:40px;border-top-right-radius:40px;margin-left:40px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;" class="text-center">
+                                <div style="" class="toptank text-center">
 
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div style="height:60px;width:200px;background-color:white;border-top-left-radius:50px;border-top-right-radius:50px;border:2px solid #483F42;color:#483F42;padding-top:20px;font-size:15px;" class="text-center">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                                <div  class=" price-holder text-center">
                                     <strong>
-                                    <asp:Label ID="Label7" runat="server" Text="Price/Litre:"></asp:Label><asp:Label ID="Label8" runat="server" Text="110"></asp:Label><asp:Label ID="Label9" runat="server" Text="/="></asp:Label></strong>
+                                 <%--   <asp:Label ID="Label7" runat="server" Text="Price per sLitre:" style="font-family:Watch;color:#68213A"></asp:Label>&nbsp--%>
+                                        <asp:Label style="" ID="Label8" runat="server" Text=""></asp:Label> <asp:Label ID="Label9" runat="server" Text="/LITRE"></asp:Label></strong>
                                 </div>
                             </div>
                         </div>
@@ -115,9 +124,72 @@
                     
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-                                <div id="clickArea" runat="server"  style="height:200px;width:200px;border:2px solid #483F42;border-bottom-left-radius:50px;border-bottom-right-radius:50px;">
- <div style="height:20px;width:196px;background-color:white;border-bottom-right-radius:10px;border-bottom-left-radius:10px;" id="tank" runat="server" class="text-center">
-     <asp:Label ID="Label5" runat="server" Text="1499.654"></asp:Label><asp:Label ID="Label6" runat="server" Text="Litres"></asp:Label>
+                                <div id="clickArea" class="backtank" runat="server"  style="">
+ <div style="" id="tank"  runat="server" class="frontank text-center">
+     <asp:Label ID="Label5" runat="server" Text="1499.654" CssClass="capacity"></asp:Label><asp:Label ID="Label6" runat="server" Text="Litres"></asp:Label>
+     <div class="borderholder" >
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+         <div class="alt1">
+
+         </div>
+      
+     </div>
                                 </div>
                                      <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >--%>
                                 
@@ -189,6 +261,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
 
             </div></div></div>
+           
         </div>
         <div id="modal1" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -252,5 +325,8 @@
 </div>
 
       </div>
-    </div></div>
+    </div>
+                </ContentTemplate>
+                 </asp:UpdatePanel>
+                </div>
 </asp:Content>
