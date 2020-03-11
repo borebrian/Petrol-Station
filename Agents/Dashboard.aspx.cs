@@ -24,6 +24,8 @@ namespace Petrol_Station.Agents
                 Auth s = new Auth();
                 s.InitTwilio();
                 actions();
+                tableConfirming.Visible = false;
+
             }
         }
         protected void Button1_Click(object sender, EventArgs e)
@@ -35,6 +37,7 @@ namespace Petrol_Station.Agents
         {
             TextBox1.Text = Session["Price_itre"].ToString();
             Label17.Text = Session["Fuel_type"].ToString();
+            tableConfirming.Visible = false;
             //Response.Write("you clicked the div clickArea");
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "part()", true);
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", " twilio()", true);
@@ -42,10 +45,107 @@ namespace Petrol_Station.Agents
 
 
         }
+        protected void refilling(object sender, EventArgs e)
+        {
+            Label22.Text = Session["Fuel_type"].ToString();
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "refill()", true);
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", " twilio()", true);
+
+
+
+        }
+
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
             Response.Redirect("../Agents/Sales_category.aspx");
+
+        }
+        protected void cancelRefill(object sender, EventArgs e)
+        {
+            tableConfirming.Visible = false;
+            LinkButton9.Visible = true;
+            LinkButton9.Visible = true;
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "refill()", true);
+
+
+        }
+        protected void confirmRefilling(object sender, EventArgs e)
+        {
+            //LETS SEND MESSAGE TO AGENTS FOR NEW PRICE
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand("select *from Fuel WHERE Station_ref='" + Session["Station_ref"] + "'", con);
+            con.Open();
+            SqlDataReader myDataReadert = cmd.ExecuteReader();
+            if (myDataReadert.Read())
+            {
+                float prev = int.Parse(myDataReadert["Tank_capacity"].ToString());
+                float toBeRefilled = int.Parse(TextBox2.Text.ToString());
+                float newValue = prev + toBeRefilled;
+
+                generalClass.inserting("UPDATE FUEL SET Tank_capacity='" + newValue + "' WHERE Station_ref='" + Session["Station_ref"] + "'");
+
+
+                string strt = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+                SqlConnection cont = new SqlConnection(str);
+                SqlCommand cmdt = new SqlCommand("select *from Agents_Reg WHERE Station_ref='" + Session["Station_ref"] + "'", cont);
+                cont.Open();
+                SqlDataReader myDataReadertt = cmdt.ExecuteReader();
+                if (myDataReadert.Read())
+                {
+                    string message1 = "" + Session["Fuel_type"] + "' price has changed as follows: ";
+                    string message2 = "Price per litre:" + newValue + ". ";
+                    string message3 = message1 + message2 + "Please contact station manager for more details.";
+                    Label4.ForeColor = System.Drawing.Color.Green;
+                    actions();
+
+
+                    generalClass.SendMessage(generalClass.Add254(myDataReadert["Phone"].ToString()), message3);
+                    con.Close();
+                    
+                }
+                else
+                {
+                    con.Close();
+                    Label4.Text = "Submitted successfully but notification was not sent to Agent because there was no corresponding contact!";
+                    Label4.ForeColor = System.Drawing.Color.Red;
+                    actions();
+
+
+                }
+
+
+            } }
+        protected void ConfirmUpdatePrice(object sender, EventArgs e)
+        {
+            //LETS GET CURRENT TANK CAPACITY
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand("select *from Fuel WHERE Station_ref='" + Session["Station_ref"] + "'", con);
+            con.Open();
+            SqlDataReader myDataReadert = cmd.ExecuteReader();
+            if (myDataReadert.Read())
+            {
+                Label23.Text = myDataReadert["Tank_capacity"].ToString();
+                Label25.Text = TextBox2.Text;
+                float prev = int.Parse(myDataReadert["Tank_capacity"].ToString());
+                float toBeRefilled = int.Parse(TextBox2.Text.ToString());
+                float newValue = prev + toBeRefilled;
+                Label26.Text = newValue.ToString();
+                tableConfirming.Visible = true;
+                LinkButton9.Visible = false;
+                LinkButton9.Visible = false;
+                con.Close();
+
+            }
+            else
+            {
+                con.Close();
+            }
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "refill()", true);
+
 
         }
         protected void updatePrice(object sender, EventArgs e)

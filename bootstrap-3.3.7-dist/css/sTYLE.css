@@ -51,8 +51,28 @@ body {
 }
     .categoryselector:hover {
         padding: 15px;
-        border-radius:40px;
+        width: 200px;
         width: 300px;
+        border-radius: 40px;
+        color: #68213A;
+        background-color: white;
+        color: #68213A;
+        border: 1px solid #68213A;
+    }
+
+.categoryselector1 {
+    padding: 10px;
+    border-radius: 40px;
+ 
+    color: #68213A;
+    background-color: white;
+    border: 1px solid #68213A;
+}
+
+    .categoryselector1:hover {
+        padding: 10px;
+     
+        border-radius: 40px;
         color: #68213A;
         background-color: white;
         color: #68213A;
