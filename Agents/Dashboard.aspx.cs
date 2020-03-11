@@ -51,8 +51,11 @@ namespace Petrol_Station.Agents
         {
             Label22.Text = Session["Fuel_type"].ToString();
             Label28.Text = "Please enter";
-
+            Label27.Text = "";
             Label299.Text = " ammount to add.";
+            tableConfirming.Visible = false;
+            LinkButton9.Visible = true;
+            TextBox2.Visible = true;
 
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "refill()", true);
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", " twilio()", true);
@@ -90,48 +93,59 @@ namespace Petrol_Station.Agents
                 float prev = int.Parse(myDataReadert["Current_capacity"].ToString());
                 float toBeRefilled = int.Parse(Label25.Text.ToString());
                 float newValue = prev + toBeRefilled;
-
-                generalClass.inserting("UPDATE FUEL SET Current_capacity ='" + newValue + "' WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='"+Session["Fuel_type"] +"'");
-
-
-                SqlConnection cont = new SqlConnection(str);
-                SqlCommand cmdt = new SqlCommand("select *from Agents_Reg WHERE Station_ref='" + Session["Station_ref"] + "'", cont);
-                cont.Open();
-                SqlDataReader myDataReadertt = cmdt.ExecuteReader();
-                if (myDataReadertt.Read())
+                generalClass.test(newValue);
+                if (generalClass.check)
                 {
-                    string message1 = "" + Session["Fuel_type"] + "' price has changed as follows: ";
-                    string message2 = "Price per litre:" + newValue + ". ";
-                    string message3 = message1 + message2 + "Please contact station manager for more details.";
-             
-            
-
-
-                    //generalClass.SendMessage(generalClass.Add254(myDataReadertt["Phone"].ToString()), message3);
-                    Label27.Text = "Submitted successfully and notification was sent to "+myDataReadertt["Full_names"];
-                    Label27.ForeColor = System.Drawing.Color.Green;
-                    cont.Close();
-
-                    beforeSubmit.Visible = true;
-                    Label28.Text="Success!";
-                    Label22.Text = "";
-                    Label299.Text = "";
-
+                    tableConfirming.Visible = false;
+                    LinkButton9.Visible = true;
+                    TextBox2.Visible = true;
+                    Label27.Text = "The value you entered is greater than the tank capacity!!.";
+                    Label27.ForeColor = System.Drawing.Color.Red;
                 }
                 else
                 {
-                    Label28.Text = "Success!";
-                    Label22.Text = "";
-                    Label299.Text = "";
-                    con.Close();
-                    Label27.Text = "Submitted successfully but notification was not sent to Agent because there was no corresponding contacts!";
-                    Label27.ForeColor = System.Drawing.Color.Red;
+                    generalClass.inserting("UPDATE FUEL SET Current_capacity ='" + newValue + "' WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='" + Session["Fuel_type"] + "'");
+                    SqlConnection cont = new SqlConnection(str);
+                    SqlCommand cmdt = new SqlCommand("select *from Agents_Reg WHERE Station_ref='" + Session["Station_ref"] + "'", cont);
+                    cont.Open();
+                    SqlDataReader myDataReadertt = cmdt.ExecuteReader();
+                    if (myDataReadertt.Read())
+                    {
+                        string message1 = "" + Session["Fuel_type"] + "' price has changed as follows: ";
+                        string message2 = "Price per litre:" + newValue + ". ";
+                        string message3 = message1 + message2 + "Please contact station manager for more details.";
 
-                    beforeSubmit.Visible = true;
 
 
+
+                        //generalClass.SendMessage(generalClass.Add254(myDataReadertt["Phone"].ToString()), message3);
+                        Label27.Text = "Submitted successfully and notification was sent to " + myDataReadertt["Full_names"];
+                        Label27.ForeColor = System.Drawing.Color.Green;
+                        cont.Close();
+
+                        beforeSubmit.Visible = true;
+                        Label28.Text = "Success!";
+                        Label22.Text = "";
+                        Label299.Text = "";
+
+                    }
+                    else
+                    {
+                        Label28.Text = "Success!";
+                        Label22.Text = "";
+                        Label299.Text = "";
+                        con.Close();
+                        Label27.Text = "Submitted successfully but notification was not sent to Agent because there was no corresponding contacts!";
+                        Label27.ForeColor = System.Drawing.Color.Red;
+
+                        beforeSubmit.Visible = true;
+
+
+
+                    }
 
                 }
+                
 
 
             }
@@ -282,7 +296,7 @@ namespace Petrol_Station.Agents
                         //CHANGE TANK COLOR
                         if (currentCapacity <= ((totalcapacity / 6) * 1))
                         {
-                            clickArea.Style.Add("Background-color", "#D3001A;");
+                            clickArea.Style.Add("Background-color", "#68213A");
                             tank.Style.Add("border-bottom-left-radius", "50px");
 
                             tank.Style.Add("border-bottom-right-radius", "50px");
@@ -292,33 +306,33 @@ namespace Petrol_Station.Agents
                         }
                         else if (currentCapacity < ((totalcapacity / 6) * 2))
                         {
-                            clickArea.Style.Add("Background-color", "#D34C5D");
+                            clickArea.Style.Add("Background-color", "#68213A");
 
                         }
                         else if (currentCapacity < ((totalcapacity / 6) * 3))
                         {
-                            clickArea.Style.Add("Background-color", "#DA98A0");
+                            clickArea.Style.Add("Background-color", "#a6496a");
 
                         }
                         else if (currentCapacity < ((totalcapacity / 6) * 4))
                         {
-                            clickArea.Style.Add("Background-color", "#BAD1BC");
+                            clickArea.Style.Add("Background-color", "#aba1a4");
 
                         }
                         else if (currentCapacity < ((totalcapacity / 6) * 5))
                         {
-                            clickArea.Style.Add("Background-color", "#BAD1BC");
+                            clickArea.Style.Add("Background-color", "#DA98A0");
 
                         }
                         else if (currentCapacity < ((totalcapacity / 6) * 6))
                         {
-                            clickArea.Style.Add("Background-color", "#8BD99F");
+                            clickArea.Style.Add("Background-color", "#D34C5D");
                             //ammount.Style.Add("color", "white");
 
                         }
                         else
                         {
-                            clickArea.Style.Add("Background-color", "#0F7E2C");
+                            clickArea.Style.Add("Background-color", "#D3001A");
 
                         }
 

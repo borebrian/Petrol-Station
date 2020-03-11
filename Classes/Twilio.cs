@@ -10,8 +10,11 @@ using Twilio.Rest.Api.V2010.Account;
 
 namespace SMS
 {
+
     public partial class Auth : System.Web.UI.Page
     {
+        public Boolean check;
+
         public void InitTwilio()
         {
             //LETS GET TWILIO CREDENTIALS
@@ -36,6 +39,33 @@ namespace SMS
                 }
             
            
+        }
+        public void test(float tester)
+        {
+            //LETS GET TWILIO CREDENTIALS
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand("select *from fuel where Station_ref='"+Session["Station_ref"]+ "' and Fuel_type='"+Session["Fuel_type"] +"'", con);
+            con.Open();
+            SqlDataReader myDataReadert = cmd.ExecuteReader();
+            if (myDataReadert.Read())
+            {
+                if (tester > int.Parse(myDataReadert["Tank_capacity"].ToString()))
+                {
+                    check = true;
+                }
+                else
+                {
+                    check = false;
+                }
+            }
+            else
+            {
+                con.Close();
+
+            }
+
+
         }
         public void inserting(String sql)
         {

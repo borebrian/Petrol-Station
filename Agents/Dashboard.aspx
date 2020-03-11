@@ -76,7 +76,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
                 <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div1">
-                    <div class="panel-heading text-center" style="background-image: url('../SVG/bg1.svg'); background-size: cover; background-repeat: no-repeat; background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
+                    <div class="panel-heading text-center" style="background-color:#5B5959; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
                         <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                             <ContentTemplate>
                                 <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick">
@@ -195,13 +195,13 @@
 
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 " style="margin-left: 0px; margin-right: 0px;">
                                         <div class="row">
-                                            <asp:Label ID="Label10" runat="server" Text="Enough" Style="color: green; font-weight: bold;"></asp:Label>
+                                            <asp:Label ID="Label10" runat="server" Text="Enough" Style="color: #68213A; font-weight: bold;"></asp:Label>
                                         </div>
                                         <div class="row">
-                                            <div style="height: 50px; width: 10px; background-color: #0F7E2C; border-top-left-radius: 15px; border-top-right-radius: 15px;"></div>
+                                            <div style="height: 50px; width: 10px; background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px;"></div>
 
-                                            <div style="height: 50px; width: 10px; background-color: #8BD99F"></div>
-                                            <div style="height: 50px; width: 10px; background-color: #BAD1BC"></div>
+                                            <div style="height: 50px; width: 10px; background-color: #a6496a"></div>
+                                            <div style="height: 50px; width: 10px; background-color: #aba1a4"></div>
                                             <div style="height: 50px; width: 10px; background-color: #DA98A0"></div>
 
 
@@ -238,8 +238,8 @@
             <%--START OF PANEL BODY -TANK--%>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
-                <div class="panel panel-primary " style="border: none; border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 40px; border-bottom-left-radius: 40px;" runat="server" id="div2">
-                    <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 30px; border-top-right-radius: 30px; color: white; font-weight: bold;">
+                <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div2">
+                    <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
                         <asp:Image class="all-icons" ID="Image5" runat="server" ImageUrl="~/Images/sales.png" />&nbsp
                         <asp:Label ID="Label20" runat="server" Text="Todays Sales"></asp:Label>
                     </div>
@@ -249,9 +249,15 @@
                                 <asp:Label ID="Label12" runat="server" Text="Pending..."></asp:Label>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center" style="padding-top: 10px; color: #483F42;">
-                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton1_Click">Go to sales</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary sales" style="width:100%;" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-usd"></i>&nbsp Go to sales</asp:LinkButton>
                             </div>
                         </div>
+                        <div class="row">
+                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="padding: 10px; color: #483F42; ">
+                                <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary sales1" runat="server" OnClick="refilling"><i class="glyphicon glyphicon-dashboard"></i> &nbsp Sales analysis</asp:LinkButton>
+                               
+                            </div>
+                            </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     </div>
@@ -259,8 +265,8 @@
             </div>
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
-                <div class="panel panel-primary " style="border: none; border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 40px; border-bottom-left-radius: 40px;" runat="server" id="div3">
-                    <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 30px; border-top-right-radius: 30px; color: white; font-weight: bold;">
+                <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div3">
+                    <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
                         <asp:Image class="all-icons" ID="Image7" runat="server" ImageUrl="~/Images/actions.png" />&nbsp
                         <asp:Label ID="Label29" runat="server" Text="Actions"></asp:Label>
                     </div>
@@ -292,7 +298,7 @@
 
         <%---------------------------------------------------------------------END OF TANK------------------------------------------------------%>
         <%--//CHANGING PRICE MODAL--%>
-
+</div>
         <div id="modal1" class="modal fade" role="dialog">
 
             <div class="modal-dialog">
