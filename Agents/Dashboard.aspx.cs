@@ -296,7 +296,7 @@ namespace Petrol_Station.Agents
                         //CHANGE TANK COLOR
                         if (currentCapacity <= ((totalcapacity / 6) * 1))
                         {
-                            clickArea.Style.Add("Background-color", "#68213A");
+                            clickArea.Style.Add("Background-color", "#D3001A;");
                             tank.Style.Add("border-bottom-left-radius", "50px");
 
                             tank.Style.Add("border-bottom-right-radius", "50px");
@@ -306,33 +306,33 @@ namespace Petrol_Station.Agents
                         }
                         else if (currentCapacity < ((totalcapacity / 6) * 2))
                         {
-                            clickArea.Style.Add("Background-color", "#68213A");
+                            clickArea.Style.Add("Background-color", "#D34C5D");
 
                         }
                         else if (currentCapacity < ((totalcapacity / 6) * 3))
                         {
-                            clickArea.Style.Add("Background-color", "#a6496a");
+                            clickArea.Style.Add("Background-color", "#DA98A0");
 
                         }
                         else if (currentCapacity < ((totalcapacity / 6) * 4))
                         {
-                            clickArea.Style.Add("Background-color", "#aba1a4");
+                            clickArea.Style.Add("Background-color", "#BAD1BC");
 
                         }
                         else if (currentCapacity < ((totalcapacity / 6) * 5))
                         {
-                            clickArea.Style.Add("Background-color", "#DA98A0");
+                            clickArea.Style.Add("Background-color", "#BAD1BC");
 
                         }
                         else if (currentCapacity < ((totalcapacity / 6) * 6))
                         {
-                            clickArea.Style.Add("Background-color", "#D34C5D");
+                            clickArea.Style.Add("Background-color", "#8BD99F");
                             //ammount.Style.Add("color", "white");
 
                         }
                         else
                         {
-                            clickArea.Style.Add("Background-color", "#D3001A");
+                            clickArea.Style.Add("Background-color", "#0F7E2C");
 
                         }
 

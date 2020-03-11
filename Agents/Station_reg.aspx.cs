@@ -79,7 +79,7 @@ namespace Petrol_Station.Agents
 
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "final() ", true);
 
-            Response.Redirect("../Agents/Petrol_station_selection.aspx");
+            Response.Redirect("../Agents/Agent_registration.aspx");
         }
         protected void insertdetails(object sender, EventArgs e)
         {

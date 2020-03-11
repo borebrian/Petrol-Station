@@ -14,6 +14,7 @@ namespace SMS
     public partial class Auth : System.Web.UI.Page
     {
         public Boolean check;
+        public Boolean log;
 
         public void InitTwilio()
         {
@@ -61,6 +62,29 @@ namespace SMS
             }
             else
             {
+                con.Close();
+
+            }
+
+
+        }
+        public void login(String sql)
+        {
+
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+
+                log = true;
+                con.Close();
+            }
+            else
+            {
+                log = false;
                 con.Close();
 
             }

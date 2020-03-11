@@ -13,7 +13,7 @@
     <div class="container-fluid" style="padding:0px;">
         <div class="well" draggable="true" style="background-color:transparent;border:none;">
 
-            <div class="well" style="background-color:black;opacity:0.8;border-radius:40px;border:none">
+            <div class="well" style="background-color:black;opacity:1;border-radius:40px;border:none">
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>
@@ -25,7 +25,19 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12    ">
-                    <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded1" placeholder="Enter national id"></asp:TextBox>
+
+                      <asp:DropDownList ID="DropDownList1" runat="server" class="form-control rounded1"  DataSourceID="SqlDataSource2" DataTextField="Station_name" DataValueField="Station_ref"></asp:DropDownList>
+                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Fuel_systemConnectionString %>" SelectCommand="SELECT [Station_ref], [Station_name] FROM [Station_registration]"></asp:SqlDataSource>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Select petrol station"
+                                        ForeColor="Red" ValidationGroup="ff"></asp:RequiredFieldValidator>
+                                    <br />
+                                    <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator6" ErrorMessage="Invalid characters" runat="server"
+                                        ValidationGroup="nl" Visible="true" ControlToValidate="TextBox1" ValidationExpression="^[a-zA-Z0-9]{1,13}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                    </asp:RegularExpressionValidator>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12    ">
+                    <asp:TextBox ID="TextBox1" runat="server"  class="form-control rounded1" type="number" placeholder="Enter national id" MaxLength="8"></asp:TextBox>
 
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Enter ID"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
@@ -53,7 +65,11 @@
                                         ValidationGroup="nl" Visible="true" ControlToValidate="TextBox3" ValidationExpression="^[a-zA-Z0-9]{1,30}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
                         </div>
-                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12  ">
+                     
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12  ">
                     <asp:TextBox ID="TextBox4" runat="server"  ReadOnly="true" Text="12345678"  class="form-control rounded1" placeholder="Set password"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" type="password" ErrorMessage="Enter password"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
@@ -62,9 +78,6 @@
                                         ValidationGroup="nl" Visible="true" ControlToValidate="TextBox4" ValidationExpression="^[0-9A-Za-z,./]{1,8}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
                         </div>
-
-                </div>
-                <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12  ">
                     <asp:TextBox ID="TextBox5" runat="server" class="form-control rounded1" placeholder="Enter town name"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox5" ErrorMessage="Enter town name"
@@ -76,7 +89,7 @@
                         </div>
                     
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12  ">
-                    <asp:TextBox ID="TextBox7" runat="server" class="form-control rounded1" placeholder="Enter phone number here" Text="07"></asp:TextBox>
+                    <asp:TextBox ID="TextBox7" runat="server" class="form-control rounded1" type="number"  MaxLength="10" placeholder="Enter phone number here" Text="07"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextBox7" ErrorMessage="Enter password"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
                                     <br />
@@ -89,18 +102,22 @@
                 <div class="row text-center">
                                       
 
-                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  ">
+                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  " style="margin-bottom:3px;">
 
-                    <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-plus-sign"></i> &nbsp Agents </asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-plus-sign"></i> &nbsp Add agents </asp:LinkButton>
                                           </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  ">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  " style="margin-bottom:3px;">
                     <asp:LinkButton ID="LinkButton2"  ValidationGroup="nl" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton2_Click"> Submit data</asp:LinkButton>
 
                                           </div>
-                                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  ">
+                                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  text-center" style="margin-bottom:3px;">
 
-                    <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-ok"></i>&nbsp Complete registration </asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click" Height="40px"><i class="glyphicon glyphicon-ok"></i>&nbsp Complete registration </asp:LinkButton><br />
                                           </div>
+                </div>
+                <div class="row text-center">
+                                          <asp:Label ID="Label2" runat="server" Text="" ForeColor="red"></asp:Label>
+
                 </div>
             </div>
         </div>

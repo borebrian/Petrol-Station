@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Agents\Admin_category.aspx" />
+    <Content Include="Agents\Agents_Dashboard.aspx" />
     <Content Include="Agents\Agent_registration.aspx" />
     <Content Include="Agents\ALL_TESTS.aspx" />
     <Content Include="Agents\Dashboard.aspx" />
@@ -238,6 +239,13 @@
     </Compile>
     <Compile Include="Agents\Admin_category.aspx.designer.cs">
       <DependentUpon>Admin_category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agents\Agents_Dashboard.aspx.cs">
+      <DependentUpon>Agents_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agents\Agents_Dashboard.aspx.designer.cs">
+      <DependentUpon>Agents_Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Agents\Agent_registration.aspx.cs">
       <DependentUpon>Agent_registration.aspx</DependentUpon>

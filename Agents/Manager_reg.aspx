@@ -86,8 +86,9 @@
                      <div class="row text-center">
                                       
 
-                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ">
+                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                     <asp:LinkButton ValidationGroup="nl" ID="LinkButton1" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click">Next</asp:LinkButton>
+                         <asp:Label ID="Label2" runat="server" ForeColor="Red" Text=""></asp:Label>
                 </div></div>
             </div>
    
