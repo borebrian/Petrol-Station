@@ -13,6 +13,8 @@ namespace Petrol_Station.Agents
     public partial class Dashboard : System.Web.UI.Page
     {
         Auth generalClass = new Auth();
+        string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
@@ -48,6 +50,10 @@ namespace Petrol_Station.Agents
         protected void refilling(object sender, EventArgs e)
         {
             Label22.Text = Session["Fuel_type"].ToString();
+            Label28.Text = "Please enter";
+
+            Label299.Text = " ammount to add.";
+
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "refill()", true);
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", " twilio()", true);
 
@@ -65,77 +71,94 @@ namespace Petrol_Station.Agents
         {
             tableConfirming.Visible = false;
             LinkButton9.Visible = true;
-            LinkButton9.Visible = true;
+            TextBox2.Visible = true;
+       
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "refill()", true);
 
 
         }
         protected void confirmRefilling(object sender, EventArgs e)
         {
-            //LETS SEND MESSAGE TO AGENTS FOR NEW PRICE
+            //REFILING TANK
             string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
             SqlConnection con = new SqlConnection(str);
-            SqlCommand cmd = new SqlCommand("select *from Fuel WHERE Station_ref='" + Session["Station_ref"] + "'", con);
+            SqlCommand cmd = new SqlCommand("select *from Fuel WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='" + Session["Fuel_type"] + "'", con);
             con.Open();
             SqlDataReader myDataReadert = cmd.ExecuteReader();
             if (myDataReadert.Read())
             {
-                float prev = int.Parse(myDataReadert["Tank_capacity"].ToString());
-                float toBeRefilled = int.Parse(TextBox2.Text.ToString());
+                float prev = int.Parse(myDataReadert["Current_capacity"].ToString());
+                float toBeRefilled = int.Parse(Label25.Text.ToString());
                 float newValue = prev + toBeRefilled;
 
-                generalClass.inserting("UPDATE FUEL SET Tank_capacity='" + newValue + "' WHERE Station_ref='" + Session["Station_ref"] + "'");
+                generalClass.inserting("UPDATE FUEL SET Current_capacity ='" + newValue + "' WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='"+Session["Fuel_type"] +"'");
 
 
-                string strt = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
                 SqlConnection cont = new SqlConnection(str);
                 SqlCommand cmdt = new SqlCommand("select *from Agents_Reg WHERE Station_ref='" + Session["Station_ref"] + "'", cont);
                 cont.Open();
                 SqlDataReader myDataReadertt = cmdt.ExecuteReader();
-                if (myDataReadert.Read())
+                if (myDataReadertt.Read())
                 {
                     string message1 = "" + Session["Fuel_type"] + "' price has changed as follows: ";
                     string message2 = "Price per litre:" + newValue + ". ";
                     string message3 = message1 + message2 + "Please contact station manager for more details.";
-                    Label4.ForeColor = System.Drawing.Color.Green;
-                    actions();
+             
+            
 
 
-                    generalClass.SendMessage(generalClass.Add254(myDataReadert["Phone"].ToString()), message3);
-                    con.Close();
-                    
+                    //generalClass.SendMessage(generalClass.Add254(myDataReadertt["Phone"].ToString()), message3);
+                    Label27.Text = "Submitted successfully and notification was sent to "+myDataReadertt["Full_names"];
+                    Label27.ForeColor = System.Drawing.Color.Green;
+                    cont.Close();
+
+                    beforeSubmit.Visible = true;
+                    Label28.Text="Success!";
+                    Label22.Text = "";
+                    Label299.Text = "";
+
                 }
                 else
                 {
+                    Label28.Text = "Success!";
+                    Label22.Text = "";
+                    Label299.Text = "";
                     con.Close();
-                    Label4.Text = "Submitted successfully but notification was not sent to Agent because there was no corresponding contact!";
-                    Label4.ForeColor = System.Drawing.Color.Red;
-                    actions();
+                    Label27.Text = "Submitted successfully but notification was not sent to Agent because there was no corresponding contacts!";
+                    Label27.ForeColor = System.Drawing.Color.Red;
+
+                    beforeSubmit.Visible = true;
+
 
 
                 }
 
 
-            } }
+            }
+            actions();
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "refill()", true);
+
+        }
         protected void ConfirmUpdatePrice(object sender, EventArgs e)
         {
             //LETS GET CURRENT TANK CAPACITY
-            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
             SqlConnection con = new SqlConnection(str);
             SqlCommand cmd = new SqlCommand("select *from Fuel WHERE Station_ref='" + Session["Station_ref"] + "'", con);
             con.Open();
             SqlDataReader myDataReadert = cmd.ExecuteReader();
             if (myDataReadert.Read())
             {
-                Label23.Text = myDataReadert["Tank_capacity"].ToString();
+                Label23.Text = myDataReadert["Current_capacity"].ToString();
                 Label25.Text = TextBox2.Text;
-                float prev = int.Parse(myDataReadert["Tank_capacity"].ToString());
+                float prev = int.Parse(myDataReadert["Current_capacity"].ToString());
                 float toBeRefilled = int.Parse(TextBox2.Text.ToString());
                 float newValue = prev + toBeRefilled;
                 Label26.Text = newValue.ToString();
                 tableConfirming.Visible = true;
                 LinkButton9.Visible = false;
-                LinkButton9.Visible = false;
+                TextBox2.Text = "";
+                TextBox2.Visible = false;
                 con.Close();
 
             }
@@ -152,12 +175,11 @@ namespace Petrol_Station.Agents
         {
             
 
-            generalClass.inserting("Update Fuel set Price_itre='" + TextBox1.Text+ "' WHERE Station_ref='" + Session["Station_ref"] + "'");
+            generalClass.inserting("Update Fuel set Price_itre='" + TextBox1.Text+ "' WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='" + Session["Fuel_type"] + "'");
             Label4.Text = "Submitted and notification message sent to Agent successfully!";
             Label14.ForeColor = System.Drawing.Color.Green;
 
             //LETS SEND MESSAGE TO AGENTS FOR NEW PRICE
-            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
             SqlConnection con = new SqlConnection(str);
             SqlCommand cmd = new SqlCommand("select *from Agents_Reg WHERE Station_ref='"+Session["Station_ref"]+"'", con);
             con.Open();
@@ -200,7 +222,6 @@ namespace Petrol_Station.Agents
         }
         public void setTank()
         {
-            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
             SqlConnection con = new SqlConnection(str);
             SqlCommand cmd = new SqlCommand("SELECT *FROM Station_registration WHERE Station_ref", con);
             con.Open();
@@ -236,7 +257,6 @@ namespace Petrol_Station.Agents
                 float Pixelheight = 200;
                 String unit = "px";
 
-                string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
                 SqlConnection con = new SqlConnection(str);
                 SqlCommand cmd = new SqlCommand("SELECT *FROM Fuel WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='" + Session["Fuel_type"] + "'", con);
                 con.Open();

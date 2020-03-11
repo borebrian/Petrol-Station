@@ -64,16 +64,20 @@
          <div id="modalfueltest" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
-  <div class="well text-right" style="background-color:white;opacity:0.95;border-radius:10px;padding:10px;border:none">
+  <div class="well text-center" style="background-color:white;opacity:0.95;border-radius:10px;padding:10px;border:none">
      
       <div class="row">
-       <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 text-right" >
+       <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 text-center" >
       <strong>Warning! No fuel added to this petrol station.Do you want to add it now?</strong>
+          
+      </div></div>
+      <div class="row">
            <div class="btn btn-group">
       <asp:LinkButton OnClick="set" class="btn btn-default" ID="LinkButton3" runat="server">Set it now</asp:LinkButton>
                 <asp:LinkButton ID="LinkButton4" runat="server" class="btn btn-default"><i class="glyphicon glyphicon-remove-sign"></i></asp:LinkButton>
            </div>
-      </div></div></div></div>
+      </div>
+  </div></div>
       </div>
     </div>
    

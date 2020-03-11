@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Petrol_Station.Agents.Dashboard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master"  EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Petrol_Station.Agents.Dashboard" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,15 +75,15 @@
             <%--//START OF TANK--%>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
-                <div class="panel panel-primary " style="border: none; border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 40px; border-bottom-left-radius: 40px;" runat="server" id="div1">
-                    <div class="panel-heading text-center" style="background-image: url('../SVG/bg1.svg'); background-size: cover; background-repeat: no-repeat; background-color: #68213A; border-top-left-radius: 30px; border-top-right-radius: 30px; color: white; font-weight: bold;">
+                <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div1">
+                    <div class="panel-heading text-center" style="background-image: url('../SVG/bg1.svg'); background-size: cover; background-repeat: no-repeat; background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
                         <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                             <ContentTemplate>
                                 <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick">
                                 </asp:Timer>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center ">
-                                        <asp:Image class="all-icons" ID="Image3" runat="server" ImageUrl="~/Images/tank2.png" /><br />
+                                        <asp:Image class="all-icons1" ID="Image3" runat="server" ImageUrl="~/Images/tank2.png" /><br />
                                         <%--<asp:Label ID="Label4" runat="server" Text="Current"></asp:Label>--%>
                                         <asp:Label ID="Label15" runat="server" Text=""></asp:Label>
                                         <asp:Label ID="Label19" runat="server" Text="capacity"></asp:Label>
@@ -92,7 +92,7 @@
 
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
-                                        <asp:Image class="all-icons" ID="Image4" runat="server" ImageUrl="~/Images/meter1.png" /><br />
+                                        <asp:Image class="all-icons1" ID="Image4" runat="server" ImageUrl="~/Images/meter1.png" /><br />
                                         <asp:Label ID="Label3" runat="server" Text="Level indicator"></asp:Label>
 
                                     </div>
@@ -220,18 +220,19 @@
                         </asp:UpdatePanel>
                         <div class="row " style="margin-top: 7px;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                                <%--<div class="btn-group">--%>
+                            
 
-                                <%--<asp:LinkButton ID="LinkButton2" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton2_Click">Go to sales</asp:LinkButton>--%>
-                                <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary sales" runat="server" OnClick="LinkButton3_Click"><i class="glyphicon glyphicon-user"></i>&nbsp Admin</asp:LinkButton>
-                                <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary sales" runat="server" OnClick="refilling"><i class="glyphicon glyphicon-dashboard"></i> &nbsp Refill tank</asp:LinkButton>
-                                <asp:LinkButton ID="LinkButton7" CssClass="btn btn-primary sales" runat="server" OnClick="changePrice"><i class="glyphicon glyphicon-pencil"></i> &nbsp Change price</asp:LinkButton>
+                              
+                                <%--<asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary sales1" runat="server" OnClick="LinkButton3_Click"><i class="glyphicon glyphicon-user"></i>&nbsp Admin</asp:LinkButton>--%>
+                                  
+                        
 
 
-                                <%--</div>--%>
+                                    
+                                </div>
                             </div>
                         </div>
-                    </div>
+                
                 </div>
             </div>
             <%--START OF PANEL BODY -TANK--%>
@@ -256,6 +257,36 @@
                     </div>
                 </div>
             </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+
+                <div class="panel panel-primary " style="border: none; border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 40px; border-bottom-left-radius: 40px;" runat="server" id="div3">
+                    <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 30px; border-top-right-radius: 30px; color: white; font-weight: bold;">
+                        <asp:Image class="all-icons" ID="Image7" runat="server" ImageUrl="~/Images/actions.png" />&nbsp
+                        <asp:Label ID="Label29" runat="server" Text="Actions"></asp:Label>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="padding: 10px; color: #483F42; ">
+                                <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary sales1" runat="server" OnClick="refilling"><i class="glyphicon glyphicon-dashboard"></i> &nbsp Refill tank</asp:LinkButton>
+                               
+                            </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="padding: 10px; color: #483F42;">
+                             <asp:LinkButton ID="LinkButton7" CssClass="btn btn-primary sales1" runat="server" OnClick="changePrice"><i class="glyphicon glyphicon-pencil"></i> &nbsp Change price</asp:LinkButton>
+
+                               
+                            </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="padding: 10px; color: #483F42;">
+                           <asp:LinkButton ID="LinkButton12" CssClass="btn btn-primary sales1" runat="server" OnClick="changePrice"><i class="glyphicon glyphicon-pencil"></i> &nbsp Change price</asp:LinkButton>
+
+                               
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -273,7 +304,7 @@
                         <asp:LinkButton ID="LinkButton6" CssClass="btn btn-default" runat="server"><i class="glyphicon glyphicon-remove-sign"></i></asp:LinkButton>
                     </div>
                     <div class="row text-center">
-                        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" Style="height: 90px; width: 90px;" />
+                        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/fuelaviolet.png" Style="height: 50px; width: 50px;" />
                         <h3></h3>
 
 
@@ -311,22 +342,23 @@
 
                 <!-- Modal content-->
                 <%--    <div class="modal-content">--%>
-                <div class="well" style="background-color: white; opacity: 1; border-radius: 30px;">
+                <div class="well" style="background-color: white; opacity: 1; border-radius: 10px;">
                     <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 text-right">
                         <asp:LinkButton ID="LinkButton8" CssClass="btn btn-default" runat="server"><i class="glyphicon glyphicon-remove-sign"></i></asp:LinkButton>
                     </div>
                     <div class="row text-center">
-                        <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" Style="height: 90px; width: 90px;" />
+                                              <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/fuelaviolet.png" Style="height: 50px; width: 50px;" />
+
                         <h3></h3>
 
 
                         <div class="alert alert-info" style="background-color: #68213A; color: white;">
-                            <strong>Please enter <asp:Label ID="Label22" runat="server" Text=""></asp:Label> ammount that was added.</strong>
+                            <strong> <asp:Label ID="Label28" runat="server" Text=""></asp:Label><asp:Label ID="Label22" runat="server" Text=""></asp:Label> <asp:Label ID="Label299" runat="server" Text=""></asp:Label></strong>
                         </div>
                     </div>
                     <div class="row text-center" style="margin-bottom: 20px;" runat="server" id="beforeSubmit">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                            <asp:TextBox ID="TextBox2" runat="server" class="form-control rounded1" MaxLength="3" placeholder="Volume refilled" Style="border: 1px #707070 solid;"></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server" class="form-control rounded1" MaxLength="10" type="number" placeholder="Volume refilled" Style="border: 1px #707070 solid;"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" Display="Dynamic" runat="server" ControlToValidate="TextBox2" ErrorMessage="Are you sure what you have typed is correct?Please confirm!." SetFocusOnError="true"
                                 ForeColor="Red" ValidationGroup="q"></asp:RequiredFieldValidator>
                             <br />
@@ -363,7 +395,6 @@
                                         <td><asp:LinkButton ID="LinkButton10" runat="server" CssClass="btn btn-primary categoryselector1" OnClick="cancelRefill"><i class="glyphicon glyphicon-pencil"></i>&nbsp Modify </asp:LinkButton></td><td><asp:LinkButton ID="LinkButton11" runat="server"  CssClass="btn btn-primary categoryselector1" OnClick="confirmRefilling"><i class="glyphicon glyphicon-check"></i>&nbsp Confirm </asp:LinkButton></td>
                                     </tr>
                                 </table>
-                                <asp:Label ID="Label27" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                             <div class="row">
@@ -372,6 +403,7 @@
                                 </div>
                         </div>
                         </div>
+                                <asp:Label ID="Label27" runat="server" Text=""></asp:Label>
                         
 
 
