@@ -11,9 +11,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid" style="padding:0px;">
-        <div class="well" draggable="true" style="background-color:transparent;border:none;">
+        <div class="well"  style="background-color:transparent;border:none;">
 
-            <div class="well" style="background-color:black;opacity:0.9;border-radius:40px;border:none;">
+            <div class="well wellOveride" >
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>
@@ -67,20 +67,20 @@
                                  
                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  " style="margin-bottom:5px;">
                        
-                    <asp:LinkButton ID="LinkButton2"   CssClass="btn btn-default " runat="server" OnClick="clear"><i class="glyphicon glyphicon-plus"></i>&nbsp Add more petrol station</asp:LinkButton></div>
+                    <asp:LinkButton ID="LinkButton2"   CssClass="btn btn-default mycolor" runat="server" OnClick="clear"><i class="glyphicon glyphicon-plus"></i>&nbsp Add more petrol station</asp:LinkButton></div>
                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  ">
 
-                     <asp:LinkButton ID="LinkButton3"   ValidationGroup="nl"  CssClass="btn btn-default" style="margin-bottom:5px;" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-open"></i> &nbsp Submit</asp:LinkButton></div>
+                     <asp:LinkButton ID="LinkButton3"   ValidationGroup="nl"  CssClass="btn btn-default mycolor" style="margin-bottom:5px;" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-open"></i> &nbsp Submit</asp:LinkButton></div>
                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  ">
 
-                     <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default" runat="server" OnClick="LinkButton1_Click1"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp Next</asp:LinkButton></div>
+                     <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default mycolor" runat="server" OnClick="LinkButton1_Click1"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp Next</asp:LinkButton></div>
                 </div>
             </div>
         </div>
    <div id="modalfuel" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
-  <div class="well" style="background-color:white;opacity:0.95;border-radius:20px;padding:10px;border:none">
+  <div class="well wellOveride" style="">
         <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 text-right" >
             <asp:LinkButton ID="LinkButton4" CssClass="btn btn-default" runat="server"><i class="glyphicon glyphicon-remove-sign"></i></asp:LinkButton></div>
             <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 " style="color:white;">
@@ -168,7 +168,7 @@
 
                         <div class="btn-group  btn-group-justified btn-md">
                           
-                            <a href="#" class="btn btn-primary mycolor" runat="server" ValidationGroup="ff"  onserverclick="insertdetails">
+                            <a href="#" class="btn btn-default " runat="server" ValidationGroup="ff"  onserverclick="insertdetails">
                                <i class="glyphicon glyphicon-plus-sign"></i>&nbsp  Add
                                 
                             </a>

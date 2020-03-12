@@ -211,9 +211,9 @@
     <Content Include="Images\bg8.svg" />
     <Content Include="Images\bg9.svg" />
     <Content Include="Images\cash.png" />
-    <Content Include="Images\fuelachebiemitwhite.png" />
+    <Content Include="bootstrap-3.3.7-dist\Images\fuelachebiemitwhite.png" />
     <Content Include="Images\bg11.jpg" />
-    <Content Include="Images\fuelaviolet.png" />
+    <Content Include="Images\fuelachebiemitwhite.png" />
     <Content Include="Images\hd.jpg" />
     <Content Include="Images\indicator.png" />
     <Content Include="Images\meter.png" />

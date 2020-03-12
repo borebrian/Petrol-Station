@@ -10,9 +10,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid" style="padding:0px;">
-        <div class="well" draggable="true" style="background-color:transparent;border:none;">
+        <div class="well" style="background-color:transparent;border:none;">
 
-            <div class="well" style="background-color:black;opacity:0.8;border-radius:40px;">
+            <div class="well wellOveride" >
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>
@@ -87,7 +87,7 @@
                                       
 
                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                    <asp:LinkButton ValidationGroup="nl" ID="LinkButton1" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click">Next</asp:LinkButton>
+                    <asp:LinkButton ValidationGroup="nl" ID="LinkButton1" CssClass="btn btn-default mycolor" runat="server" OnClick="LinkButton1_Click">Next</asp:LinkButton>
                          <asp:Label ID="Label2" runat="server" ForeColor="Red" Text=""></asp:Label>
                 </div></div>
             </div>

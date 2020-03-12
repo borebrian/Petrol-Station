@@ -10,13 +10,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid" style="padding:0px;">
-        <div class="well" draggable="true" style="background-color:transparent;border:none;">
+        <div class="well"  style="background-color:transparent;border:none;">
 
             <
               <div class="row text-center" style="margin-bottom:20px;">
                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  hidden-xs"></div>
                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                    <div class="well" style="background-color:#68213A;opacity:0.8;border-radius:40px;">
+                    <div class="well wellOveride">
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>

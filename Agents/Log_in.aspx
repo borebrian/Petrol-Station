@@ -10,15 +10,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid" style="padding:0px;">
-        <div class="well" draggable="true" style="background-color:transparent;border:none;">
+        <div class="well "  style="background-color:transparent;border:none;">
 
             
               <div class="row text-center" style="margin-bottom:20px;">
-                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5  hidden-xs"></div>
-                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 ">
-                    <div class="well" style="background-color:#68213A;opacity:0.9;border-radius:40px;border:none">
+                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  hidden-xs"></div>
+                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                    <div class="well wellOveride" style="">
                 <div class="row text-center">
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:120px; width:120px;" />
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3 style="color:white;">Login</h3>
                  
                     
@@ -36,7 +36,7 @@
 
                                                   
                                  </span>
-                               <asp:TextBox ID="TextBox5" runat="server" class="form-control  rounded11" placeholder="Enter username"></asp:TextBox>
+                               <asp:TextBox ID="TextBox5" runat="server" class="form-control  rounded1" placeholder="Enter username"></asp:TextBox>
                                  </div>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="TextBox1" ErrorMessage="Enter username"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
@@ -54,7 +54,7 @@
 
                                                   
                                  </span>
-                               <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded11" Display="Dynamic" type="password" placeholder="Enter Password"></asp:TextBox></div>
+                               <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded1" Display="Dynamic" type="password" placeholder="Enter Password"></asp:TextBox></div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox5" ErrorMessage="Enter password"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
                                     <br />

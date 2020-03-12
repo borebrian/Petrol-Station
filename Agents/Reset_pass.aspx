@@ -14,9 +14,9 @@
 
             
               <div class="row text-center" style="margin-bottom:20px;">
-                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4  hidden-xs"></div>
-                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 ">
-                    <div class="well" style="background-color:#68213A;opacity:0.9;border-radius:40px;border:none">
+                   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  hidden-xs"></div>
+                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                    <div class="well wellOveride" style="">
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>

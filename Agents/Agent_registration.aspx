@@ -11,9 +11,9 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid" style="padding:0px;">
-        <div class="well" draggable="true" style="background-color:transparent;border:none;">
+        <div class="well"  style="background-color:transparent;border:none;">
 
-            <div class="well" style="background-color:black;opacity:1;border-radius:40px;border:none">
+            <div class="well wellOveride" >
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>
@@ -104,15 +104,15 @@
 
                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  " style="margin-bottom:3px;">
 
-                    <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-plus-sign"></i> &nbsp Add agents </asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton3" CssClass="btn btn-default mycolor" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-plus-sign"></i> &nbsp Add agents </asp:LinkButton>
                                           </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  " style="margin-bottom:3px;">
-                    <asp:LinkButton ID="LinkButton2"  ValidationGroup="nl" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton2_Click"> Submit data</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton2"  ValidationGroup="nl" CssClass="btn btn-default mycolor" runat="server" OnClick="LinkButton2_Click"> Submit data</asp:LinkButton>
 
                                           </div>
                                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  text-center" style="margin-bottom:3px;">
 
-                    <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click" Height="40px"><i class="glyphicon glyphicon-ok"></i>&nbsp Complete registration </asp:LinkButton><br />
+                    <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default mycolor" runat="server" OnClick="complete" ><i class="glyphicon glyphicon-ok"></i>&nbsp Complete registration </asp:LinkButton><br />
                                           </div>
                 </div>
                 <div class="row text-center">

@@ -44,5 +44,10 @@ namespace Petrol_Station.Agents
             TextBox4.Text = "12345678";
 
         }
+        protected void complete(object sender, EventArgs e)
+        {
+            Response.Redirect("../Agents/Petrol_station_selection.aspx");
+
+        }
     }
 }

@@ -23,12 +23,9 @@ body {
     font-family: 'Century Gothic1';
 }
 .mycolor {
-    border-style: none;
-    border-color: inherit;
-    border-width: medium;
-    background-color: #68213A;
-    color:white;
-    border-radius:10px;
+    width: 70%;
+    border: 2px solid #707070;
+}
     /*height: 52px;*/
 }
 .mycolor:hover{
@@ -148,6 +145,7 @@ body {
 }*/
 .rounded11{
     border-bottom-right-radius:15px;
+    /*height:200px;*/
     border-top-right-radius:15px;
 
 }
@@ -169,17 +167,41 @@ body {
     box-shadow: 2px -2px 7px -2px rgba(0,0,0,0.75);
 }
 .rounded1 {
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    -webkit-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
+}
+.btn-default {
+    -webkit-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
+}
+.wellOveride {
+    background-color: black;
+    opacity: 0.95;
     border-radius: 15px;
-    border: 2px solid #68213A;
-    text-align:center;
+    border: none;
+    background-image: url('/Images/bg9.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
 }
 .white {
-    border: 2px white solid;
-    border-radius: 15px;
-    text-align:center;
+    /*border: 2px white solid;*/
+    border-radius: 10px;
+    text-align: center;
     background-color: #68213A;
     color: white;
     padding: 10px;
+    -webkit-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
+}
 }
 .capacity {
     font-size: 15px;
