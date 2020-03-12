@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Agents_Dashboard.aspx.cs" Inherits="Petrol_Station.Agents.Agents_Dashboard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master"  EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Petrol_Station.Agents.Dashboard" %>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -9,7 +10,7 @@
     <script src="../bootstrap-3.3.7-dist/js/Modals.js"></script>
     <link href="../bootstrap-3.3.7-dist/css/sTYLE.css" rel="stylesheet" />
     <link href="../bootstrap-3.3.7-dist/css/fuel_styles.css" rel="stylesheet" />
-    <a href="../bootstrap-3.3.7-dist/js/">../bootstrap-3.3.7-dist/js/</a>
+    <%--<a href="../bootstrap-3.3.7-dist/js/">../bootstrap-3.3.7-dist/js/</a>--%>
     <script type="text/javascript">
         $("#clickArea").live("click", function () {
             $("[id*=Button1]").click();
@@ -75,7 +76,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
                 <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div1">
-                    <div class="panel-heading text-center" style="background-color:#5B5959; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
+                    <div class="panel-heading text-center" style="  background-color:#68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
                         <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                             <ContentTemplate>
                                 <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick">
@@ -119,8 +120,7 @@
                                                 <div class=" price-holder text-center">
                                                     <strong>
                                                         <%--   <asp:Label ID="Label7" runat="server" Text="Price per sLitre:" style="font-family:Watch;color:#68213A"></asp:Label>&nbsp--%>
-                                                        <asp:Label Style="" ID="Label8" runat="server" Text=""></asp:Label>
-                                                        <asp:Label ID="Label9" runat="server" Text="/LITRE"></asp:Label></strong><br />
+                                                       <br />
                                                     <div class="meter-readings1">
                                                         <i class="glyphicon glyphicon-dashboard"></i>
                                                         <asp:Label Style="" ID="Label7" runat="server" Text="3654243.76"></asp:Label>
@@ -215,6 +215,30 @@
                                     </div>
 
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-1 col-sm-1 col-xs-1 text-right " style="margin-right:0px;padding-right:0px;">
+                                        <div style="width:2px;background-color:#707070;height:40px;"></div>
+                                        </div>
+
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 text-left " style="margin-left:0px;padding-left:0px;">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <strong><i class="glyphicon glyphicon-usd"></i>&nbsp <asp:Label Style="" ID="Label8" runat="server" Text=""></asp:Label>
+                                                        <asp:Label ID="Label9" runat="server" Text="-Current price per litre."></asp:Label></strong>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <strong>
+                                                        <%--asp:Label ID="Label31" runat="server" Text="Generate fuel reports PDF"></asp:Label>--%>
+
+                                                    <asp:LinkButton ID="LinkButton13" runat="server"><i class="glyphicon glyphicon-print"></i>&nbsp Generate  fuel reports PDF</asp:LinkButton>
+                                                </strong>
+                                            </div>
+                                        </div>
+                                         
+                                    </div>
+                                </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                         <div class="row " style="margin-top: 7px;">
@@ -248,7 +272,7 @@
                                 <asp:Label ID="Label12" runat="server" Text="Pending..."></asp:Label>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center" style="padding-top: 10px; color: #483F42;">
-                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary sales" style="width:100%;" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-usd"></i>&nbsp Go to sales</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary sales" style="width:100%;" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-option-vertical"></i>&nbsp More</asp:LinkButton>
                             </div>
                         </div>
                         <div class="row">
@@ -447,5 +471,15 @@
             </div>
         </div>
 
+    </div>
+    <div class="container">
+         <div class="footer">
+ <div class="hover">
+     <span><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/more.png" class="more"/>More</span>
+     <a class="social-link" href="https://twitter.com/twitter" cc><i class="glyphicon glyphicon-home"></i></a>
+     <a class="social-link" href="#" target="_blank"  runat="server" onclientclick="changeStation"><i class="glyphicon glyphicon-retweet"></i></a>
+     <a class="social-link" href="https://www.instagram.com/joshuaward/" target="_blank"><i class="glyphicon glyphicon-user"></i></a>
+     <a class="social-link" href="https://github.com/joshuaward" target="_blank"><i class="glyphicon glyphicon-off"></i></a></div>
+</div>
     </div>
 </asp:Content>

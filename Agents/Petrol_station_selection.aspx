@@ -14,7 +14,7 @@
         <div class="well" style="background-color:transparent;border:none;">
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">--%>
-            <div class="well" style="background-color:black;opacity:0.8;border-radius:40px;border:none">
+            <div class="well wellOveride" >
                
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
@@ -22,7 +22,8 @@
                  
                     
                         <div class="well text-center" style="background-color:#68213A;color:white;border:none">
-                            <strong>Please select petrol station to continue.NB: Use search to find a station<asp:Label ID="Label2" runat="server" Text=""></asp:Label>   </strong>
+                            <strong>Please select petrol station or search using station name to find a station<asp:Label ID="Label2" runat="server" Text=""></asp:Label>   </strong>
+                            <br /><br />
                                 <div class="row">
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 hidden-xs "></div>
                               
@@ -47,6 +48,7 @@
               <div class="row text-center" style="margin-bottom:20px;font-size:15px;">
                   <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-primary categoryselector" OnClick="SelectStation">
                       <strong>
+                          
                   <asp:Label ID="Label3" runat="server" Text='<%#Eval("Station_ref")%>' style="font-size:0px;"></asp:Label>
                       <asp:Label ID="Label1" style="font-size:10px;" runat="server" Text='<%#Eval("Station_name")%>'></asp:Label></strong>
                   </asp:LinkButton>

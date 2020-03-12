@@ -35,6 +35,12 @@ namespace Petrol_Station.Agents
             Label5.Text = "dshfsjfshfs";
             //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Clicked')", true);
         }
+        protected void changeStation(object sender, EventArgs e)
+        {
+            Response.Redirect("../Agents/Petrol_station_selection.aspx");
+           
+            //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Clicked')", true);
+        }
         protected void changePrice(object sender, EventArgs e)
         {
             TextBox1.Text = Session["Price_itre"].ToString();
