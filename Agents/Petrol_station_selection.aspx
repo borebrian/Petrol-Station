@@ -46,7 +46,7 @@
                 <asp:Repeater ID="Repeater1" runat="server">
                     <Itemtemplate>
               <div class="row text-center" style="margin-bottom:20px;font-size:15px;">
-                  <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-primary categoryselector" OnClick="SelectStation">
+                  <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-default categoryselector" OnClick="SelectStation" style="">
                       <strong>
                           
                   <asp:Label ID="Label3" runat="server" Text='<%#Eval("Station_ref")%>' style="font-size:0px;"></asp:Label>

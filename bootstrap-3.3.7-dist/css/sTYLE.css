@@ -224,7 +224,20 @@ body {
 .myalert {
     background-color: white;
     border: 1px solid #68213A;
-    border-radius:10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px -2px 7px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px -2px 7px -2px rgba(0,0,0,0.75);
+    box-shadow: 2px -2px 7px -2px rgba(0,0,0,0.75);
+}
+.myalert1 {
+    background-color: white;
+    /*border: 1px solid #68213A;*/
+    border:none;
+    border-radius: 8px;
+    padding:5px;
+    -webkit-box-shadow: 2px -2px 7px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px -2px 7px -2px rgba(0,0,0,0.75);
+    box-shadow: 2px -2px 7px -2px rgba(0,0,0,0.75);
 }
 /*.myalert:hover{
     font-size:20px;
@@ -310,9 +323,9 @@ body {
     background-color: white;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    -webkit-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
+    /*-webkit-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
-    box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
+    box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);*/
 }
 .toptank {
     height: 40px;
@@ -531,9 +544,9 @@ body {
     border-top: none;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
-    -webkit-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
+    /*-webkit-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
-    box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
+    box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);*/
 }
 .frontank {
     height: 20px;
@@ -612,7 +625,7 @@ html {
     justify-content: center;
     width: 100%;
     height: 100%;
-    background-color: #68213A;
+    background-color: #ffffff;
     /*border-radius: 15px;*/
     /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
     /*transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);*/
@@ -634,22 +647,23 @@ html {
         z-index: 1;
     }
 
-    .hover:before {
-        content: '';
-        left: 0;
-        justify-content: flex-end;
-        background-color: #68213A;
-    }
+.hover:before {
+    content: '';
+    left: 0;
+    justify-content: flex-end;
+    background-color: #ffffff;
+}
 
-    .hover:after {
-        content: '';
-        right: 0;
-        justify-content: flex-start;
-        background-color: #68213A;
-    }
+.hover:after {
+    content: '';
+    right: 0;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    color: #68213A;
+}
 
     .hover:hover {
-        background-color: #68213A;
+        background-color: #ffffff;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
 
@@ -668,36 +682,36 @@ html {
             transform: translateY(100%);
         }
 
-    .hover span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        color: whitesmoke;
-        font-family:'Century Gothic1';
-        font-size: 10;
-        font-weight: 700;
-        opacity: 1;
-        transition: opacity 0.25s;
-        z-index: 2;
-    }
+.hover span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #68213A;
+    font-family: 'Century Gothic1';
+    font-size: 10;
+    font-weight: 700;
+    opacity: 1;
+    transition: opacity 0.25s;
+    z-index: 2;
+}
 
-    .hover .social-link {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 25%;
-        height: 100%;
-        color: whitesmoke;
-        font-size: 15px;
-        text-decoration: none;
-        transition: 0.25s;
-    }
+.hover .social-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    color: #68213A;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.25s;
+}
 
         .hover .social-link i {
             text-shadow: 1px 1px rgba(70, 98, 127, 0.7);

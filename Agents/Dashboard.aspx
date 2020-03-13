@@ -25,7 +25,7 @@
         <a class="navbar-brand" href="#" style="font-weight: bolder; color: white; padding: 0px; margin: 0px;">
             <%--<div class="container">--%>
 
-            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" Style="width: 40px; height: 40px; margin: 2px;" />
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite1.png" Style="width: 40px; height: 40px; margin: 2px;" />
 
             <%--</div>--%>
 
@@ -136,7 +136,7 @@
                                                 <div id="clickArea" class="backtank" runat="server" style="">
                                                     <div style="" id="tank" runat="server" class="frontank text-center">
                                                         <asp:Label ID="Label5" runat="server" Text="1499.654" CssClass="capacity"></asp:Label><asp:Label ID="Label6" runat="server" Text="Litres"></asp:Label>
-                                                        <div class="borderholder">
+                                                       <%-- <div class="borderholder">
                                                             <div class="alt1">
                                                             </div>
                                                             <div class="alt1">
@@ -178,7 +178,7 @@
                                                             <div class="alt1">
                                                             </div>
 
-                                                        </div>
+                                                        </div>--%>
                                                     </div>
                                                     <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >--%>
 

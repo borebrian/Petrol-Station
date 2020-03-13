@@ -9,8 +9,8 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid">
-     <div class="well" style="background-color:black;opacity:0.8;border-radius:40px;border:none">
+    <div class="container-fluid" style="margin-top:40px;">
+     <div class="well wellOveride" >
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>
@@ -24,7 +24,7 @@
                 <asp:Repeater ID="Repeater1" runat="server">
                     <Itemtemplate>
               <div class="row text-center" style="margin-bottom:20px;font-size:15px;">
-                  <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-primary categoryselector" OnClick="SelectFuel">
+                  <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-default categoryselector" OnClick="SelectFuel">
                       <strong>
                   <asp:Label ID="Label3" runat="server" Text='<%#Eval("Station_ref")%>' style="font-size:0px;"></asp:Label>
                       <asp:Label ID="Label1" style="font-size:10px;" runat="server" Text='<%#Eval("Fuel_type")%>'></asp:Label></strong>
@@ -33,7 +33,7 @@
                         </Itemtemplate>
            </asp:Repeater>
                 <div class="row text-center">
-                    <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary mycolor" runat="server" OnClick="LinkButton1_Click">Back</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default mycolor" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-arrow-left"></i> &nbsp Back</asp:LinkButton>
                 </div>
             </div>
          </div>

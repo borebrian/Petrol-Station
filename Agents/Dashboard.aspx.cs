@@ -17,24 +17,20 @@ namespace Petrol_Station.Agents
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] == null)
-            {
-                Response.Redirect("../Agents/Log_in.aspx");
-            }
-            else{
+            //if (Session["User"] == null)
+            //{
+            //    Response.Redirect("../Agents/Log_in.aspx");
+            //}
+            //else{
                 //INITIALIZE TWILIO AUTH
                 Auth s = new Auth();
                 s.InitTwilio();
                 actions();
                 tableConfirming.Visible = false;
 
-            }
+            //}
         }
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Label5.Text = "dshfsjfshfs";
-            //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Clicked')", true);
-        }
+     
         protected void changeStation(object sender, EventArgs e)
         {
             Response.Redirect("../Agents/Petrol_station_selection.aspx");
@@ -303,9 +299,9 @@ namespace Petrol_Station.Agents
                         if (currentCapacity <= ((totalcapacity / 6) * 1))
                         {
                             clickArea.Style.Add("Background-color", "#D3001A;");
-                            tank.Style.Add("border-bottom-left-radius", "50px");
+                            tank.Style.Add("border-bottom-left-radius", "20px");
 
-                            tank.Style.Add("border-bottom-right-radius", "50px");
+                            tank.Style.Add("border-bottom-right-radius", "20px");
                             Label5.Text = dr["Current_capacity"].ToString();
                             Label9.Text = dr["Price_itre"].ToString();
 

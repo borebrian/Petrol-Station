@@ -36,13 +36,13 @@
 
                                                   
                                  </span>
-                               <asp:TextBox ID="TextBox5" runat="server" class="form-control  rounded1" placeholder="Enter username"></asp:TextBox>
+                               <asp:TextBox ID="TextBox5" runat="server" MaxLength="8" class="form-control  rounded1" placeholder="Enter National "></asp:TextBox>
                                  </div>
-                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="TextBox1" ErrorMessage="Enter username"
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="TextBox1" ErrorMessage="Enter national ID"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
                                     <br />
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" Display="Dynamic" ErrorMessage="Invalid characters" runat="server"
-                                        ValidationGroup="nl" Visible="true" ControlToValidate="TextBox5" ValidationExpression="^[0-9A-Za-z]{1,30}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                        ValidationGroup="nl" Visible="true" ControlToValidate="TextBox5" ValidationExpression="^[0-9]{1,30}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
 
                          </div>
@@ -54,7 +54,7 @@
 
                                                   
                                  </span>
-                               <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded1" Display="Dynamic" type="password" placeholder="Enter Password"></asp:TextBox></div>
+                               <asp:TextBox ID="TextBox1" runat="server" MaxLength="8" class="form-control rounded1" Display="Dynamic" type="password" placeholder="Enter Password"></asp:TextBox></div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox5" ErrorMessage="Enter password"
                                         ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
                                     <br />

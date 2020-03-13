@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master"  EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Petrol_Station.Agents.Dashboard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master"  EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Agents_Dashboard.aspx.cs" Inherits="Petrol_Station.Agents.Agents_Dashboard" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +25,7 @@
         <a class="navbar-brand" href="#" style="font-weight: bolder; color: white; padding: 0px; margin: 0px;">
             <%--<div class="container">--%>
 
-            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" Style="width: 40px; height: 40px; margin: 2px;" />
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite1.png" Style="width: 40px; height: 40px; margin: 2px;" />
 
             <%--</div>--%>
 
@@ -73,219 +73,71 @@
         <div class="row">
 
             <%--//START OF TANK--%>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+           
+            <%--START OF PANEL BODY -TANK--%>
+               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
                 <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div1">
-                    <div class="panel-heading text-center" style="  background-color:#68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
-                        <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
-                            <ContentTemplate>
-                                <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick">
-                                </asp:Timer>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center ">
-                                        <asp:Image class="all-icons1" ID="Image3" runat="server" ImageUrl="~/Images/tank2.png" /><br />
-                                        <%--<asp:Label ID="Label4" runat="server" Text="Current"></asp:Label>--%>
-                                        <asp:Label ID="Label15" runat="server" Text=""></asp:Label>
-                                        <asp:Label ID="Label19" runat="server" Text="capacity"></asp:Label>
-
-
-
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
-                                        <asp:Image class="all-icons1" ID="Image4" runat="server" ImageUrl="~/Images/meter1.png" /><br />
-                                        <asp:Label ID="Label3" runat="server" Text="Level indicator"></asp:Label>
-
-                                    </div>
-                                </div>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-
-                    </div>
-
-                    <div class="panel-body">
-                        <asp:UpdatePanel runat="server" ID="UpdatePanel2" UpdateMode="Conditional">
-                            <ContentTemplate>
-                                <asp:Timer ID="Timer2" runat="server" Interval="2000" OnTick="Timer1_Tick"></asp:Timer>
-
-                                <div class="row">
-                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 " style="margin-left: 0px; margin-right: 0px;">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div style="" class="toptank text-center">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class=" price-holder text-center">
-                                                    <strong>
-                                                        <%--   <asp:Label ID="Label7" runat="server" Text="Price per sLitre:" style="font-family:Watch;color:#68213A"></asp:Label>&nbsp--%>
-                                                       <br />
-                                                    <div class="meter-readings1">
-                                                        <i class="glyphicon glyphicon-dashboard"></i>
-                                                        <asp:Label Style="" ID="Label7" runat="server" Text="3654243.76"></asp:Label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div id="clickArea" class="backtank" runat="server" style="">
-                                                    <div style="" id="tank" runat="server" class="frontank text-center">
-                                                        <asp:Label ID="Label5" runat="server" Text="1499.654" CssClass="capacity"></asp:Label><asp:Label ID="Label6" runat="server" Text="Litres"></asp:Label>
-                                                        <div class="borderholder">
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-                                                            <div class="alt1">
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >--%>
-
-                                                    <%--<hr  style="height:2px;background-color:green;"/>--%>
-                                                    <%--</div>--%>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 " style="margin-left: 0px; margin-right: 0px;">
-                                        <div class="row">
-                                            <asp:Label ID="Label10" runat="server" Text="Enough" Style="color: green; font-weight: bold;"></asp:Label>
-                                        </div>
-                                        <div class="row">
-                                            <div style="height: 50px; width: 10px; background-color: #0F7E2C; border-top-left-radius: 15px; border-top-right-radius: 15px;"></div>
-
-                                            <div style="height: 50px; width: 10px; background-color: #8BD99F"></div>
-                                            <div style="height: 50px; width: 10px; background-color: #BAD1BC"></div>
-                                            <div style="height: 50px; width: 10px; background-color: #DA98A0"></div>
-
-
-                                            <div style="height: 50px; width: 10px; background-color: #D34C5D"></div>
-
-                                            <div style="height: 50px; width: 10px; background-color: #D3001A; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;"></div>
-
-                                        </div>
-                                        <div class="row">
-                                            <asp:Label ID="Label11" runat="server" Text="Less" Style="color: red; font-weight: bold;"></asp:Label>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-2 col-md-1 col-sm-1 col-xs-1 text-right " style="margin-right:0px;padding-right:0px;">
-                                        <div style="width:2px;background-color:#707070;height:40px;"></div>
-                                        </div>
-
-                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 text-left " style="margin-left:0px;padding-left:0px;">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <strong><i class="glyphicon glyphicon-usd"></i>&nbsp <asp:Label Style="" ID="Label8" runat="server" Text=""></asp:Label>
-                                                        <asp:Label ID="Label9" runat="server" Text="-Current price per litre."></asp:Label></strong>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <strong>
-                                                        <%--asp:Label ID="Label31" runat="server" Text="Generate fuel reports PDF"></asp:Label>--%>
-
-                                                    <asp:LinkButton ID="LinkButton13" runat="server"><i class="glyphicon glyphicon-print"></i>&nbsp Generate  fuel reports PDF</asp:LinkButton>
-                                                </strong>
-                                            </div>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-                        <div class="row " style="margin-top: 7px;">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                            
-
-                              
-                                <%--<asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary sales1" runat="server" OnClick="LinkButton3_Click"><i class="glyphicon glyphicon-user"></i>&nbsp Admin</asp:LinkButton>--%>
-                                  
-                        
-
-
-                                    
-                                </div>
-                            </div>
-                        </div>
-                
-                </div>
-            </div>
-            <%--START OF PANEL BODY -TANK--%>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-
-                <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div2">
                     <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
-                        <asp:Image class="all-icons" ID="Image5" runat="server" ImageUrl="~/Images/sales.png" />&nbsp
-                        <asp:Label ID="Label20" runat="server" Text="Todays Sales"></asp:Label>
+                        <asp:Image class="all-icons" ID="Image3" runat="server" ImageUrl="~/Images/fuelachebiemitwhite1.png" />&nbsp&nbsp
+                        <asp:Label ID="Label3" runat="server" Text="Station Details"></asp:Label>
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center" style="padding-top: 10px; color: #483F42;">
-                                <asp:Label ID="Label12" runat="server" Text="Pending..."></asp:Label>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center" style="padding-top: 10px; color: #483F42;">
-                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary sales" style="width:100%;" runat="server" OnClick="LinkButton1_Click"><i class="glyphicon glyphicon-option-vertical"></i>&nbsp More</asp:LinkButton>
-                            </div>
-                        </div>
-                        <div class="row">
-                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="padding: 10px; color: #483F42; ">
-                                <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary sales1" runat="server" OnClick="refilling"><i class="glyphicon glyphicon-dashboard"></i> &nbsp Sales analysis</asp:LinkButton>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                           <div class="fuel">
+                               <div class="alert alert-info myalert1 text-center" style="color:#68213A;opacity:1; ">
+                      <div class="row">
+                                                      <div class="col-lg-5 col-md-4 col-sm-5 col-xs-5" style="color:#5B5959;font-weight:bold;font-size:20px;">
+                                                          <div class="row">
+                                                              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 " style="padding-top:12px;">
+                                                                  <asp:Image ID="Image34" runat="server" ImageUrl="~/Images/logo.png" style="width:30px;height:30px;" />
+                                                              </div>
+                                                              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="font-size:10px;padding-top:7px;">
+
+                                                             <asp:Label ID="Label44" runat="server" Text="Chebiemit Petrol Station"></asp:Label>
+
+
+                                                              </div>
+                                                          </div>
+
+                                                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="border-left:2px solid #68213A; ">
+                              <div class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color:#5B5959;font-weight:bold;">
+                                     <i class="glyphicon glyphicon-calendar">&nbsp</i> <asp:Label ID="Label5" runat="server" Text="10/08/2019"></asp:Label>
+                                  </div>
                                
-                            </div>
-                            </div>
+                                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color:#5B5959;font-weight:bold;">
+                                     <i class="glyphicon glyphicon-earphone"></i>&nbsp&nbsp&nbsp&nbsp &nbsp<asp:Label ID="Label8" runat="server" Text="071234567"></asp:Label>
+                                  </div>
+                              </div>
+                               <div class="row" style="margin-top:5px;">
+                                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color:#5B5959;font-weight:bold;">
+
+                          <%--<i class="glyphicon glyphicon-chevron-right"></i>--%>
+                                                                <%--<asp:LinkButton ID="LinkButton44" CssClass="btn btn-primary sales" runat="server">More</asp:LinkButton>--%>
+
+                      </div></div>
+
                     </div>
+
+
+                          </div>
+
+                     
+                  </div>
+                           </div>
+
+                        </div>
+                        </div>
+                      
+                           
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    </div>
+                    </div></div>
                 </div>
             </div>
+           
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
                 <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div3">
@@ -314,6 +166,25 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     </div>
+                </div>
+            </div>
+             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+
+                <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div2">
+                    <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
+                        <asp:Image class="all-icons" ID="Image5" runat="server" ImageUrl="~/Images/account.png" />&nbsp
+                        <asp:Label ID="Label20" runat="server" Text="Agents details"></asp:Label>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                           
+
+
+                        </div>
+                      
+                           
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                    </div></div>
                 </div>
             </div>
 
