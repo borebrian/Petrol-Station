@@ -27,6 +27,9 @@ namespace Petrol_Station.Agents
             s.InitTwilio();
             actions();
             tableConfirming.Visible = false;
+            populateFuel();
+
+            //actionTab.Visible = false;
 
             //}
         }
@@ -292,6 +295,21 @@ namespace Petrol_Station.Agents
         {
             actions();
             //Label15.Text = Label2.Text = DateTime.Now.ToString();
+        }
+        void populateFuel()
+        {
+            string CSY = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;
+            using (SqlConnection cont = new SqlConnection(CSY))
+            {
+                SqlCommand cmd1 = new SqlCommand("SELECT *FROM fuel where Station_ref='"+Session["Station_ref"]+"'", cont);
+                cont.Open();
+
+                Repeater1.DataSource = cmd1.ExecuteReader();
+
+                Repeater1.DataBind();
+                cont.Close();
+
+            }
         }
     }
 }

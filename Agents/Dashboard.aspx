@@ -475,8 +475,8 @@
     <div class="container">
          <div class="footer">
  <div class="hover">
-     <span><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/more.png" class="more"/>More</span>
-     <a class="social-link" href="https://twitter.com/twitter" cc><i class="glyphicon glyphicon-home"></i></a>
+     <span><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/more.png" class="more"/><i class="glyphicon glyphicon-option-vertical"></i>&nbsp More</span>
+     <a class="social-link" href="https://twitter.com/twitter"c><i class="glyphicon glyphicon-home"></i></a>
      <a class="social-link" href="#" target="_blank"  runat="server" onclientclick="changeStation"><i class="glyphicon glyphicon-retweet"></i></a>
      <a class="social-link" href="https://www.instagram.com/joshuaward/" target="_blank"><i class="glyphicon glyphicon-user"></i></a>
      <a class="social-link" href="https://github.com/joshuaward" target="_blank"><i class="glyphicon glyphicon-off"></i></a></div>

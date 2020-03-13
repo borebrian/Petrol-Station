@@ -75,15 +75,63 @@
             <%--//START OF TANK--%>
            
             <%--START OF PANEL BODY -TANK--%>
-               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+
+                <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div4">
+                     <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
+                        <asp:Image class="all-icons" ID="Image5" runat="server" ImageUrl="~/Images/account.png" />&nbsp
+                        <asp:Label ID="Label20" runat="server" Text="Agents details"></asp:Label>
+                    </div>
+                        <div class="panel-body">
+                      <table class="table">
+                          <tr><td class="danger"><strong> Agent name:</strong></td><td>
+                              <asp:Label ID="Label9" runat="server" Text="Brian Kimutai Koskei"></asp:Label></td></tr>
+                          <tr><td class="danger"> <strong> Station name:</strong></td><td>
+                              <asp:Label ID="Label10" runat="server" Text="Bomet Petrol station"></asp:Label></td></tr>
+                      </table>
+                       </div>
+                   
+                   
+                </div>
+            </div>
+             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
                 <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div1">
                     <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
-                        <asp:Image class="all-icons" ID="Image3" runat="server" ImageUrl="~/Images/fuelachebiemitwhite1.png" />&nbsp&nbsp
-                        <asp:Label ID="Label3" runat="server" Text="Station Details"></asp:Label>
+                        <div class="row">
+
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+                        <asp:Image class="all-icons" ID="Image3" runat="server" style="width:60px;height:60px;" ImageUrl="~/Images/fuelachebiemitwhite1.png" />&nbsp&nbsp
+
+                            </div>
+                             <div class="col-lg-8 col-sm-8 col-md-8 col-xs-8">
+                                 <div class=" row">
+                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
+                                          <asp:Label ID="Label3" runat="server" Text="Station Details"></asp:Label>
+                                     </div>
+                                 </div>
+                                  <div class=" row">
+                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
+                                          <asp:Label ID="Label7" runat="server" Text="Current available fuel"></asp:Label>
+                                     </div>
+                                 </div>
+                                  
+                            </div>
+                        </div>
+                       
                     </div>
                     <div class="panel-body">
-                        <div class="row">
+
+
+                        <%--//REPEATER FOR FUEL--%>
+                        <%--____________________________________________________________________________________________________________________________________________________--%>
+                        <asp:Repeater ID="Repeater1" runat="server">
+
+
+
+                            <ItemTemplate>
+                                
+                                  <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                            <div class="fuel">
                                <div class="alert alert-info myalert1 text-center" style="color:#68213A;opacity:1; ">
@@ -93,9 +141,9 @@
                                                               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 " style="padding-top:12px;">
                                                                   <asp:Image ID="Image34" runat="server" ImageUrl="~/Images/logo.png" style="width:30px;height:30px;" />
                                                               </div>
-                                                              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="font-size:10px;padding-top:7px;">
+                                                              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="font-size:15px;padding-top:15px;">
 
-                                                             <asp:Label ID="Label44" runat="server" Text="Chebiemit Petrol Station"></asp:Label>
+                                                             <asp:Label ID="Label44" runat="server" Text='<%#Eval("Fuel_type")%>'></asp:Label>
 
 
                                                               </div>
@@ -105,11 +153,11 @@
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="border-left:2px solid #68213A; ">
                               <div class="row">
                                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color:#5B5959;font-weight:bold;">
-                                     <i class="glyphicon glyphicon-calendar">&nbsp</i> <asp:Label ID="Label5" runat="server" Text="10/08/2019"></asp:Label>
+                                     <i class="glyphicon glyphicon-dashboard"></i>&nbsp <asp:Label ID="Label5" runat="server" Text="5654464"></asp:Label>
                                   </div>
                                
                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color:#5B5959;font-weight:bold;">
-                                     <i class="glyphicon glyphicon-earphone"></i>&nbsp&nbsp&nbsp&nbsp &nbsp<asp:Label ID="Label8" runat="server" Text="071234567"></asp:Label>
+                                    <i class="glyphicon glyphicon-scale"></i>&nbsp<asp:Label ID="Label8" runat="server" Text="3500"></asp:Label>&nbsp <asp:Label ID="Label6" runat="server" Text="Litres."></asp:Label>
                                   </div>
                               </div>
                                <div class="row" style="margin-top:5px;">
@@ -131,14 +179,20 @@
 
                         </div>
                         </div>
+
+                            </ItemTemplate>
+
+                        </asp:Repeater>
+                        <%--__________________________________________________________________________________________________________________________________________________________--%>
+                      
+                       
                       
                            
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     </div></div>
                 </div>
             </div>
-           
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 " id="actionTab" runat="server">
 
                 <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div3">
                     <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
@@ -168,31 +222,18 @@
                     </div>
                 </div>
             </div>
-             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-
-                <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div2">
-                    <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
-                        <asp:Image class="all-icons" ID="Image5" runat="server" ImageUrl="~/Images/account.png" />&nbsp
-                        <asp:Label ID="Label20" runat="server" Text="Agents details"></asp:Label>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                           
-
-
-                        </div>
-                      
-                           
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    </div></div>
-                </div>
             </div>
+        <div class="row"></div>
+
+              
+           
+     
 
         </div>
 
         <%---------------------------------------------------------------------END OF TANK------------------------------------------------------%>
         <%--//CHANGING PRICE MODAL--%>
-</div>
+
         <div id="modal1" class="modal fade" role="dialog">
 
             <div class="modal-dialog">
@@ -346,11 +387,13 @@
     <div class="container">
          <div class="footer">
  <div class="hover">
-     <span><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/more.png" class="more"/>More</span>
-     <a class="social-link" href="https://twitter.com/twitter" cc><i class="glyphicon glyphicon-home"></i></a>
-     <a class="social-link" href="#" target="_blank"  runat="server" onclientclick="changeStation"><i class="glyphicon glyphicon-retweet"></i></a>
-     <a class="social-link" href="https://www.instagram.com/joshuaward/" target="_blank"><i class="glyphicon glyphicon-user"></i></a>
-     <a class="social-link" href="https://github.com/joshuaward" target="_blank"><i class="glyphicon glyphicon-off"></i></a></div>
+     <span><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/more.png" class="more"/><asp:LinkButton CssClass="btn btn-default categoryselector12" ID="LinkButton1" runat="server"><i class="glyphicon glyphicon-usd"></i> &nbsp Submit sales</asp:LinkButton></span>
+     <a class="social-link" href="https://twitter.com/twitter" style="background-color:#68213A;color:white;">
+         <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/drop2.png" style="height:20px;width:20px;"/>&nbsp<strong>PETROL</strong> </a>
+     <a class="social-link" href="#" target="_blank"  runat="server" onclientclick="changeStation"><asp:Image ID="Image8" runat="server" ImageUrl="~/Images/drop.png" style="height:20px;width:20px;"/>&nbsp<strong>DIESEL</strong> </a>
+       <a class="social-link" href="https://twitter.com/twitter" style="background-color:#707070;color:white;">
+         <asp:Image ID="Image9" runat="server" ImageUrl="~/Images/drop2.png" style="height:20px;width:20px;"/>&nbsp<strong>KEROSENE</strong> </a>
+     </div>
 </div>
     </div>
 </asp:Content>

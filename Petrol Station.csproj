@@ -213,6 +213,8 @@
     <Content Include="Images\bg9.svg" />
     <Content Include="Images\buttonBackground.svg" />
     <Content Include="Images\cash.png" />
+    <Content Include="Images\drop.png" />
+    <Content Include="Images\drop2.png" />
     <Content Include="Images\fuelachebiemitwhite1.png" />
     <Content Include="Images\bg11.jpg" />
     <Content Include="Images\fuelachebiemitwhite.png" />

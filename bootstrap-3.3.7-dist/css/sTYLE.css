@@ -112,6 +112,18 @@ body {
     -moz-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
     box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
 }
+.categoryselector12 {
+    padding: 10px;
+    border-radius: 40px;
+    color: #68213A;
+    background-color: white;
+    /*border: 1px solid #68213A;*/
+    border: none;
+    -webkit-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
+    box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
+}
+}
 .imageside {
     background-color: #707070;
 }
@@ -120,7 +132,7 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    height:50px;
+    height:55px;
     background-color: white;
     color: white;
     text-align: center;
@@ -705,7 +717,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25%;
+    width: 33.33%;
     height: 100%;
     color: #68213A;
     font-size: 15px;
