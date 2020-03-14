@@ -44,7 +44,7 @@ namespace Petrol_Station.Agents
             }
             else
             {
-                Admin.Login("SELECT *FROM Agents_Reg WHere National_ID=@Username and Password=@Password", TextBox5.Text, TextBox1.Text);
+                Admin.LoginaAgents("SELECT *FROM Agents_Reg WHere National_ID=@Username and Password=@Password", TextBox5.Text, TextBox1.Text);
                 if (Admin.test)
                 {
                     if (TextBox1.Text == "12345678")

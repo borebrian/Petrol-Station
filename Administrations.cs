@@ -35,7 +35,9 @@ namespace Administration
                         Session.Add("National_ID", myDataReadert["National_ID"]);
                         Session.Add("Role", myDataReadert["Role"]);
                         Session.Add("Name", myDataReadert["Full_names"]);
-                        Session.Add("Station_ref", myDataReadert["Station_ref"]);
+
+
+
                         //Session.Add("Reff", myDataReadert["Station_ref"]);
 
                     }
@@ -48,5 +50,47 @@ namespace Administration
                 }
             }
         }
+
+        public void LoginaAgents(String sql, String Username, String Pass)
+        {
+
+
+            string strcon = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;
+            //create new sqlconnection and connection to database by using connection string from web.config file  
+            SqlConnection con = new SqlConnection(strcon);
+            {
+
+                using (SqlCommand StrQuer = new SqlCommand(sql, con))
+                {
+                    StrQuer.Parameters.AddWithValue("@Username", Username);
+                    StrQuer.Parameters.AddWithValue("@password", Pass);
+                    StrQuer.Connection.Open();
+
+                    SqlDataReader myDataReadert = StrQuer.ExecuteReader();
+
+
+                    if (myDataReadert.Read())
+                    {
+                        test = true;
+                        Session.Add("User", myDataReadert["Username"]);
+                        Session.Add("National_ID", myDataReadert["National_ID"]);
+                        Session.Add("Role", myDataReadert["Role"]);
+                        Session.Add("Name", myDataReadert["Full_names"]);
+                        Session.Add("Station_ref", myDataReadert["Station_ref"]);
+
+
+                        //Session.Add("Reff", myDataReadert["Station_ref"]);
+
+                    }
+                    else
+                    {
+                        test = false;
+                    }
+
+
+                }
+            }
+        }
+
     }
 }

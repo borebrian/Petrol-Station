@@ -36,6 +36,7 @@
                                                      <asp:LinkButton ID="LinkButton16" CssClass="btn btn-default" runat="server" ValidationGroup="nm" OnClick="LinkButton16_Click"><i class="glyphicon glyphicon-search"></i> &nbsp Search</asp:LinkButton>
 
                                  </span></div>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
                          </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 hidden-xs "></div>
 
@@ -62,7 +63,9 @@
                     <%--</asp:UpdatePanel>--%>
 
         </div>
-      
+       <div id="submit" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+      </div></div>
          <div id="modalfueltest" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -82,5 +85,10 @@
   </div></div>
       </div>
     </div>
-   
+   <%--//SALES SUBMISSION MODAL--%>
+     
+            <%--</div>--%>
+
+            <%--//REFILING PETROL DASHBOAD--%>
+        </div>
 </asp:Content>

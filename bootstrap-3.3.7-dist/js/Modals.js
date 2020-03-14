@@ -46,3 +46,13 @@ function refill() {
     });
     $('#refill').modal("show");
 }
+function showSubmitDialog() {
+    $("#modal12").modal({
+        show: false,
+        backdrop: 'static'
+
+    });
+    $('#modal12').modal("show");
+}
+
+modal1

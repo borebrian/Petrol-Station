@@ -296,7 +296,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="padding: 10px; color: #483F42; ">
-                                <asp:LinkButton ID="LinkButton5" CssClass="btn btn-primary sales1" runat="server" OnClick="refilling"><i class="glyphicon glyphicon-dashboard"></i> &nbsp Refill tank</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton5" CssClass="btn btn-default sales1" runat="server" OnClick="refilling"><i class="glyphicon glyphicon-dashboard"></i> &nbsp Refill tank</asp:LinkButton>
                                
                             </div>
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="padding: 10px; color: #483F42;">
@@ -376,7 +376,7 @@
                         <asp:LinkButton ID="LinkButton8" CssClass="btn btn-default" runat="server"><i class="glyphicon glyphicon-remove-sign"></i></asp:LinkButton>
                     </div>
                     <div class="row text-center">
-                                              <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/fuelaviolet.png" Style="height: 50px; width: 50px;" />
+                                              <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" Style="height: 50px; width: 50px;" />
 
                         <h3></h3>
 

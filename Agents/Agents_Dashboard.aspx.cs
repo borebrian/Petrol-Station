@@ -17,21 +17,27 @@ namespace Petrol_Station.Agents
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["User"] == null)
-            //{
-            //    Response.Redirect("../Agents/Log_in.aspx");
-            //}
-            //else{
-            //INITIALIZE TWILIO AUTH
-            Auth s = new Auth();
-            s.InitTwilio();
-            actions();
-            tableConfirming.Visible = false;
-            populateFuel();
+            if (Session["name"] == null)
+            {
+                Response.Redirect("../Agents/Log_in.aspx");
+            }
+            else
+            {
+                //INITIALIZE TWILIO AUTH
+                Auth s = new Auth();
+                s.InitTwilio();
+                actions();
+                tableConfirming.Visible = false;
+                populateFuel();
+                Label9.Text = Session["name"].ToString();
+                Label1.Text = Session["User"].ToString();
+                confirmtable.Visible = false;
 
-            //actionTab.Visible = false;
 
-            //}
+                //actionTab.Visible = false;
+
+                //}
+            }
         }
 
         protected void changeStation(object sender, EventArgs e)
@@ -73,6 +79,12 @@ namespace Petrol_Station.Agents
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
             Response.Redirect("../Agents/Sales_category.aspx");
+
+        }
+        protected void submitforreview(object sender, EventArgs e)
+        {
+            enterMeter.Visible = false;
+            confirmtable.Visible = true;
 
         }
         protected void cancelRefill(object sender, EventArgs e)
@@ -270,18 +282,16 @@ namespace Petrol_Station.Agents
         void actions()
         {
 
-
-
-
-            float Pixelheight = 200;
-            String unit = "px";
-
             SqlConnection con = new SqlConnection(str);
-            SqlCommand cmd = new SqlCommand("SELECT *FROM Fuel WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='" + Session["Fuel_type"] + "'", con);
+            SqlCommand cmd = new SqlCommand("SELECT *FROM Station_registration WHERE Station_ref='" + Session["Station_ref"] + "'", con);
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
+                Label10.Text = dr["Station_name"].ToString();
+                Label14.Text = dr["Location"].ToString();
+                Label18.Text = dr["Station_name"].ToString();
+
                 con.Close();
 
             }
@@ -295,6 +305,11 @@ namespace Petrol_Station.Agents
         {
             actions();
             //Label15.Text = Label2.Text = DateTime.Now.ToString();
+        }
+        protected void submitpetrol(object sender, EventArgs e)
+        {
+            Label11.Text = "petrol";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showSubmitDialog()", true);
         }
         void populateFuel()
         {
