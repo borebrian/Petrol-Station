@@ -81,10 +81,28 @@ namespace Petrol_Station.Agents
             Response.Redirect("../Agents/Sales_category.aspx");
 
         }
+        protected void beckToMeter(object sender, EventArgs e)
+        {
+            Label30.Text = "Please enter ";
+            Label12.Text = "meter readings as indicated on the meter.";
+            TextBox3.Text = "";
+            enterMeter.Visible = true;
+            confirmtable.Visible = false;
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showSubmitDialog()", true);
+
+
+
+        }
         protected void submitforreview(object sender, EventArgs e)
         {
+            Label5.Text = TextBox3.Text;
             enterMeter.Visible = false;
+            Label11.Text = "";
+            Label30.Text = "";
             confirmtable.Visible = true;
+            Label12.Text = "Are you sure you want to submit below readings?NB:This action is irreversible!!.";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showSubmitDialog()", true);
+
 
         }
         protected void cancelRefill(object sender, EventArgs e)
