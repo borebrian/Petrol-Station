@@ -18,6 +18,9 @@ namespace InsertingRecords
         public Boolean res;
         public string phone;
         public Boolean check;
+        public Boolean fuel;
+        public Boolean dates;
+        public string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
 
         public void inserting(String sql)
         {
@@ -31,7 +34,7 @@ namespace InsertingRecords
 
 
         }
-
+       
         public void testifavailable(String sql)
         {
 
@@ -50,6 +53,63 @@ namespace InsertingRecords
             else
             {
                 res = false;
+                con.Close();
+
+            }
+
+
+        }
+        public void testifuel(String sql)
+        {
+
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                fuel = true;
+               
+
+                con.Close();
+            }
+            else
+            {
+                fuel = false;
+                con.Close();
+
+            }
+
+
+        }
+        public void testDate(String sql)
+        {
+
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                String date = DateTime.Now.ToString("yyyy-MM-dd");
+            if (dr["Meter_Readingss"].ToString()==date)
+                {
+                    dates = true;
+
+                }
+                else
+                {
+                    dates = false;
+                }
+           
+
+              
+            }
+            else
+            {
+           
                 con.Close();
 
             }

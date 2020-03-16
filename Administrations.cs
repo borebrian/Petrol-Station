@@ -5,9 +5,10 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace Administration
+
+namespace Administration 
 {
-    public partial class Administrations : System.Web.UI.Page
+    public partial class Administrations : System.Web.UI.Page 
     {
         public bool test;
         public void Login(String sql, String Username, String Pass)

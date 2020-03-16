@@ -54,5 +54,17 @@ function showSubmitDialog() {
     });
     $('#modal12').modal("show");
 }
+function nofuel() {
+    $("#nofuel").modal({
+        show: false,
+        backdrop: 'static'
 
-modal1
+    });
+    $('#nofuel').modal("show");
+}
+
+function hidModal() {
+    $("#modal12").on('hide.bs.modal', function () {
+        alert('The modal is about to be hidden.');
+    }); 
+}

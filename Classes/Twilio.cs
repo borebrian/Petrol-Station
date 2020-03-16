@@ -15,8 +15,28 @@ namespace SMS
     {
         public Boolean check;
         public Boolean log;
+        public Boolean testFuelAvaillability;
+        public string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
 
-        public void InitTwilio()
+        public void testYesterMeter(string sql)
+        {
+            SqlConnection cont = new SqlConnection(str);
+            SqlCommand cmdt = new SqlCommand(sql, cont);
+            cont.Open();
+            SqlDataReader myDataReadertt = cmdt.ExecuteReader();
+            if (myDataReadertt.Read())
+            {
+                testFuelAvaillability = true;
+                Session.Add("testFuelAvaillability", "true");
+            }
+            else
+            {
+                testFuelAvaillability = false;
+                Session.Add("testFuelAvaillability", "false");
+
+            }
+        }
+            public void InitTwilio()
         {
             //LETS GET TWILIO CREDENTIALS
             string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
@@ -40,6 +60,29 @@ namespace SMS
                 }
             
            
+        }
+        public void getYesterMeter(string sql)
+        {
+            //LETS GET TWILIO CREDENTIALS
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            SqlDataReader myDataReadert = cmd.ExecuteReader();
+            if (myDataReadert.Read())
+            {
+                // ADD YESTERSAYS METER TO SESSION
+                Session.Add("yesterdayTodayMeter", myDataReadert["Current_meter"]);
+                con.Close();
+
+            }
+            else
+            {
+                con.Close();
+
+            }
+
+
         }
         public void test(float tester)
         {

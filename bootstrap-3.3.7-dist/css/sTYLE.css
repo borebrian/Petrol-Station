@@ -132,10 +132,12 @@ body {
     left: 0;
     padding: 3px;
     bottom: 0;
+
     width: 100%;
-    height: 70px;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
+    border: 5px solid #68213A;
+    border-bottom:none;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
     background-color: white;
     color: white;
     text-align: center;
@@ -667,6 +669,9 @@ html {
     width: auto;
     font-size: 20px;
     font-weight: 999;
+    -webkit-box-shadow: -1px 1px 8px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 1px 8px 0px rgba(0,0,0,0.75);
+    box-shadow: -1px 1px 8px 0px rgba(0,0,0,0.75);
 }
 
     .hover:before, .hover:after {
@@ -741,7 +746,8 @@ html {
     width: 33.33%;
     height: 100%;
     color: #68213A;
-    border-right: 2px #707070 solid;
+    border-right: 2px #E5E2E2 
+    solid;
     font-size: 15px;
     text-decoration: none;
     transition: 0.25s;

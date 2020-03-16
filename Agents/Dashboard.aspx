@@ -21,6 +21,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
+
     <nav class="navbar navbar-inverse navbar-fixed-top" style="color: white; background-color: #68213A">
         <a class="navbar-brand" href="#" style="font-weight: bolder; color: white; padding: 0px; margin: 0px;">
             <%--<div class="container">--%>
@@ -32,7 +34,7 @@
         </a>
 
 
-        <div class="container">
+        
             <div class="navbar-header" style="color: white;">
 
                 <%--<asp:LinkButton ID="LinkButton5" class="navbar-toggle  " data-target="#navbar" aria-expanded="false" aria-controls="navbar" runat="server"><i class="glyphicon glyphicon-off"></i></asp:LinkButton>--%>
@@ -65,7 +67,7 @@
                     <%--<li class="active"><a href="#">Sell trees</a></li>--%>
             </div>
             <!--/.nav-collapse -->
-        </div>
+       
     </nav>
     <div class="container-fluid" style="margin-top: 60px;">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -472,6 +474,7 @@
         </div>
 
     </div>
+        </div>
     <div class="container">
          <div class="footer">
  <div class="hover">
