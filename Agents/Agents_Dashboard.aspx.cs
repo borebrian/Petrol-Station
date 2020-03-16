@@ -74,12 +74,13 @@ namespace Petrol_Station.Agents
                 generalClass.inserting("INSERT INTO Metre_records(Station_ref,Date,Month,Year,Previous_meter,Current_meter,Agent_ID,Fuel_Type) VALUES('" + Session["Station_Ref"] + "','" + date + "','" + month + "','" + year + "','" + Session["yesterdayTodayMeter"] + "','" + Label5.Text + "','" + Session["National_ID"] + "','" + Session["Fuel_category"] + "')");
 
                 generalClass.inserting("UPDATE Meter_Readingss SET Date='" + date + "',Month='" + month + "',Year='" + year + "',Meter='" + Label5.Text + "',Agent_ID='" + Session["National_ID"] + "' WHERE Fuel_Type='" + Session["Fuel_category"] + "' AND Station_Ref='" + Session["Station_Ref"] + "'");
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "hidModal()", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "nofuel()", true);
+
 
 
                 restore();
 
-
+                LinkButton5.Click += new EventHandler(removeModal);
 
             }
             else {
@@ -89,8 +90,9 @@ namespace Petrol_Station.Agents
                 //1.1 Lets insert into meter records
                 generalClass.inserting("INSERT INTO Metre_records(Station_ref,Date,Month,Year,Previous_meter,Current_meter,Agent_ID,Fuel_type)VALUES('" + Session["Station_Ref"] + "','" + date + "','" + month + "','" + year + "','" + Label4.Text + "','" + Label5.Text + "','" + Session["National_ID"] + "','" + Session["Fuel_category"] + "')");
                 restore();
+                LinkButton5.Click += new EventHandler(removeModal);
 
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "hidModal()", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "nofuel()", true);
 
 
             }
@@ -264,8 +266,8 @@ namespace Petrol_Station.Agents
         }
         protected void submitpetrol(object sender, EventArgs e)
         {
-            general.testifuel("SELECT *FROM Fuel WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='PETROL'");
-            if (general.fuel)
+            general.testDate("SELECT *FROM Meter_Readingss WHERE Fuel_type='" + Session["Fuel_category"] + "' AND  Station_Ref='" + Session["Station_ref"] + "' AND Date='" + DateTime.Now.ToString("dd") + "' AND Month='" + DateTime.Now.ToString("MM") + "' AND Year='" + DateTime.Now.ToString("yy") + "'");
+            if (general.dates)
             {
                 Label11.Text = "petrol";
                 Label11.Text = "petrol";

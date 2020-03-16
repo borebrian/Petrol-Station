@@ -110,6 +110,161 @@
 
                 </div>
             </div>
+             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                 
+                <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div2">
+                    <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
+                        <asp:Image class="all-icons" ID="Image8" runat="server" ImageUrl="~/Images/tank2.png" />&nbsp
+                        <asp:Label ID="Label17" runat="server" Text="Submit meter"></asp:Label>
+                    </div>
+
+                    <div class="panel-body wellOveride" style="border-top-left-radius:unset;border-top-right-radius:unset;">
+                         <asp:UpdatePanel ID="UpdatePanel3" UpdateMode="Conditional" runat="server">
+             <ContentTemplate>
+                        <table class="table" id="table1" runat="server" style="border:none" border="0">
+                            <tr style="background-color:white;">
+                                <td class="text-left" style="font-size:25px;">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding:5px;border-right:#574D50 solid 2px;">
+                                    <div >
+                                    <strong> <asp:Image class="all-icons" ID="Image9" runat="server" Style="width: 20px; height: 20px;" ImageUrl="~/Images/drop.png" /></strong>
+                                   
+                                        </div></div>
+                                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 text-left" style="font-size:15px;">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <asp:Label ID="Label21" runat="server" Text="Diesel" style="font-weight:999;color:#68213A"></asp:Label>
+
+                                            </div></div>
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                    <asp:Label ID="Label22" runat="server" Text="Please enter previous day and todays meter readings as indicated below!"></asp:Label>
+                                            </div></div></div>
+                                        </div></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">  <asp:TextBox ID="TextBox2" runat="server" type="number" class="form-control rounded1" MaxLength="3" placeholder="Enter previous metre readings." Style="height:50px;font-size:18px;font-weight:999;"></asp:TextBox></td>
+                            </tr><tr>
+                                <td colspan="2">  <asp:TextBox ID="TextBox4" runat="server" type="number" class="form-control rounded1" MaxLength="3" placeholder="Enter previous metre readings." Style="height:50px;font-size:18px;font-weight:999;"></asp:TextBox></td>
+                            </tr>
+                            <tr>
+                               
+                                <td colspan="2">
+                                    <asp:LinkButton ID="LinkButton6" class="btn btn-primary sales1" runat="server">Next</asp:LinkButton></td>
+                            </tr>
+                        </table>
+                  <table class="table" id="table3" runat="server" style="border:none" border="0">
+                            <tr style="background-color:white;">
+                                <td class="text-left" style="font-size:25px;">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding:5px;border-right:#574D50 solid 2px;">
+                                    <div >
+                                    <strong> <asp:Image class="all-icons" ID="Image12" runat="server" Style="width: 20px; height: 20px;" ImageUrl="~/Images/drop.png" /></strong>
+                                   
+                                        </div></div>
+                                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 text-left" style="font-size:15px;">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <asp:Label ID="Label27" runat="server" Text="Diesel" style="font-weight:999;color:#68213A"></asp:Label>
+
+                                            </div></div>
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                    <asp:Label ID="Label28" runat="server" Text="Please enter today's diesel meter readings as indicated on the fuel dispenser meter."></asp:Label>
+                                            </div></div></div>
+                                        </div></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">  <asp:TextBox ID="TextBox5" runat="server" type="number" class="form-control rounded1" MaxLength="3" placeholder="Enter today's metre readings." Style="height:50px;font-size:18px;font-weight:999;"></asp:TextBox></td>
+                            </tr>
+                            <tr>
+                               
+                                <td colspan="2">
+                                    <asp:LinkButton ID="LinkButton10" class="btn btn-primary sales1" runat="server">Next</asp:LinkButton></td>
+                            </tr>
+                        </table>
+                 <table class="table" id="table2" runat="server" style="border:none" border="0">
+                            <tr style="background-color:white;">
+                                <td class="text-left" style="font-size:25px;">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding:5px;border-right:#574D50 solid 2px;">
+                                    <div >
+                                    <strong> <asp:Image class="all-icons" ID="Image11" runat="server" Style="width: 20px; height: 20px;" ImageUrl="~/Images/drop.png" /></strong>
+                                   
+                                        </div></div>
+                                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 text-left" style="font-size:15px;">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <asp:Label ID="Label23" runat="server" Text="Diesel meter confirmation" style="font-weight:999;color:#68213A"></asp:Label>
+
+                                            </div></div>
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                    <asp:Label ID="Label24" runat="server" Text="Please confirm the meter readings before proceeding!"></asp:Label>
+                                            </div></div></div>
+                                        </div></td>
+                            </tr>
+                     </table>
+                 <table class="table" style="font-size:20px;">
+                            <tr>
+                                <td ><strong>Previous readings:</strong></td><td style="background-color:#68213A;color:white;font-weight:999">
+                                    <asp:Label ID="Label25" runat="server" Text="26543654"></asp:Label></>
+                            </td></tr>
+                     <tr>
+                                <td ><strong>Today's readings:</strong></td><td style="background-color:#68213A;color:white;font-weight:999">
+                                    <asp:Label ID="Label26" runat="server" Text="26543654"></asp:Label></>
+                            </td></tr>
+                    
+                            <tr>
+                               
+                                <td colspan="2">
+                                    <div class="btn  btn-group-justified">
+                                         <span class="input-group-btn">
+                                        <asp:LinkButton ID="LinkButton8" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-arrow-left"></i> &nbsp Back</asp:LinkButton>
+                                             </span>
+                                        <span class="input-group-btn">
+                                        <asp:LinkButton ID="LinkButton9" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-ok"></i>&nbsp Finish</asp:LinkButton>
+                                             </span>
+                                        </div>
+                                        </td>
+                            </tr>
+                        </table>
+                 <table class="table confirmed" style="background-color:white;">
+                     <tr>
+                         <td colspan="2" class="text-center"><i class="glyphicon glyphicon-exclamation-sign"></i><br /><strong>Confirmed todays diesel meter submitted.</strong></td>
+                         
+                     </tr>
+                     <tr>
+                         <td>Yesterday meter readings:</td><td class="success"><strong>
+                             <asp:Label ID="Label31" runat="server" Text="76545734"></asp:Label></strong></td>
+
+                    </tr>
+                     <tr>
+                         <td>Today meter readings:</td><td class="success"><strong>
+                             <asp:Label ID="Label32" runat="server" Text="76545734"></asp:Label></strong></td>
+                         </tr>
+                     <tr>
+                         <td>Litres sold:</td><td class="success"><strong>
+                             <asp:Label ID="Label33" runat="server" Text="76545734"></asp:Label></strong></td>
+                         </tr>
+                     <tr>
+                         <td>Price sold:</td><td class="success"><strong>
+                             <asp:Label ID="Label34" runat="server" Text="76545734"></asp:Label></strong></td>
+
+
+
+                     </tr>
+                 </table>
+                 </ContentTemplate>
+                             </asp:UpdatePanel>
+                    </div>
+
+
+                </div>
+            </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
                 <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div1">
@@ -403,8 +558,8 @@
                 <span style="margin: 5px;">
                     <asp:LinkButton CssClass="btn btn-default categoryselector12 more text-center" ID="LinkButton1" runat="server">&nbsp<br />
                       
-                        <asp:Label ID="Label19" runat="server" Text=" Submit meter" Style="margin-bottom: 3px;"></asp:Label></asp:LinkButton></span>
-                <asp:LinkButton class="social-link" ID="LinkButton7"  runat="server" OnClick="submitpetrol">&nbsp
+                        <asp:Label ID="Label19" runat="server" Text=" Submit meter"  Style="margin-bottom: 3px;"></asp:Label></asp:LinkButton></span>
+                <asp:LinkButton class="social-link" type="button" data-toggle="modal" data-target="#modal12"  ID="LinkButton7"   runat="server" >&nbsp
                     <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/Diesel.png" Style="height: 40px; width: 40px;" />&nbsp&nbsp<strong>Petrol</strong></asp:LinkButton>
                  <asp:LinkButton class="social-link" ID="LinkButton2"  runat="server" OnClick="submitparafin">&nbsp
                     <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/parafin.png" Style="height: 40px; width: 40px;" />&nbsp&nbsp<strong>Parafin</strong></asp:LinkButton>

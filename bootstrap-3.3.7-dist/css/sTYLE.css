@@ -219,29 +219,7 @@ body {
         border-radius: 10px;
         border: 3px white solid;
     }
-.sales1 {
-    background-color: white;
-    color: #707070;
-    border-radius: 10px;
-    padding: 10px;
-    width: 100%;
-    /*border: 1px #707070 solid;*/
-    border:none;
-    -webkit-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
-    box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
-}
 
-    .sales1:hover {
-        background-color: #68213A;
-        color: white;
-        width: 100%;
-        border-radius: 10px;
-        border: 1px white solid;
-        -webkit-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
-        -moz-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
-        box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
-    }
 .myalert {
     background-color: white;
     border: 1px solid #68213A;
@@ -288,16 +266,17 @@ body {
 }
 .rounded1 {
     border-radius: 5px;
-    border: none;
+    border: 2px #ffffff solid;
     text-align: center;
-    -webkit-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
-    box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -2px 0px 13px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 0px 13px -1px rgba(0,0,0,0.75);
+    box-shadow: -2px 0px 13px -1px rgba(0,0,0,0.75);
 }
-.btn-default {
-    -webkit-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
-    box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
+.confirmed {
+    border-radius:10px;
+    -webkit-box-shadow: -2px 0px 13px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 0px 13px -1px rgba(0,0,0,0.75);
+    box-shadow: -2px 0px 13px -1px rgba(0,0,0,0.75);
 }
 .wellOveride {
     background-color: black;
@@ -477,11 +456,11 @@ body {
 }
 
     .sales1:hover {
-        background-color: #68213A;
+        background-color: #7B7174;
         color: white;
         width: 100%;
         border-radius: 10px;
-        border: 1px white solid;
+        border: none;
         -webkit-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
         -moz-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
         box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
@@ -517,14 +496,8 @@ body {
     -moz-box-shadow: 2px -2px 7px -2px rgba(0,0,0,0.75);
     box-shadow: 2px -2px 7px -2px rgba(0,0,0,0.75);
 }
-.rounded1 {
-    border-radius: 5px;
-    border: none;
-    text-align: center;
-    -webkit-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
-    box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
-}
+
+
 .btn-default {
     -webkit-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
