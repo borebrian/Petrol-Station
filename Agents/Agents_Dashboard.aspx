@@ -95,10 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-
-                
-            </div>
+         
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
                 <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div1">
@@ -399,7 +396,7 @@
                                         <td class="text-center"  colspan="2" >
                                         <Strong><asp:Label style="font-size:40px;font-weight:900"  ID="Label37" runat="server" Text=""></asp:Label></Strong></td>
                                     </tr>
-                                    <tr><td> <asp:LinkButton ValidationGroup="bn" ID="LinkButton6" OnClick="prev11" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-pencil"></i> &nbsp Modify</asp:LinkButton></td><td><asp:LinkButton ValidationGroup="bn" ID="LinkButton11" OnClick="next22" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-arrow-right"></i> &nbsp <i class="glyphicon glyphicon-saved"></i>&nbsp Finish</asp:LinkButton></td></tr>
+                                    <tr><td> <asp:LinkButton ValidationGroup="bn" ID="LinkButton6" OnClick="prev11" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-pencil"></i> &nbsp Modify</asp:LinkButton></td><td><asp:LinkButton ValidationGroup="bn" ID="LinkButton11" OnClick="finishSubmisiion" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-arrow-right"></i> &nbsp <i class="glyphicon glyphicon-saved"></i>&nbsp Finish</asp:LinkButton></td></tr>
                                 </table>
                                 <table class="table"  runat="server" style="font-size:20px; " id="table6">
                                     <tr>
@@ -423,7 +420,7 @@
                                                     <asp:LinkButton ID="LinkButton8" OnClick="backDoubleTextbox" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-arrow-left"></i> &nbsp Back</asp:LinkButton>
                                                 </span>
                                                 <span class="input-group-btn">
-                                                    <asp:LinkButton ID="LinkButton9" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-ok"></i>&nbsp Finish</asp:LinkButton>
+                                                    <asp:LinkButton ID="LinkButton9" class="btn btn-primary sales1" runat="server" OnClick="finishtask"><i class="glyphicon glyphicon-ok"></i>&nbsp Finish</asp:LinkButton>
                                                 </span>
                                             </div>
                                         </td>
@@ -431,10 +428,11 @@
                                 </table>
                                 <table class="table confirmed" runat="server" id="tableconfirm" style="background-color: white;">
                                     <tr>
+
                                         <td colspan="2" class="text-center"><i class="glyphicon glyphicon-exclamation-sign"></i>
                                             <br />
                                             <strong>
-                                                <asp:Label ID="Label35" runat="server" Text=""></asp:Label></strong></td>
+                                                <asp:Label ID="Label35" runat="server" Text=""></asp:Label>.&nbsp<asp:Label ID="Label36" runat="server" Text=" An SMS confirmation has been sent to the manager."></asp:Label></strong></td>
                                     </tr>
                                     <tr>
                                         <td>Yesterday meter readings:</td>
@@ -452,13 +450,19 @@
                                             <asp:Label ID="Label33" runat="server" Text=""></asp:Label></strong></td>
                                     </tr>
                                     <tr>
-                                        <td>Price sold:</td>
+                                        <td>Price per litre:</td>
                                         <td class="success"><strong>
                                             <asp:Label ID="Label34" runat="server" Text=""></asp:Label></strong></td>
                                     </tr>
                                 </table>
                             </ContentTemplate>
                         </asp:UpdatePanel>
+
+                        <table class="table">
+                            <tr>
+                                <td colspan="2"><asp:LinkButton ID="LinkButton15" class="btn btn-primary sales1" runat="server" ><i class="glyphicon glyphicon-ok"></i>&nbsp Close</asp:LinkButton></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
         </div>
