@@ -53,13 +53,7 @@ namespace Petrol_Station.Agents
                     }
                     else
                     {
-
-
                         Response.Redirect("../Agents/Agents_Dashboard.aspx");
-
-
-
-
                     }
                 }
                 else

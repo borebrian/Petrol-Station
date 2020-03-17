@@ -68,3 +68,11 @@ function hidModal() {
         alert('The modal is about to be hidden.');
     }); 
 }
+function classic() {
+    $("#classic").modal({
+        show: false,
+        backdrop: 'static'
+
+    });
+    $('#classic').modal("show");
+}

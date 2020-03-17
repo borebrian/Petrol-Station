@@ -78,10 +78,7 @@ namespace Administration
                         Session.Add("Role", myDataReadert["Role"]);
                         Session.Add("Name", myDataReadert["Full_names"]);
                         Session.Add("Station_ref", myDataReadert["Station_ref"]);
-
-
                         //Session.Add("Reff", myDataReadert["Station_ref"]);
-
                     }
                     else
                     {
