@@ -83,6 +83,7 @@ namespace InsertingRecords
 
 
         }
+        
         public void testDate(String sql)
         {
 
@@ -94,22 +95,22 @@ namespace InsertingRecords
             if (dr.Read())
             {
                 String date = DateTime.Now.ToString("yyyy-MM-dd");
-            if (dr["Meter_Readingss"].ToString()==date)
-                {
-                    dates = true;
-
-                }
-                else
-                {
+            //if (dr["Meter_Readingss"].ToString()==date)
+            //    {
                     dates = false;
-                }
+
+                //}
+                //else
+                //{
+                   
+                //}
            
 
               
             }
             else
             {
-           
+                dates = true;
                 con.Close();
 
             }
