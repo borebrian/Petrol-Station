@@ -89,7 +89,7 @@
                             <tr>
 
                                 <td colspan="2">
-                                    <asp:LinkButton ID="LinkButton17" class="btn btn-primary sales1" runat="server">Log out</asp:LinkButton></td>
+                                    <asp:LinkButton ID="LinkButton17" class="btn btn-primary sales1" OnClick="logout" runat="server">Log out</asp:LinkButton></td>
                             </tr>
                         </table>
                     </div>
@@ -148,11 +148,11 @@
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
                                                                 <i class="glyphicon glyphicon-dashboard"></i>&nbsp
-                                                                <asp:Label ID="Label5" runat="server" Text="5654464"></asp:Label>
+                                                                <asp:Label ID="Label5" runat="server" Text='<%#Eval("Meter")%>'></asp:Label>
                                                             </div>
 
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
-                                                                <i class="glyphicon glyphicon-scale"></i>&nbsp<asp:Label ID="Label8" runat="server" Text="3500"></asp:Label>&nbsp
+                                                                <i class="glyphicon glyphicon-scale"></i>&nbsp<asp:Label ID="Label8" runat="server" Text='<%#Eval("Current_capacity")%>'></asp:Label>&nbsp
                                                                 <asp:Label ID="Label6" runat="server" Text="Litres."></asp:Label>
                                                             </div>
                                                         </div>
@@ -196,7 +196,7 @@
                                         <asp:LinkButton ID="LinkButton19" CssClass="btn btn-danger sales1" runat="server"><i class="glyphicon glyphicon-pencil"></i></asp:LinkButton>
                                     </span>
                                     <span class="input-group-btn">
-                                        <asp:LinkButton ID="LinkButton20" CssClass="btn btn-danger sales1" runat="server">Sales history</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton20" OnClick="searchrecords" CssClass="btn btn-danger sales1" runat="server">Sales history</asp:LinkButton>
                                     </span>
                                     <%--<asp:LinkButton ID="LinkButton5"  runat="server" OnClick="refilling">Call Emergency</asp:LinkButton></span>--%>
                                 </div>
@@ -480,91 +480,158 @@
                 </div>
         </div>
     </div>
-    
-    <div class="container">
-        
-        <div id="modal12" class="modal fade" role="dialog">
+    <div id="sales" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-            <div class="modal-dialog">
+            <div class="well wellOveride text-center">
+                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
+                                       
+                                            Select date:
+                                            <asp:DropDownList class="form-control rounded1" style="width:100%;" ID="DropDownList1" runat="server">
+             
+            <asp:ListItem>1 </asp:ListItem>  
+            <asp:ListItem>2</asp:ListItem>  
+            <asp:ListItem>3</asp:ListItem>  
+            <asp:ListItem>4 </asp:ListItem>  
+            <asp:ListItem>5</asp:ListItem>  
+            <asp:ListItem>6</asp:ListItem> 
+            <asp:ListItem>7</asp:ListItem>  
+            <asp:ListItem>8</asp:ListItem>  
+            <asp:ListItem>9 </asp:ListItem>  
+            <asp:ListItem>10</asp:ListItem>  
+            <asp:ListItem>12</asp:ListItem>  
+            <asp:ListItem>13</asp:ListItem>  
+            <asp:ListItem>14 </asp:ListItem>  
+            <asp:ListItem>15</asp:ListItem>  
+            <asp:ListItem>17</asp:ListItem>  
+            <asp:ListItem>18</asp:ListItem>  
+            <asp:ListItem>19 </asp:ListItem>  
+            <asp:ListItem>20</asp:ListItem>  
+            <asp:ListItem>21</asp:ListItem>   
+            <asp:ListItem>22</asp:ListItem>  
+            <asp:ListItem>23</asp:ListItem>  
+            <asp:ListItem>24 </asp:ListItem>  
+            <asp:ListItem>25</asp:ListItem>  
+            <asp:ListItem>26</asp:ListItem>  
+            <asp:ListItem>27</asp:ListItem>  
+            <asp:ListItem>28</asp:ListItem>  
+            <asp:ListItem>29</asp:ListItem>  
+            <asp:ListItem>30</asp:ListItem>  
+            <asp:ListItem>31</asp:ListItem>    
+            
+            
 
-                <!-- Modal content-->
-                <%--    <div class="modal-content">--%>
-                <div class="well wellOveride">
-                    <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 text-right">
-                        <asp:LinkButton ID="LinkButton5" Style="color: #68213A; font-size: 20px;" runat="server"><i class="glyphicon glyphicon-remove-sign"></i></asp:LinkButton>
-                    </div>
-                    <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
-                        <ContentTemplate>
+                                            </asp:DropDownList>
+  </div>
+                                
+                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
+                                        
+                                            Select month:
+                                            <asp:DropDownList class="form-control rounded1" style="width:100%;"  ID="DropDownList2" runat="server">
+             
+            <asp:ListItem>1 </asp:ListItem>  
+            <asp:ListItem>2</asp:ListItem>  
+            <asp:ListItem>3</asp:ListItem>  
+            <asp:ListItem>4 </asp:ListItem>  
+            <asp:ListItem>5</asp:ListItem>  
+            <asp:ListItem>6</asp:ListItem> 
+            <asp:ListItem>7</asp:ListItem>  
+            <asp:ListItem>8</asp:ListItem>  
+            <asp:ListItem>9 </asp:ListItem>  
+            <asp:ListItem>10</asp:ListItem>  
+            <asp:ListItem>12</asp:ListItem>  
+           
+            
+            
 
-                            <div class="row text-center">
-                                <asp:Image ID="Image10" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" Style="height: 50px; width: 50px;" />
+                                            </asp:DropDownList>
+  </div>
+                                   
+                      <div class="col-lg- col-md-3 col-sm-3 col-xs-6 ">
+                                      
+                                            Select Year:
+                                            <asp:DropDownList class="form-control rounded1" style="width:100%;"  ID="DropDownList3" runat="server">
+             
+            <asp:ListItem>2019 </asp:ListItem>  
+            <asp:ListItem>2020</asp:ListItem>  
+            <asp:ListItem>2021</asp:ListItem>  
+          
+           
+            
+            
 
-                                <div class="" style="color: #68213A; font-size: 20px;">
-                                    <strong>
-                                        <asp:Label ID="Label30" runat="server" Text="Please enter"></asp:Label>
-                                        <asp:Label ID="Label11" runat="server" Text=""></asp:Label><asp:Label ID="Label12" runat="server" Text=" meter readings as indicated on the meter."></asp:Label>
-                                    </strong>
-                                </div>
-                                <br />
-                            </div>
-                            <div class="row text-center" style="margin-bottom: 20px;" runat="server" id="enterMeter">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" runat="server" id="secondBox">
-                                    <strong>Please enter yesterday meter here</strong>
-                                    <asp:TextBox ID="TextBox1" runat="server" type="number" class="form-control rounded1" MaxLength="3" placeholder="Enterprevious metre readings." Style="border: 1px #707070 solid; height: 50px; font-size: 30px; font-weight: 999;"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" Display="Dynamic" runat="server" ControlToValidate="TextBox1" ErrorMessage="Please enter previous readings here!" SetFocusOnError="true"
-                                        ForeColor="Red" ValidationGroup="bib"></asp:RequiredFieldValidator>
-                                    <br />
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ErrorMessage="Are you sure what you have typed it correct?Please confirm!." runat="server"
-                                        ValidationGroup="bib" Visible="true" Display="Dynamic" ControlToValidate="TextBox1" ValidationExpression="^[0-9.]{1,50}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
-                                    </asp:RegularExpressionValidator>
-                                </div>
+                                            </asp:DropDownList>
 
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " runat="server" id="firstbox">
-                                    <asp:TextBox ID="TextBox3" runat="server" type="number" class="form-control rounded1" MaxLength="3" placeholder="Enter metre readings." Style="border: 1px #707070 solid; height: 50px; font-size: 30px; font-weight: 999;"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" Display="Dynamic" runat="server" ControlToValidate="TextBox3" ErrorMessage="Please enter readings here" SetFocusOnError="true"
-                                        ForeColor="Red" ValidationGroup="bib"></asp:RequiredFieldValidator>
-                                    <br />
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ErrorMessage="Are you sure what you have typed it correct?Please confirm!." runat="server"
-                                        ValidationGroup="bib" Visible="true" Display="Dynamic" ControlToValidate="TextBox3" ValidationExpression="^[0-9.]{1,50}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
-                                    </asp:RegularExpressionValidator>
-                                </div>
+                                    </div>
+                    <div class="col-lg- col-md-3 col-sm-3 col-xs-6 " style="margin-top:15px;margin-bottom:15px;">
+                                    
+                                           
+            <asp:LinkButton ID="LinkButton5" class="btn btn-primary sales1"  OnClick="searchrecords" runat="server"><i class="glyphicon glyphicon-search"></i>&nbsp Search</asp:LinkButton>
+            
+            
 
-                                <asp:LinkButton ID="LinkButton14" OnClick="submitforreview" ValidationGroup="bib" class="btn btn-default sales1 dialogCustome" runat="server"><i class="glyphicon glyphicon-check"></i> &nbsp Submit</asp:LinkButton>
-                                <asp:Label ID="Label15" runat="server" Text=""></asp:Label>
-                            </div>
+                                         
 
-                            <div class="row" runat="server" id="confirmtable">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                                    <table id="confirmTable1" runat="server" class="table" style="font-size: 20px;">
-                                        <tr>
-                                            <td>Yesterday Meter readings:</td>
-                                            <td>
-                                                <asp:Label ID="Label4" Style="font-weight: 999" runat="server" Text=""></asp:Label></td>
-                                        </tr>
-                                    </table>
-                                    <table class="table" style="font-size: 20px;">
-                                        <tr>
-                                            <td>Today Meter readings:</td>
-                                            <td>
-                                                <asp:Label ID="Label5" Style="font-weight: 999" runat="server" Text=""></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <asp:LinkButton ID="LinkButton13" OnClick="beckToMeter" class="btn btn-default sales1 dialogCustome" runat="server"><i class="glyphicon glyphicon-pencil"></i>&nbsp Modify</asp:LinkButton></td>
-                                            <td>
-                                                <asp:LinkButton ID="LinkButton18" class="btn btn-default sales1 dialogCustome" OnClick="excecuteCode" runat="server"><i class="glyphicon glyphicon-arrow-right"></i> &nbsp Finish</asp:LinkButton>
-
-
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
                 </div>
+                    <asp:Repeater ID="Repeater2" runat="server">
+                         <ItemTemplate>
+                             <div class="row" style="margin:10px;">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                        <div class="fuel">
+                                            <div class="alert alert-info myalert1 text-center" style="color: #68213A; opacity: 1;">
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-4 col-sm-5 col-xs-5" style="color: #5B5959; font-weight: bold; font-size: 20px;">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 " style="padding-top: 12px;">
+                                                                <asp:Image ID="Image34" runat="server" ImageUrl="~/Images/calender.png" Style="width: 20px; height: 20px;" />
+                                                            </div>
+                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="font-size: 15px; padding-top: 15px;">
+
+                                                                <asp:Label ID="Label44" runat="server" Text='<%#Eval("Date")%>'></asp:Label>/
+                                                                <asp:Label ID="Label11" runat="server" Text='<%#Eval("Month")%>'></asp:Label>/
+                                                                <asp:Label ID="Label12" runat="server" Text='<%#Eval("Year")%>'></asp:Label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="border-left: 2px solid #68213A;">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
+                                                                <i class="glyphicon glyphicon-dashboard"></i>&nbsp
+                                                                <asp:Label ID="Label4" runat="server" Text='<%#Eval("Litres_sold")%>'></asp:Label>
+                                                            </div>
+
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
+                                                                <i class="glyphicon glyphicon-usd"></i>&nbsp<asp:Label ID="Label8" runat="server" Text='<%#Eval("Sales")%>'></asp:Label>&nbsp
+                                                                <asp:Label ID="Label6" runat="server" Text="Litres."></asp:Label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="margin-top: 5px;">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
+
+                                                                <%--<i class="glyphicon glyphicon-chevron-right"></i>--%>
+                                                                <%--<asp:LinkButton ID="LinkButton44" CssClass="btn btn-primary sales" runat="server">More</asp:LinkButton>--%>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                        </ItemTemplate>
+                    </asp:Repeater>
+                
+            </div>
+     
+    </div>
             </div>
         </div>
+    <div class="container">
+        
+      
 
         <div class="footer text-center">
 
@@ -580,7 +647,7 @@
 
                 <asp:LinkButton class="social-link" OnClick="submitpetrol" runat="server">
                     &nbsp
-                    <asp:Image ID="Image4" runat="server"  ImageUrl="~/Images/Diesel.png" Style="height: 40px; width: 40px;" />&nbsp&nbsp<strong>Petrol</strong>
+                    <asp:Image ID="Image4" runat="server"  ImageUrl="~/Images/Diesel.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>Petrol</strong>
                 </asp:LinkButton>
 
               
@@ -588,11 +655,11 @@
 
                 <asp:LinkButton class="social-link" ID="LinkButton2" runat="server" OnClick="submitparafin">
                     &nbsp
-                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/parafin.png" Style="height: 40px; width: 40px;" />&nbsp&nbsp<strong>Parafin</strong>
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/parafin.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>Parafin</strong>
                 </asp:LinkButton>
                 <asp:LinkButton class="social-link" ID="LinkButton4" runat="server" OnClick="submitdiesel">
                     &nbsp
-                    <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/Diesel.png" Style="height: 40px; width: 40px;"  />&nbsp&nbsp<strong>Diesel</strong>
+                    <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/Diesel.png" Style="height: 20px; width: 20px;"  />&nbsp&nbsp<strong>Diesel</strong>
                 </asp:LinkButton>
 
                 <%--                <asp:LinkButton class="social-link" ID="LinkButton15"  runat="server" >&nbsp

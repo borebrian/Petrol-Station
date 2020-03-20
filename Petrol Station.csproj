@@ -212,6 +212,7 @@
     <Content Include="Images\bg8.svg" />
     <Content Include="Images\bg9.svg" />
     <Content Include="Images\buttonBackground.svg" />
+    <Content Include="Images\calender.png" />
     <Content Include="Images\cash.png" />
     <Content Include="Images\Diesel.png" />
     <Content Include="Images\drop.png" />
@@ -219,6 +220,7 @@
     <Content Include="Images\fuelachebiemitwhite1.png" />
     <Content Include="Images\bg11.jpg" />
     <Content Include="Images\fuelachebiemitwhite.png" />
+    <Content Include="Images\hand.png" />
     <Content Include="Images\hd.jpg" />
     <Content Include="Images\indicator.png" />
     <Content Include="Images\location.png" />

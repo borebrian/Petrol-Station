@@ -38,6 +38,14 @@ function seting() {
     });
     $('#modalfueltest').modal("show");
 }
+function sales1() {
+    $("#sales").modal({
+        show: false,
+        backdrop: 'static'
+
+    });
+    $('#sales').modal("show");
+}
 function refill() {
     $("#refill").modal({
         show: false,

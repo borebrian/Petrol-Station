@@ -132,9 +132,9 @@ body {
     left: 0;
     padding: 3px;
     bottom: 0;
-
+    height:50px;
     width: 100%;
-    border: 5px solid #68213A;
+    border: 1px solid #68213A;
     border-bottom:none;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
