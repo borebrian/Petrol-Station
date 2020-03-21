@@ -12,7 +12,7 @@ namespace Petrol_Station
         protected void Page_Load(object sender, EventArgs e)
         {
             //Response.Redirect("/Agents/Log_in.aspx");
-            TextBox1.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            //TextBox1.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
         }
     }

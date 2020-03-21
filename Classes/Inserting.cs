@@ -94,10 +94,10 @@ namespace InsertingRecords
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                String date = DateTime.Now.ToString("yyyy-MM-dd");
+            
             //if (dr["Meter_Readingss"].ToString()==date)
             //    {
-                    dates = false;
+                    dates = true;
 
                 //}
                 //else
@@ -110,7 +110,7 @@ namespace InsertingRecords
             }
             else
             {
-                dates = true;
+                dates = false;
                 con.Close();
 
             }

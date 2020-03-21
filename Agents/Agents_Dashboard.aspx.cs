@@ -43,7 +43,7 @@ namespace Petrol_Station.Agents
             //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Clicked')", true);
         }
 
-   
+
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
@@ -90,27 +90,70 @@ namespace Petrol_Station.Agents
 
         }
 
-        protected void submitdiesl(object sender, EventArgs e)
+        protected void submitdiesel(object sender, EventArgs e)
         {
-            general.testDate("SELECT *FROM Meter_Readingss WHERE Fuel_type='" + Session["Fuel_category"] + "' AND  Station_Ref='" + Session["Station_ref"] + "' AND Date='" + DateTime.Now.ToString("dd") + "' AND Month='" + DateTime.Now.ToString("MM") + "' AND Year='" + DateTime.Now.ToString("yy") + "'");
+            string date = DateTime.Now.ToString("dd");
+            string month = DateTime.Now.ToString("MM");
+            string year = DateTime.Now.ToString("yyyy");
+
+            Session.Add("Fuel_category", "DIESEL");
+
+            general.testDate("SELECT *FROM Meter_Readingss WHERE Fuel_type='" + Session["Fuel_category"] + "' AND  Station_Ref='" + Session["Station_ref"] + "' AND Date='" + date
+                + "' AND Month='" + month + "' AND Year='" + year + "'");
             if (general.dates)
             {
-                Label13.Text = "You have already submitted today readings!!!";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "nofuel()", true);
-            }
-            else
-            {
-                general.testifuel("SELECT *FROM Fuel WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='DIESEL'");
-                if (general.fuel)
+                Label11.Text = "petrol";
+                Label11.Text = "petrol";
+                Label11.Text = "petrol";
+
+                LinkButton18.Visible = false;
+
+                generalClass.testYesterMeter("SELECT *FROM Metre_records WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='" + Session["Fuel_category"] + "'");
+                if (generalClass.testFuelAvaillability)
                 {
-                    Label11.Text = "diesel";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showSubmitDialog()", true);
-                    Session.Add("Fuel_category", "DIESEL");
+                    secondBox.Visible = false;
+                    table1.Visible = false;
+                    table3.Visible = true;
+                    table2.Visible = false;
+                    table6.Visible = false;
+                    tableconfirm.Visible = false;
+                    setLabels("DIESEL");
+
+
+
+
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "nofuel()", true);
+                    setLabels("DIESEL");
+                    table1.Visible = true;
+                    table3.Visible = false;
+                    table2.Visible = false;
+                    table6.Visible = false;
+                    tableconfirm.Visible = false;
                 }
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
+            }
+            else
+            {
+                populatefinal(Session["Fuel_category"].ToString());
+                alreadySubmitted(Session["Fuel_category"].ToString());
+                table1.Visible = false;
+                table2.Visible = false;
+                table3.Visible = false;
+                table6.Visible = false;
+                tableconfirm.Visible = true;
+                Label35.Text = "";
+
+
+
+
+
+
+
+
+
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
             }
         }
 
@@ -138,27 +181,11 @@ namespace Petrol_Station.Agents
 
         protected void submitparafin(object sender, EventArgs e)
         {
-            //general.testifuel("SELECT *FROM Fuel WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='KEROSENE'");
-            //if (general.fuel)
-            //{
-            //    Label11.Text = "kerosene";
-
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showSubmitDialog()", true);
-            //    Session.Add("Fuel_category", "KEROSENE");
-            //}
-            //else
-            //{
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
-            //}
-        }
-
-        protected void submitpetrol(object sender, EventArgs e)
-        {
             string date = DateTime.Now.ToString("dd");
             string month = DateTime.Now.ToString("MM");
             string year = DateTime.Now.ToString("yyyy");
 
-            Session.Add("Fuel_category", "PETROL");
+            Session.Add("Fuel_category", "KEROSENE");
 
             general.testDate("SELECT *FROM Meter_Readingss WHERE Fuel_type='" + Session["Fuel_category"] + "' AND  Station_Ref='" + Session["Station_ref"] + "' AND Date='" + date
                 + "' AND Month='" + month + "' AND Year='" + year + "'");
@@ -167,7 +194,7 @@ namespace Petrol_Station.Agents
                 Label11.Text = "petrol";
                 Label11.Text = "petrol";
                 Label11.Text = "petrol";
-                Session.Add("Fuel_category", "PETROL");
+                Session.Add("Fuel_category", "KEROSENE");
                 LinkButton18.Visible = false;
 
                 generalClass.testYesterMeter("SELECT *FROM Metre_records WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='" + Session["Fuel_category"] + "'");
@@ -179,7 +206,7 @@ namespace Petrol_Station.Agents
                     table2.Visible = false;
                     table6.Visible = false;
                     tableconfirm.Visible = false;
-                    setLabels("PETROL");
+                    setLabels("KEROSENE");
 
 
 
@@ -187,7 +214,7 @@ namespace Petrol_Station.Agents
                 }
                 else
                 {
-                    setLabels("PETROL");
+                    setLabels("KEROSENE");
                     table1.Visible = true;
                     table3.Visible = false;
                     table2.Visible = false;
@@ -206,7 +233,7 @@ namespace Petrol_Station.Agents
                 table6.Visible = false;
                 tableconfirm.Visible = true;
                 Label35.Text = "";
-                
+
 
 
 
@@ -218,9 +245,84 @@ namespace Petrol_Station.Agents
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
             }
         }
+
+        protected void submitpetrol(object sender, EventArgs e)
+        {
+            try
+            {
+                Session.Add("Fuel_category", "PETROL");
+
+
+
+                string today = DateTime.Now.ToString("dd");
+                string month = DateTime.Now.ToString("MM");
+                string year = DateTime.Now.ToString("yyyy");
+                string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+                SqlConnection con = new SqlConnection(str);
+                SqlCommand cmd = new SqlCommand("SELECT *from Sales where Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='" + Session["Fuel_category"] + "' AND Month='" + month + "' AND Date='" + today + "' AND Year='" + year + "'", con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    populatefinal(Session["Fuel_category"].ToString());
+
+                    Label35.Text = "You have already submitted todays sales please contact manager for more details.";
+                    table1.Visible = false;
+                    table2.Visible = false;
+                    table3.Visible = false;
+                    table6.Visible = false;
+                    tableconfirm.Visible = true;
+                }
+
+
+
+                else
+                {
+                    //CHECK IF RECORDS EXIST FOR PETROL
+                    SqlConnection con1 = new SqlConnection(str);
+                    SqlCommand cmd1 = new SqlCommand("SELECT *FROM Meter_Readingss WHERE Fuel_type='" + Session["Fuel_category"] + "' AND  Station_Ref='" + Session["Station_ref"] + "' ", con1);
+                    con1.Open();
+                    SqlDataReader dr1 = cmd1.ExecuteReader();
+                    if (dr1.Read())
+                    {
+                        setLabels("PETROL");
+                        table1.Visible = false;
+                        table3.Visible = true;
+                        table2.Visible = false;
+                        table6.Visible = false;
+                        tableconfirm.Visible = false;
+                        Session["testFuelAvaillability"] = "true";
+
+
+                    }
+                    else
+                    {
+                        Session["testFuelAvaillability"] = "false";
+
+                        setLabels("PETROL");
+                        table1.Visible = true;
+                        table2.Visible = false;
+                        table3.Visible = false;
+                        table6.Visible = false;
+                        tableconfirm.Visible = false;
+
+                    }
+
+
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Label38.Text = ex.ToString();
+                Label38.ForeColor = System.Drawing.Color.Red;
+            }
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
+        }
         void alreadySubmitted(string fuel)
         {
-            Label36.Text = "You have already subbmited "+fuel+" sales please contact manager for more information!!";
+            Label36.Text = "You have already subbmited " + fuel + " sales please contact manager for more information!!";
         }
         void setLabels(String Fuel_type)
         {
@@ -231,15 +333,34 @@ namespace Petrol_Station.Agents
                 Label23.Text = "Petrol meter confirmation";
                 Label22.Text = "Please enter previous day and today's meter readings of petrol as indicated below!";
                 Label21.Text = "Petrol meter";
-                Label27.Text="Petrol";
+                Label27.Text = "Petrol";
                 Label28.Text = "Please enter today's petrol meter readings as indicated on the fuel dispenser meter.";
                 //Label36.Text = "Petrol meter readings:";
             }
+            else if (Fuel_type == "DIESEL")
+            {
+                Label35.Text = "Confirmed pettrol meter submitted successfully!";
+                Label24.Text = "Please confirm diesel meter readings before proceeding!";
+                Label23.Text = "diesel meter confirmation";
+                Label22.Text = "Please enter previous day and today's meter readings of diesel as indicated below!";
+                Label21.Text = "diesel meter";
+                Label27.Text = "diesel";
+                Label28.Text = "Please enter today's diesel meter readings as indicated on the fuel dispenser meter.";
+                //Label36.Text = "diesel meter readings:";
+            }
+            else
+            {
+                Label35.Text = "Confirmed pettrol meter submitted successfully!";
+                Label24.Text = "Please confirm kerosene meter readings before proceeding!";
+                Label23.Text = "kerosene meter confirmation";
+                Label22.Text = "Please enter previous day and today's meter readings of kerosene as indicated below!";
+                Label21.Text = "kerosene meter";
+                Label27.Text = "kerosene";
+                Label28.Text = "Please enter today's kerosene meter readings as indicated on the fuel dispenser meter.";
+                //Label36.Text = "kerosene meter readings:";
+            }
         }
-
-  
-
-        private void actions()
+        void actions()
         {
             SqlConnection con = new SqlConnection(str);
             SqlCommand cmd = new SqlCommand("SELECT *FROM Station_registration WHERE Station_ref='" + Session["Station_ref"] + "'", con);
@@ -258,244 +379,240 @@ namespace Petrol_Station.Agents
                 con.Close();
             }
         }
-
-    
-        private void insertingMeter()
+             void insertingMeters()
         {
-            string date = DateTime.Now.ToString("dd");
-            string month = DateTime.Now.ToString("MM");
-            string year = DateTime.Now.ToString("yyyy");
-
-            if (Session["testFuelAvaillability"] == "true")
+            try
             {
-                //LETS UPDATE METER READINGS TABLE
-                generalClass.inserting("UPDATE Meter_Readingss SET Date='" + date + "',Month='" + month + "',Year='" + year + "',Meter='" + Label5.Text + "',Agent_ID='" + Session["National_ID"] + "' WHERE Fuel_Type='" + Session["Fuel_category"] + "' AND Station_Ref='" + Session["Station_Ref"] + "'");
+                string date = DateTime.Now.ToString("dd");
+                string month = DateTime.Now.ToString("MM");
+                string year = DateTime.Now.ToString("yyyy");
 
-                //1.0 LETS INSERT METER RECORDS
-                //1.1 Getting yesterdays meter readings
+                if (Session["testFuelAvaillability"] == "true")
+                {
+                    SqlConnection con12 = new SqlConnection(str);
+                    SqlCommand cmd12 = new SqlCommand("SELECT *FROM Meter_Readingss WHERE Fuel_type='" + Session["Fuel_category"] + "' AND  Station_Ref='" + Session["Station_ref"] + "' ", con12);
+                    con12.Open();
+                    SqlDataReader dr1 = cmd12.ExecuteReader();
+                    if (dr1.Read())
+                    {
+                        //LETS UPDATE METER READINGS TABLE
+                        generalClass.inserting("UPDATE Meter_Readingss SET Date='" + date + "',Month='" + month + "',Year='" + year + "',Meter='" + TextBox5.Text + "',Agent_ID='" + Session["National_ID"] + "',Prev_meter='" + dr1["Meter"].ToString() + "' WHERE Fuel_Type='" + Session["Fuel_category"] + "' AND Station_Ref='" + Session["Station_Ref"] + "'");
 
-                generalClass.getYesterMeter("SELECT TOP 1 *FROM Meter_Records_Sort where Station_Ref='" + Session["Station_Ref"] + "' AND Fuel_type='" + Session["Fuel_category"] + "' order by Time_stamp desc");
 
-                //1.1 Inserting into meter records
 
-                generalClass.inserting("INSERT INTO Metre_records(Station_ref,Date,Month,Year,Previous_meter,Current_meter,Agent_ID,Fuel_Type) VALUES('" + Session["Station_Ref"] + "','" + date + "','" + month + "','" + year + "','" + Session["yesterdayTodayMeter"] + "','" + Label37.Text + "','" + Session["National_ID"] + "','" + Session["Fuel_category"] + "')");
 
-                generalClass.inserting("UPDATE Meter_Readingss SET Date='" + date + "',Month='" + month + "',Year='" + year + "',Meter='" + Label37.Text + "',Agent_ID='" + Session["National_ID"] + "' WHERE Fuel_Type='" + Session["Fuel_category"] + "' AND Station_Ref='" + Session["Station_Ref"] + "'");
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "nofuel()", true);
+                        //1.0 LETS INSERT METER RECORDS
+                        //1.1 Getting yesterdays meter readings
 
-    
+                        //generalClass.getYesterMeter("SELECT TOP 1 *FROM Meter_Records_Sort where Station_Ref='" + Session["Station_Ref"] + "' AND Fuel_type='" + Session["Fuel_category"] + "' order by Time_stamp desc");
 
-              
+                        //1.1 Inserting into meter records
+
+                        generalClass.inserting("INSERT INTO Meter_records(Station_ref,Date,Month,Year,Previous_meter,Current_meter,Agent_ID,Fuel_Type) VALUES('" + Session["Station_Ref"] + "','" + date + "','" + month + "','" + year + "','" + dr1["Meter"] + "','" + TextBox5.Text + "','" + Session["National_ID"] + "','" + Session["Fuel_category"] + "')");
+
+                        //generalClass.inserting("UPDATE Meter_Readingss SET Date='" + date + "',Month='" + month + "',Year='" + year + "',Meter='" + Label37.Text + "',Agent_ID='" + Session["National_ID"] + "' WHERE Fuel_Type='" + Session["Fuel_category"] + "' AND Station_Ref='" + Session["Station_Ref"] + "'");
+                        //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "nofuel()", true);
+
+                    }
+                    else
+                    {
+
+                    }
+
+
+                }
+                else
+                {
+                    //1.0 Lets insert into metter readings
+                    generalClass.inserting("INSERT INTO  Meter_Readingss(Date,Month,Year,Prev_meter,Meter,Agent_ID,Station_ref,Fuel_Type)VALUES('" + date + "','" + month + "','" + year + "','" + Label25.Text + "','" + Label26.Text + "','" + Session["National_ID"] + "','" + Session["Station_Ref"] + "','" + Session["Fuel_category"] + "')");
+                    //1.1 Lets insert into meter records
+                    generalClass.inserting("INSERT INTO Meter_records(Station_ref,Date,Month,Year,Previous_meter,Current_meter,Agent_ID,Fuel_type)VALUES('" + Session["Station_Ref"] + "','" + date + "','" + month + "','" + year + "','" + Label26.Text + "','" + Label25.Text + "','" + Session["National_ID"] + "','" + Session["Fuel_category"] + "')");
+                    restore();
+
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "nofuel()", true);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                //1.0 Lets insert into metter readings
-                generalClass.inserting("INSERT INTO  Meter_Readingss(Date,Month,Year,Meter,Agent_ID,Station_ref,Fuel_Type)VALUES('" + date + "','" + month + "','" + year + "','" + Label26.Text + "','" + Session["National_ID"] + "','" + Session["Station_Ref"] + "','" + Session["Fuel_category"] + "')");
-                //1.1 Lets insert into meter records
-                generalClass.inserting("INSERT INTO Metre_records(Station_ref,Date,Month,Year,Previous_meter,Current_meter,Agent_ID,Fuel_type)VALUES('" + Session["Station_Ref"] + "','" + date + "','" + month + "','" + year + "','" + Label25.Text + "','" + Label26.Text + "','" + Session["National_ID"] + "','" + Session["Fuel_category"] + "')");
-                restore();
-        
-
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "nofuel()", true);
+                
+                Label38.Text = ex.ToString();
+                Label38.ForeColor = System.Drawing.Color.Red;
             }
+         
+        } 
 
-            //SqlConnection cont = new SqlConnection(str);
-            //SqlCommand cmdt = new SqlCommand("SELECT *FROM Meter_Readings WHERE Station_ref='" + Session["Station_ref"] + "' AND Fuel_type='" + Session["Fuel_type"] + "'", cont);
-            //cont.Open();
-            //SqlDataReader myDataReadertt = cmdt.ExecuteReader();
-            //if (myDataReadertt.Read())
-            //{
-            //    float currentMeter = int.Parse(myDataReadertt["Meter"].ToString());
-            //    float toInsert = int.Parse(Label5.Text.ToString());
-            //    if (currentMeter > toInsert)
-            //    {
-            //        enterMeter.Visible = true;
-            //        confirmtable.Visible = false;
-            //        secondBox.Visible = false;
-            //        Label30.Text = "";
-            //        Label12.Text = "";
-            //        Label11.Text = "There is a problem with the meter reading you provided! Please check and enter the readings again!";
-            //    }
-            //    else
-            //    {
-            //        float newMeter = int.Parse(Label5.Text.ToString());
-
-            //        general.inserting("UPDATE Meter_Readings SET Metre='" + newMeter + "',Date='" + DateTime.Now + "',Agent_ID='" + Session["National_ID"] + "', WHERE Station_reg='" + Session["Station_reg"] + "' AND Fuel_type='" + Session["Fuel_type"] + "'");
-            //        general.inserting("INSERT INTO [dbo].[Metre_records](Station_reg,Date,Previous_meter,Current_meter,Agent_ID)VALUES('" + Session["Station_ref"] + "','" + DateTime.Now + "','" + currentMeter + "','" + toInsert + "','" + Session["National_ID"] + "')");
-            //    }
-            //}
-            //else
-            //{
-            //    secondBox.Visible = true;
-
-            //    general.inserting("Insert into Meter_Readings(Station_reg,Date,Meter,Fuel_Type) VALUES('" + Session["Station_Ref"] + "','" + DateTime.Now.ToString() + "','" + Label5.Text + "'");
-            //}
-            //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showSubmitDialog()", true);
-            //}
-            //else
-            //{
-            //}
-        }
-
-        private void populateFuel()
-        {
-            string CSY = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;
-            using (SqlConnection cont = new SqlConnection(CSY))
+            private void populateFuel()
             {
-                SqlCommand cmd1 = new SqlCommand("SELECT *FROM fuel where Station_ref='" + Session["Station_ref"] + "'", cont);
-                cont.Open();
-                Repeater1.DataSource = cmd1.ExecuteReader();
-                Repeater1.DataBind();
-                cont.Close();
+                string CSY = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;
+                using (SqlConnection cont = new SqlConnection(CSY))
+                {
+                    SqlCommand cmd1 = new SqlCommand("SELECT *FROM fuel where Station_ref='" + Session["Station_ref"] + "'", cont);
+                    cont.Open();
+                    Repeater1.DataSource = cmd1.ExecuteReader();
+                    Repeater1.DataBind();
+                    cont.Close();
+                }
             }
-        }
 
-            protected void next11(object sender, EventArgs e) { 
-            table1.Visible = false;
-            table2.Visible = true;
-            table3.Visible = false;
+            protected void next11(object sender, EventArgs e) {
+                table1.Visible = false;
+                table2.Visible = true;
+                table3.Visible = false;
 
-            Label37.Text = TextBox5.Text;
-            //current meter
-            Label26.Text = TextBox4.Text;
-            //yesterday meter
-            Label25.Text = TextBox2.Text;
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
+                Label37.Text = TextBox5.Text;
+                //current meter
+                Label26.Text = TextBox4.Text;
+                //yesterday meter
+                Label25.Text = TextBox2.Text;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
 
-        }
-        protected void prev11(object sender, EventArgs e)
-        {
-            table1.Visible = false;
-            table2.Visible = false;
-            table3.Visible = true;
+            }
+            protected void prev11(object sender, EventArgs e)
+            {
+                table1.Visible = false;
+                table2.Visible = false;
+                table3.Visible = true;
 
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
 
-        }
-        protected void next22(object sender, EventArgs e)
-        {
-            table1.Visible = true;
-            table2.Visible = false;
-            table3.Visible = false;
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
+            }
+            protected void next22(object sender, EventArgs e)
+            {
+                table1.Visible = true;
+                table2.Visible = false;
+                table3.Visible = false;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
 
-        }
-        protected void backDoubleTextbox(object sender, EventArgs e)
-        {
-            table1.Visible = true;
-            table2.Visible = false;
-            table3.Visible = false;
-            table6.Visible = false;
-            tableconfirm.Visible = false;
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
+            }
+            protected void backDoubleTextbox(object sender, EventArgs e)
+            {
+                table1.Visible = true;
+                table2.Visible = false;
+                table3.Visible = false;
+                table6.Visible = false;
+                tableconfirm.Visible = false;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
 
-        }
-        protected void finishSubmisiion(object sender, EventArgs e)
-        {
-            insertingMeter();
-            table1.Visible = false;
-            table2.Visible = false;
-            table3.Visible = false;
-            table6.Visible = false;
-            tableconfirm.Visible = true;
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
-
-        }
-        protected void finishtask(object sender, EventArgs e)
-        {
-            insertingMeter();
+            }
+            protected void finishSubmisiion(object sender, EventArgs e)
+            {
+                insertingMeters();
             populatefinal(Session["Fuel_category"].ToString());
 
             table1.Visible = false;
-            table2.Visible = false;
-            table3.Visible = false;
-            table6.Visible = false;
+                table2.Visible = false;
+                table3.Visible = false;
+                table6.Visible = false;
+                tableconfirm.Visible = true;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
+
+            }
+         
+        protected void excecuteCode(object sender, EventArgs e)
+        {
+
+                    table1.Visible = false;
+                    table2.Visible = false;
+                    table3.Visible = false;
+                    table6.Visible = false;
+            insertingMeters();
+
+            populatefinal(Session["Fuel_category"].ToString());
             tableconfirm.Visible = true;
 
 
 
-
-
-
-
-
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
-
         }
-        protected void next33(object sender, EventArgs e)
-        {
-            int prev = int.Parse(TextBox4.Text.ToString());
-            int next = int.Parse(TextBox2.Text.ToString());
-            if (prev>=next) {
-                Label21.Text = "Warning!";
-                Label22.Text = "The current meter is less than the previous meter.Please check!";
-                Label22.ForeColor = System.Drawing.Color.Red;
-            }
-            else {
-                Label21.Text = Session["Fuel_category"].ToString();
-
-                Label22.Text = "Please enter previous day and todays meter readings of petrol as indicated below!";
-                table1.Visible = false;
-                table6.Visible = true;
-                table2.Visible = false;
-                table3.Visible = false;
-                tableconfirm.Visible = false;
-                //set prevfsub
-                Label25.Text = TextBox2.Text;
-                //set next
-                Label26.Text = TextBox4.Text;
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
-            }
-        }
-
-
-        //void setFinal(String fuel_type)
+        //else
         //{
-        //    string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
-        //    SqlConnection con = new SqlConnection(str);
-        //    SqlCommand cmd = new SqlCommand("SELECT *FROM Sales WHERE Fuel_type='" + Session["Fuel_category"] + "' AND  Station_Ref='" + Session["Station_ref"] + "' AND Date='" + DateTime.Now.ToString("dd") + "' AND Month='" + DateTime.Now.ToString("MM") + "' AND Year='" + DateTime.Now.ToString("yy") + "'", con);
-        //    con.Open();
-        //    SqlDataReader dr = cmd.ExecuteReader();
-        //    if (dr.Read())
-        //    {
-             
-        //        con.Close();
-        //    }
-        //    else
-        //    {
-               
-        //        con.Close();
 
-        //    }
+        //    insertingMeters();
+        //    table1.Visible = false;
+        //    table2.Visible = false;
+        //    table3.Visible = false;
+        //    table6.Visible = false;
+        //    tableconfirm.Visible = true;
+        //    con.Close();
         //}
-        public void populatefinal(String fuel)
-        {
-            string today = DateTime.Now.ToString("dd");
-            string month = DateTime.Now.ToString("MM");
-            string year = DateTime.Now.ToString("yyyy");
-            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
-            SqlConnection con = new SqlConnection(str);
-            SqlCommand cmd = new SqlCommand("SELECT *from Sales WHERE Fuel_type='" + Session["Fuel_category"] + "' AND  Station_Ref='" + Session["Station_ref"] + "' AND Date='" + today + "' AND Month='" + month + "' AND Year='" + year + "'", con);
-            con.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
+
+
+
+
+        protected void next33(object sender, EventArgs e)
             {
-                Label31.Text = dr["Previous_meter"].ToString();
-                Label32.Text = dr["Current_meter"].ToString();
-                Label34.Text = dr["Price_itre"].ToString();
-                Label33.Text = dr["Sales"].ToString();
+                int prev = int.Parse(TextBox4.Text.ToString());
+                int next = int.Parse(TextBox2.Text.ToString());
+                if (prev >= next) {
+                    Label21.Text = "Warning!";
+                    Label22.Text = "The current meter is less than the previous meter.Please check!";
+                    Label22.ForeColor = System.Drawing.Color.Red;
+                }
+                else {
+                    Label21.Text = Session["Fuel_category"].ToString();
 
-
-                con.Close();
+                    Label22.Text = "Please enter previous day and todays meter readings of petrol as indicated below!";
+                    table1.Visible = false;
+                    table6.Visible = true;
+                    table2.Visible = false;
+                    table3.Visible = false;
+                    tableconfirm.Visible = false;
+                    //set prevfsub
+                    Label25.Text = TextBox2.Text;
+                    //set next
+                    Label26.Text = TextBox4.Text;
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "classic()", true);
+                }
             }
-            else
+
+
+            //void setFinal(String fuel_type)
+            //{
+            //    string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            //    SqlConnection con = new SqlConnection(str);
+            //    SqlCommand cmd = new SqlCommand("SELECT *FROM Sales WHERE Fuel_type='" + Session["Fuel_category"] + "' AND  Station_Ref='" + Session["Station_ref"] + "' AND Date='" + DateTime.Now.ToString("dd") + "' AND Month='" + DateTime.Now.ToString("MM") + "' AND Year='" + DateTime.Now.ToString("yy") + "'", con);
+            //    con.Open();
+            //    SqlDataReader dr = cmd.ExecuteReader();
+            //    if (dr.Read())
+            //    {
+
+            //        con.Close();
+            //    }
+            //    else
+            //    {
+
+            //        con.Close();
+
+            //    }
+            //}
+            public void populatefinal(String fuel)
             {
+                string today = DateTime.Now.ToString("dd");
+                string month = DateTime.Now.ToString("MM");
+                string year = DateTime.Now.ToString("yyyy");
+                string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+                SqlConnection con = new SqlConnection(str);
+                SqlCommand cmd = new SqlCommand("SELECT *from Sales WHERE Fuel_type='" + Session["Fuel_category"] + "' AND  Station_Ref='" + Session["Station_ref"] + "' AND Date='" + today + "' AND Month='" + month + "' AND Year='" + year + "'", con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    Label31.Text = dr["Previous_meter"].ToString();
+                    Label32.Text = dr["Current_meter"].ToString();
+                    Label34.Text = dr["Price_itre"].ToString();
+                    Label33.Text = dr["Sales"].ToString();
 
-                con.Close();
+
+                    con.Close();
+                }
+                else
+                {
+
+                    con.Close();
+
+                }
+
 
             }
-
-
         }
-    }
-}
+    } 

@@ -266,6 +266,8 @@
                     <div class="panel-body wellOveride" style="border-top-left-radius: unset; border-top-right-radius: unset;">
                         <asp:UpdatePanel ID="UpdatePanel3" UpdateMode="Conditional" runat="server">
                             <ContentTemplate>
+
+                                <%--//TABLE WITH TWO TEXTBOXES--%>
                                 <table class="table" id="table1" runat="server" style="border: none" border="0">
                                     <tr style="background-color: white;">
                                         <td class="text-left" style="font-size: 25px;">
@@ -323,6 +325,7 @@
                                             </td>
                                     </tr>
                                 </table>
+                                <%--//TABLE WITH ONE TEXTBOXES--%>
                                 <table class="table" id="table3" runat="server" style="border: none" border="0">
                                     <tr style="background-color: white;">
                                         <td class="text-left" style="font-size: 25px;">
@@ -366,6 +369,7 @@
                                             <asp:LinkButton ValidationGroup="bn" ID="LinkButton10" OnClick="next11" class="btn btn-primary sales1" runat="server">Next page</asp:LinkButton></td>
                                     </tr>
                                 </table>
+                                <%--//TABLE WITH ONE TEXTBOX BUT FOR CONFIRMATION PURPOSE--%>
                                 <table class="table" id="table2" runat="server" style="border: none" border="0">
                                     <tr style="background-color: white;">
                                         <td colspan="2" class="text-left" style="font-size: 25px;">
@@ -398,6 +402,8 @@
                                     </tr>
                                     <tr><td> <asp:LinkButton ValidationGroup="bn" ID="LinkButton6" OnClick="prev11" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-pencil"></i> &nbsp Modify</asp:LinkButton></td><td><asp:LinkButton ValidationGroup="bn" ID="LinkButton11" OnClick="finishSubmisiion" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-arrow-right"></i> &nbsp <i class="glyphicon glyphicon-saved"></i>&nbsp Finish</asp:LinkButton></td></tr>
                                 </table>
+                                <%--//TABLE WITH TWO TEXTBOXES  BUT FOR CONFIRMATION PURPOSE--%>
+
                                 <table class="table"  runat="server" style="font-size:20px; " id="table6">
                                     <tr>
                                         <td><strong>Previous readings:</strong></td>
@@ -420,19 +426,22 @@
                                                     <asp:LinkButton ID="LinkButton8" OnClick="backDoubleTextbox" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-arrow-left"></i> &nbsp Back</asp:LinkButton>
                                                 </span>
                                                 <span class="input-group-btn">
-                                                    <asp:LinkButton ID="LinkButton9" class="btn btn-primary sales1" runat="server" OnClick="finishtask"><i class="glyphicon glyphicon-ok"></i>&nbsp Finish</asp:LinkButton>
+                                                  
+                                                    <asp:LinkButton ID="LinkButton16" class="btn btn-primary sales1"  OnClick="excecuteCode"  runat="server" >Finish</asp:LinkButton>
                                                 </span>
                                             </div>
                                         </td>
                                     </tr>
                                 </table>
+                                <%--/CONFIMATION TABLE AFTER SUBMISSION--%>
+
                                 <table class="table confirmed" runat="server" id="tableconfirm" style="background-color: white;">
                                     <tr>
 
                                         <td colspan="2" class="text-center"><i class="glyphicon glyphicon-exclamation-sign"></i>
                                             <br />
                                             <strong>
-                                                <asp:Label ID="Label35" runat="server" Text=""></asp:Label>.&nbsp<asp:Label ID="Label36" runat="server" Text=" An SMS confirmation has been sent to the manager."></asp:Label></strong></td>
+                                                <asp:Label ID="Label35" runat="server" Text=""></asp:Label>.&nbsp<asp:Label ID="Label36" runat="server" Text=" "></asp:Label></strong></td>
                                     </tr>
                                     <tr>
                                         <td>Yesterday meter readings:</td>
@@ -455,8 +464,12 @@
                                             <asp:Label ID="Label34" runat="server" Text=""></asp:Label></strong></td>
                                     </tr>
                                 </table>
+
+                                <asp:Label ID="Label38" runat="server" Text=""></asp:Label>
                             </ContentTemplate>
+                            
                         </asp:UpdatePanel>
+                   
 
                         <table class="table">
                             <tr>
@@ -469,7 +482,7 @@
     </div>
     
     <div class="container">
-        <asp:Button ID="Button1" runat="server" OnClick="testtt" Text="Button" />
+        
         <div id="modal12" class="modal fade" role="dialog">
 
             <div class="modal-dialog">
@@ -539,7 +552,10 @@
                                             <td>
                                                 <asp:LinkButton ID="LinkButton13" OnClick="beckToMeter" class="btn btn-default sales1 dialogCustome" runat="server"><i class="glyphicon glyphicon-pencil"></i>&nbsp Modify</asp:LinkButton></td>
                                             <td>
-                                                <asp:LinkButton ID="LinkButton18" class="btn btn-default sales1 dialogCustome" OnClick="finishSubmisiion" runat="server"><i class="glyphicon glyphicon-arrow-right"></i> &nbsp Finish</asp:LinkButton></td>
+                                                <asp:LinkButton ID="LinkButton18" class="btn btn-default sales1 dialogCustome" OnClick="excecuteCode" runat="server"><i class="glyphicon glyphicon-arrow-right"></i> &nbsp Finish</asp:LinkButton>
+
+
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>
@@ -570,13 +586,13 @@
               
 
 
-                <asp:LinkButton OnClientClick="ChangeText()" class="social-link" ID="LinkButton2" runat="server" OnClick="submitparafin">
+                <asp:LinkButton class="social-link" ID="LinkButton2" runat="server" OnClick="submitparafin">
                     &nbsp
                     <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/parafin.png" Style="height: 40px; width: 40px;" />&nbsp&nbsp<strong>Parafin</strong>
                 </asp:LinkButton>
-                <asp:LinkButton class="social-link" ID="LinkButton4" runat="server" OnClick="submitdiesl">
+                <asp:LinkButton class="social-link" ID="LinkButton4" runat="server" OnClick="submitdiesel">
                     &nbsp
-                    <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/Diesel.png" Style="height: 40px; width: 40px;" />&nbsp&nbsp<strong>Diesel</strong>
+                    <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/Diesel.png" Style="height: 40px; width: 40px;"  />&nbsp&nbsp<strong>Diesel</strong>
                 </asp:LinkButton>
 
                 <%--                <asp:LinkButton class="social-link" ID="LinkButton15"  runat="server" >&nbsp
