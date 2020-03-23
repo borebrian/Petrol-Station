@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Agents_Dashboard.aspx.cs" Inherits="Petrol_Station.Agents.Agents_Dashboard" %>
 
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../bootstrap-3.3.7-dist/css/sTYLE.css" rel="stylesheet" />
@@ -7,6 +9,7 @@
     <script src="bootstrap-3.3.7-dist/js/JQ.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/JQ.js"></script>
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
     <script src="../bootstrap-3.3.7-dist/js/Modals.js"></script>
     <link href="../bootstrap-3.3.7-dist/css/sTYLE.css" rel="stylesheet" />
@@ -147,12 +150,12 @@
                                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="border-left: 2px solid #68213A;">
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
-                                                                <i class="glyphicon glyphicon-dashboard"></i>&nbsp
-                                                                <asp:Label ID="Label5" runat="server" Text='<%#Eval("Meter")%>'></asp:Label>
+                                                                <span class="iconify" data-icon="dashicons:location" data-inline="false"></span>&nbsp
+                                                                <asp:Label ID="Label5" runat="server" Text='<%#Eval("Location")%>'></asp:Label>
                                                             </div>
 
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
-                                                                <i class="glyphicon glyphicon-scale"></i>&nbsp<asp:Label ID="Label8" runat="server" Text='<%#Eval("Current_capacity")%>'></asp:Label>&nbsp
+                                                                <span class="iconify" data-icon="bx:bxs-cylinder" data-inline="false"></span>&nbsp<asp:Label ID="Label8" runat="server" Text='<%#Eval("Current_capacity")%>'></asp:Label>&nbsp
                                                                 <asp:Label ID="Label6" runat="server" Text="Litres."></asp:Label>
                                                             </div>
                                                         </div>
@@ -193,7 +196,7 @@
                                 <div class="input-group">
                                     <span class="input-group-btn">
 
-                                        <asp:LinkButton ID="LinkButton19" CssClass="btn btn-danger sales1" runat="server"><i class="glyphicon glyphicon-pencil"></i></asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton19" OnClick="searchrecords" CssClass="btn btn-danger sales1" runat="server"><i class="glyphicon glyphicon-list"></i></asp:LinkButton>
                                     </span>
                                     <span class="input-group-btn">
                                         <asp:LinkButton ID="LinkButton20" OnClick="searchrecords" CssClass="btn btn-danger sales1" runat="server">Sales history</asp:LinkButton>
@@ -480,11 +483,40 @@
                 </div>
         </div>
     </div>
-    <div id="sales" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+    <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-            <div class="well wellOveride text-center">
-                <div class="row">
+    <!-- Modal content-->
+    <div class="modal-content" runat="server" id="topdf">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                <p>Recent records</p>
+                </div>
+        </div>
+            <asp:GridView ID="GridView1" style="width:100%;"  runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" ForeColor="Black" CellSpacing="2">
+        <FooterStyle BackColor=" #68213A" />
+        <HeaderStyle BackColor="#68213A" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                            <RowStyle BackColor="White" />
+        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+        <SortedAscendingHeaderStyle BackColor="#808080" />
+        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+        <SortedDescendingHeaderStyle BackColor="#383838" />
+    </asp:GridView>
+        </div></div></div>
+ <%--   <div id="sales" class="modal fade" role="dialog">
+        <div class="modal-dialog">--%>
+              <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div5">
+                    <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
+                        <div class="row text-left">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <asp:LinkButton ID="LinkButton13"  data-dismiss="modal" class="btn btn-default "  runat="server"><i class="glyphicon glyphicon-arrow-left"></i>&nbsp Back</asp:LinkButton>
+
+                            </div>
+                            
+                        </div>
+                                        <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
                                        
                                             Select date:
@@ -564,19 +596,39 @@
                                             </asp:DropDownList>
 
                                     </div>
-                    <div class="col-lg- col-md-3 col-sm-3 col-xs-6 " style="margin-top:15px;margin-bottom:15px;">
+                    <div class="col-lg- col-md-3 col-sm-3 col-xs-12 " style="margin-top:15px;margin-bottom:15px;">
                                     
                                            
-            <asp:LinkButton ID="LinkButton5" class="btn btn-primary sales1"  OnClick="searchrecords" runat="server"><i class="glyphicon glyphicon-search"></i>&nbsp Search</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton5" class="btn btn-default sales1"  OnClick="searchrecords" runat="server"><i class="glyphicon glyphicon-search"></i>&nbsp Search</asp:LinkButton>
             
             
 
                                          
 
                 </div>
-                    <asp:Repeater ID="Repeater2" runat="server">
+                    
+                
+            </div>
+
+                    </div>
+
+                    <div class="panel-body" style="border-top-left-radius: unset; border-top-right-radius: unset;">
+                        <div class="row text-right">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                                <asp:Label ID="Label30" runat="server" style="font-weight:900;font-size:15px;" Text="List of submitted sales."></asp:Label></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> <asp:LinkButton ID="LinkButton9" OnClick="pdf" class="btn btn-default " style="margin-right:30px;margin-bottom:10px;" runat="server"><i class="glyphicon glyphicon-print"></i></asp:LinkButton></div>
+
+                           
+                        </div>
+                 <div class="row">
+                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="overflow:auto">
+                    
+
+                         </div>
+                 </div>
+            <asp:Repeater ID="Repeater2" runat="server">
                          <ItemTemplate>
-                             <div class="row" style="margin:10px;">
+                             <div class="row" style="margin:1px;">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                                         <div class="fuel">
                                             <div class="alert alert-info myalert1 text-center" style="color: #68213A; opacity: 1;">
@@ -586,7 +638,7 @@
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 " style="padding-top: 12px;">
                                                                 <asp:Image ID="Image34" runat="server" ImageUrl="~/Images/calender.png" Style="width: 20px; height: 20px;" />
                                                             </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="font-size: 15px; padding-top: 15px;">
+                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="font-size: 11px; padding-top: 15px;">
 
                                                                 <asp:Label ID="Label44" runat="server" Text='<%#Eval("Date")%>'></asp:Label>/
                                                                 <asp:Label ID="Label11" runat="server" Text='<%#Eval("Month")%>'></asp:Label>/
@@ -597,20 +649,24 @@
                                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="border-left: 2px solid #68213A;">
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
-                                                                <i class="glyphicon glyphicon-dashboard"></i>&nbsp
-                                                                <asp:Label ID="Label4" runat="server" Text='<%#Eval("Litres_sold")%>'></asp:Label>
+                                                                <i class="glyphicon glyphicon-flash"></i>&nbsp
+                                                                <asp:Label ID="Label4" runat="server" Text='<%#Eval("Litres_sold")%>'></asp:Label>&nbsp
+                                                                <asp:Label ID="Label15" runat="server" Text="Litres:"></asp:Label>
+
                                                             </div>
 
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
-                                                                <i class="glyphicon glyphicon-usd"></i>&nbsp<asp:Label ID="Label8" runat="server" Text='<%#Eval("Sales")%>'></asp:Label>&nbsp
-                                                                <asp:Label ID="Label6" runat="server" Text="Litres."></asp:Label>
+                                                                <i class="glyphicon glyphicon-usd"></i>&nbsp
+                                                                <asp:Label ID="Label6" runat="server" Text="Ksh:"></asp:Label>&nbsp
+                                                                
+                                                                <asp:Label ID="Label8" runat="server" Text='<%#Eval("Sales")%>'></asp:Label>&nbsp
                                                             </div>
                                                         </div>
                                                         <div class="row" style="margin-top: 5px;">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
 
-                                                                <%--<i class="glyphicon glyphicon-chevron-right"></i>--%>
-                                                                <%--<asp:LinkButton ID="LinkButton44" CssClass="btn btn-primary sales" runat="server">More</asp:LinkButton>--%>
+                                                                <i class="glyphicon glyphicon-chevron-right"></i>
+                                                                <asp:LinkButton ID="LinkButton44" CssClass="btn btn-primary sales" runat="server">More</asp:LinkButton>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -623,12 +679,8 @@
 
                         </ItemTemplate>
                     </asp:Repeater>
-                
             </div>
-     
-    </div>
-            </div>
-        </div>
+        </div></div></div>
     <div class="container">
         
       
@@ -670,4 +722,5 @@
             </div>
         </div>
     </div>
+    
 </asp:Content>
