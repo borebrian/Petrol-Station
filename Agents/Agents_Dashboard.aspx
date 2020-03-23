@@ -505,8 +505,8 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
         </div></div></div>
- <%--   <div id="sales" class="modal fade" role="dialog">
-        <div class="modal-dialog">--%>
+    <div id="sales" class="modal fade" role="dialog">
+        <div class="modal-dialog">
               <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div5">
                     <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
                         <div class="row text-left">
@@ -596,7 +596,7 @@
                                             </asp:DropDownList>
 
                                     </div>
-                    <div class="col-lg- col-md-3 col-sm-3 col-xs-12 " style="margin-top:15px;margin-bottom:15px;">
+                    <div class="col-lg- col-md-3 col-sm-3 col-xs-6" style="margin-top:15px;margin-bottom:15px;">
                                     
                                            
             <asp:LinkButton ID="LinkButton5" class="btn btn-default sales1"  OnClick="filterRecords" runat="server"><i class="glyphicon glyphicon-search"></i>&nbsp Search</asp:LinkButton>
@@ -650,7 +650,7 @@
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
                                                                 <i class="glyphicon glyphicon-flash"></i>&nbsp
-                                                                <asp:Label ID="Label4" runat="server" Text='<%#Eval("Litres_sold")%>'></asp:Label>&nbsp
+                                                                <asp:Label ID="Label4" runat="server" Text='<%#Eval("[VOLUME SOLD]")%>'></asp:Label>&nbsp
                                                                 <asp:Label ID="Label15" runat="server" Text="Litres:"></asp:Label>
 
                                                             </div>
@@ -699,7 +699,7 @@
 
                 <asp:LinkButton class="social-link" OnClick="submitpetrol" runat="server">
                     &nbsp
-                    <asp:Image ID="Image4" runat="server"  ImageUrl="~/Images/Diesel.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>Petrol</strong>
+                    <asp:Image ID="Image4" runat="server"  ImageUrl="~/Images/Diesel.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>Petrol1</strong>
                 </asp:LinkButton>
 
               
@@ -707,7 +707,7 @@
 
                 <asp:LinkButton class="social-link" ID="LinkButton2" runat="server" OnClick="submitparafin">
                     &nbsp
-                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/parafin.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>Parafin</strong>
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/parafin.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>Petrol2</strong>
                 </asp:LinkButton>
                 <asp:LinkButton class="social-link" ID="LinkButton4" runat="server" OnClick="submitdiesel">
                     &nbsp

@@ -1,4 +1,8 @@
-﻿using InsertingRecords;
+﻿
+
+
+
+using InsertingRecords;
 using SMS;
 using System;
 using System.Configuration;
@@ -31,10 +35,10 @@ namespace Petrol_Station.Agents
 
             //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Clicked')", true);
         }
-        protected void MakeDatatable()
+        protected void MakeDatatable(string sql1)
         {
             DataTable dt = new DataTable();
-            string queryString = "SELECT TOP 10  *FROM Sales_records Where Station_ref='" + Session["Station_ref"] + "'";
+            string queryString = sql1;
             Session.Add("sql", queryString);
             string conn = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
             var table = new DataTable();
@@ -53,29 +57,44 @@ namespace Petrol_Station.Agents
             Session["Data"] = dt;
         }
         protected void filterRecords(object sender, EventArgs e)
-        { 
-        
-        
-        
-        }
-            protected void searchrecords(object sender, EventArgs e)
         {
-            //string CSY = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;
-            //using (SqlConnection cont = new SqlConnection(CSY))
-            //{
-            //    SqlCommand cmd1 = new SqlCommand("SELECT TOP 10  *FROM Sales_records Where Station_ref='" + Session["Station_ref"] + "'", cont);
-            //    cont.Open();
+            string CSY = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;
+            using (SqlConnection cont = new SqlConnection(CSY))
+            {
+                SqlCommand cmd1 = new SqlCommand("SELECT *FROM Sales_records Where Station_ref='" + Session["Station_ref"] + "' AND MONTH='" + DropDownList2.SelectedItem.Value + "' AND DATE='" + DropDownList1.SelectedItem.Value + "' AND YEAR='" + DropDownList3.SelectedItem.Value + "'", cont);
+                cont.Open();
 
-            //    //SqlDataReader dr = cmd1.ExecuteReader();
+                SqlDataReader dr = cmd1.ExecuteReader();
 
-            //    //Repeater2.DataSource =dr;
-            //    //Repeater2.DataBind();
+                Repeater2.DataSource = dr;
+                Repeater2.DataBind();
+                Session.Add("sql", "SELECT *FROM Sales_records Where Station_ref='" + Session["Station_ref"] + "' AND MONTH='" + DropDownList2.SelectedItem.Value + "' AND DATE='" + DropDownList1.SelectedItem.Value + "' AND YEAR='" + DropDownList3.SelectedItem.Value + "'");
+                MakeDatatable(Session["sql"].ToString());
+                cont.Close();
 
-            //    GridView1.DataSource = cmd1.ExecuteReader();
-            //    GridView1.DataBind();
-            //    cont.Close();
-            //}
-            MakeDatatable();
+            }
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "sales1()", true);
+
+        }
+        protected void searchrecords(object sender, EventArgs e)
+        {
+            string CSY = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;
+            using (SqlConnection cont = new SqlConnection(CSY))
+            {
+                SqlCommand cmd1 = new SqlCommand("SELECT TOP 10  *FROM Sales_records Where Station_ref='" + Session["Station_ref"] + "'", cont);
+                cont.Open();
+
+                SqlDataReader dr = cmd1.ExecuteReader();
+
+                Repeater2.DataSource = dr;
+                Repeater2.DataBind();
+                //GridView1.DataSource = cmd1.ExecuteReader();
+                //GridView1.DataBind();
+                cont.Close();
+            }
+            Session.Add("sql", "SELECT TOP 10  *FROM Sales_records Where Station_ref='" + Session["Station_ref"] + "'");
+            MakeDatatable(Session["sql"].ToString());
+
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "sales1()", true);
 
 
@@ -212,7 +231,7 @@ namespace Petrol_Station.Agents
         {
             try
             {
-                Session.Add("Fuel_category", "KEROSENE");
+                Session.Add("Fuel_category", "PETROL2");
 
 
 
@@ -229,7 +248,7 @@ namespace Petrol_Station.Agents
                     populatefinal(Session["Fuel_category"].ToString());
 
                     //Label35.Text = "You have already submitted todays sales please contact manager for more details.";
-                    alreadySubmitted("Kerosene");
+                    alreadySubmitted("PETROL2");
                     table1.Visible = false;
                     table2.Visible = false;
                     table3.Visible = false;
@@ -254,7 +273,7 @@ namespace Petrol_Station.Agents
                         SqlDataReader dr15 = cmd15.ExecuteReader();
                         if (dr15.Read())
                         {
-                            setLabels("KEROSENE");
+                            setLabels("PETROL2");
                             table1.Visible = false;
                             table3.Visible = true;
                             table2.Visible = false;
@@ -267,7 +286,7 @@ namespace Petrol_Station.Agents
                         {
                             Session["testFuelAvaillability"] = "false";
 
-                            setLabels("KEROSENE");
+                            setLabels("PETROL2");
                             table1.Visible = true;
                             table2.Visible = false;
                             table3.Visible = false;
@@ -285,7 +304,7 @@ namespace Petrol_Station.Agents
                     {
                         Session["testFuelAvaillability"] = "false";
 
-                        setLabels("KEROSENE");
+                        setLabels("PETROL2");
                         table1.Visible = true;
                         table2.Visible = false;
                         table3.Visible = false;
@@ -419,15 +438,15 @@ namespace Petrol_Station.Agents
             }
             else
             {
-                Label35.Text = "Confirmed Kerosene meter submitted successfully!.An SMS notification has been sent to the Manager";
+                Label35.Text = "Confirmed PETROL2 meter submitted successfully!.An SMS notification has been sent to the Manager";
 
-                Label24.Text = "Please confirm kerosene meter readings before proceeding!";
-                Label23.Text = "kerosene meter confirmation";
-                Label22.Text = "Please enter previous day and today's meter readings of kerosene as indicated below!";
-                Label21.Text = "kerosene meter";
-                Label27.Text = "kerosene";
-                Label28.Text = "Please enter today's kerosene meter readings as indicated on the fuel dispenser meter.";
-                //Label36.Text = "kerosene meter readings:";
+                Label24.Text = "Please confirm PETROL2 meter readings before proceeding!";
+                Label23.Text = "PETROL2 meter confirmation";
+                Label22.Text = "Please enter previous day and today's meter readings of PETROL2 as indicated below!";
+                Label21.Text = "PETROL2 meter";
+                Label27.Text = "PETROL2";
+                Label28.Text = "Please enter today's PETROL2 meter readings as indicated on the fuel dispenser meter.";
+                //Label36.Text = "PETROL2 meter readings:";
             }
         }
         void actions()
@@ -539,18 +558,18 @@ namespace Petrol_Station.Agents
         }
         protected void pdf(object sender, EventArgs e)
         {
-            pdfDownload("SELECT *FROM Station_registration WHERE  Station_Ref='" + Session["Station_ref"] + "'");
-           
+            pdfDownload();
+
         }
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
                server control at run time. */
         }
-        void pdfDownload(String sql)
+        void pdfDownload()
         {
             SqlConnection con12 = new SqlConnection(str);
-            SqlCommand cmd12 = new SqlCommand(sql, con12);
+            SqlCommand cmd12 = new SqlCommand("SELECT *FROM Station_registration WHERE  Station_Ref='" + Session["Station_ref"] + "'", con12);
             con12.Open();
             SqlDataReader dr1 = cmd12.ExecuteReader();
             if (dr1.Read())
@@ -586,14 +605,16 @@ namespace Petrol_Station.Agents
                         {
                             sb.Append("<html>< head ><title></title></head><body>");
                             string strActualRecords = string.Empty;
-                            strActualRecords = "<table style=\";font-size: 9pt; font-family: 'Century gothic';background-color:red; \" border=\"1\" cellspacing=\"0\" cellpadding=\"0\">";
+                            strActualRecords = "<table   style=\";font-size: 9pt\"  border=\"1\" cellspacing=\"0\" cellpadding=\"1\">";
                             strActualRecords += "<tr><td>Station:</td><td>" + dr1["Station_name"] + "</td></tr>";
                             strActualRecords += "<tr><td>Date generated:</td><td>" + DateTime.Now.ToString() + "</td></tr></table>";
 
-                            strActualRecords += "<tr><td>Date generated:</td><td>" + Session["Fuel_"] + "</td></tr></table>";
-                            strActualRecords += "<table style=\";font-size: 9pt; font-family: 'Century gothic';background-color:red; \" border=\"1\" cellspacing=\"0\" cellpadding=\"0\">";
+                           
+                            strActualRecords += "<table style=\";font-size: 7pt; font-family: 'Century gothic';background-color:red; \" border=\"1\" cellspacing=\"0\" cellpadding=\"0\">";
                             strActualRecords += "<tr style=\"background-color:#68213A;\" > " +
                                 "<td>AGENT</td>" +
+                                "<td>FUEL</td>" +
+
                                 "<td>DATE</td>" +
                                 "<td>MONTH</td>" +
                                 "<td>YEAR</td>" +
@@ -604,13 +625,15 @@ namespace Petrol_Station.Agents
                             for (int i = 0; i < dt.Rows.Count; i++)
                             {
                                 strActualRecords += "<tr><td >" + dt.Rows[i]["AGENT"].ToString() + "</td>" +
+                                    "<td>" + dt.Rows[i]["FUEL"].ToString() + "</td>" +
+
                                     "<td>" + dt.Rows[i]["DATE"].ToString() + "</td>" +
                                     "<td >" + dt.Rows[i]["MONTH"].ToString() + "</td>" +
                                     "<td >" + dt.Rows[i]["YEAR"].ToString() + "</td>" +
                                     "<td >" + dt.Rows[i]["PREVIOUS METER"].ToString() + "</td>" +
                                     "<td >" + dt.Rows[i]["CURRENT METER"].ToString() + "</td>" +
                                     "<td >" + dt.Rows[i]["VOLUME SOLD"].ToString() + "</td>" +
-                                    "<td >" + dt.Rows[i]["SALES"].ToString() + "</td>";
+                                    "<td >" + dt.Rows[i]["SALES"].ToString() + "/=</td>";
 
 
 
@@ -623,7 +646,7 @@ namespace Petrol_Station.Agents
                             }
                             strActualRecords += "</table>";
                             sb.Append(strActualRecords);
-                            sb.Append("</body></html>");
+                            sb.Append("<p style=\"font-size:5pts\">Powered by Fuela</p></body></html>");
                         }
                         string pdffilename = DateTime.Now.Ticks.ToString() + ".pdf";
                         PdfWriter pdfWriter = PdfWriter.GetInstance(pdfDocument, HttpContext.Current.Response.OutputStream);
@@ -807,10 +830,6 @@ namespace Petrol_Station.Agents
         }
 
     }
-  
-
-
-                
 
 
 
@@ -824,12 +843,15 @@ namespace Petrol_Station.Agents
 
 
 
-            }
+
+
+
+
+}
 
 
 
 
 
 
-       
-           
+

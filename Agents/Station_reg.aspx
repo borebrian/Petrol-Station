@@ -113,8 +113,8 @@
                  Fuel type:
            <asp:DropDownList ID="DropDownList2" runat="server" class="form-control rounded1" >
                <asp:ListItem>PETROL</asp:ListItem>
-               <asp:ListItem>DIESEL</asp:ListItem>
-               <asp:ListItem>PARAFFIN</asp:ListItem>
+               <asp:ListItem>DIESEL1</asp:ListItem>
+               <asp:ListItem>PETROL2</asp:ListItem>
                 </asp:DropDownList>
                
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="DropDownList2" ErrorMessage="Select fuel"
