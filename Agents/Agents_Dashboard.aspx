@@ -599,7 +599,7 @@
                     <div class="col-lg- col-md-3 col-sm-3 col-xs-12 " style="margin-top:15px;margin-bottom:15px;">
                                     
                                            
-            <asp:LinkButton ID="LinkButton5" class="btn btn-default sales1"  OnClick="searchrecords" runat="server"><i class="glyphicon glyphicon-search"></i>&nbsp Search</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton5" class="btn btn-default sales1"  OnClick="filterRecords" runat="server"><i class="glyphicon glyphicon-search"></i>&nbsp Search</asp:LinkButton>
             
             
 
