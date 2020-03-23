@@ -13,7 +13,7 @@
     <div class="container-fluid" style="padding:0px;">
         <div class="well"  style="background-color:transparent;border:none;">
 
-            <div class="well wellOveride" >
+            <div class="well wellOveride" >f
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>

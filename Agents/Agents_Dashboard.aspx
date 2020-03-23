@@ -440,7 +440,7 @@
                                         <td colspan="2" class="text-center"><i class="glyphicon glyphicon-exclamation-sign"></i>
                                             <br />
                                             <strong>
-                                                <asp:Label ID="Label35" runat="server" Text=""></asp:Label>.&nbsp<asp:Label ID="Label36" runat="server" Text=" "></asp:Label></strong></td>
+                                                <asp:Label ID="Label35" runat="server" Text=""></asp:Label>.&nbsp<asp:Label ID="Label36" runat="server" Text=""></asp:Label></strong></td>
                                     </tr>
                                     <tr>
                                         <td>Yesterday meter readings:</td>
