@@ -16,11 +16,7 @@
  
     <link href="../bootstrap-3.3.7-dist/css/fuel_styles.css" rel="stylesheet" />
     <%--<a href="../bootstrap-3.3.7-dist/js/">../bootstrap-3.3.7-dist/js/</a>--%>
-    <script type="text/javascript">
-        $("#clickArea").live("click", function () {
-            $("[id*=Button1]").click();
-        });
-    </script>
+    <script type="text/javascript">z</script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -488,25 +484,19 @@
 
     <!-- Modal content-->
     <div class="modal-content" runat="server" id="topdf">
+         
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                 <p>Recent records</p>
                 </div>
         </div>
-            <asp:GridView ID="GridView1" style="width:100%;"  runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" ForeColor="Black" CellSpacing="2">
-        <FooterStyle BackColor=" #68213A" />
-        <HeaderStyle BackColor="#68213A" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                            <RowStyle BackColor="White" />
-        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-        <SortedAscendingCellStyle BackColor="#F1F1F1" />
-        <SortedAscendingHeaderStyle BackColor="#808080" />
-        <SortedDescendingCellStyle BackColor="#CAC9C9" />
-        <SortedDescendingHeaderStyle BackColor="#383838" />
-    </asp:GridView>
+            
         </div></div></div>
     <div id="sales" class="modal fade" role="dialog">
         <div class="modal-dialog">
+            <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
+
+        <ContentTemplate>
               <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div5">
                     <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
                         <div class="row text-left">
@@ -516,6 +506,7 @@
                             </div>
                             
                         </div>
+                        
                                         <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 ">
                                        
@@ -610,12 +601,14 @@
                 
             </div>
 
-                    </div>
+                  </div> 
 
-                    <div class="panel-body" style="border-top-left-radius: unset; border-top-right-radius: unset;">
+                    <div class="panel-body text-center" style="border-top-left-radius: unset; border-top-right-radius: unset;">
                         <div class="row text-right">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-                                <asp:Label ID="Label30" runat="server" style="font-weight:900;font-size:15px;" Text="List of submitted sales."></asp:Label></div>
+                                <asp:Label ID="Label30" runat="server" style="font-weight:900;font-size:15px;" Text="Results"></asp:Label>
+
+                            </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> <asp:LinkButton ID="LinkButton9" OnClick="pdf" class="btn btn-default " style="margin-right:30px;margin-bottom:10px;" runat="server"><i class="glyphicon glyphicon-print"></i></asp:LinkButton></div>
 
                            
@@ -628,7 +621,7 @@
                  </div>
             <asp:Repeater ID="Repeater2" runat="server">
                          <ItemTemplate>
-                             <div class="row" style="margin:1px;">
+                             <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                                         <div class="fuel">
                                             <div class="alert alert-info myalert1 text-center" style="color: #68213A; opacity: 1;">
@@ -679,8 +672,21 @@
 
                         </ItemTemplate>
                     </asp:Repeater>
+                            <asp:LinkButton ID="LinkButton14" class="btn btn-default" OnClick="searchrecords" runat="server">View top ten</asp:LinkButton>
+
             </div>
+           
         </div></div></div>
+                  
+             </ContentTemplate>
+                             <Triggers>
+                    <asp:PostBackTrigger ControlID="LinkButton13" />
+
+<asp:PostBackTrigger ControlID="LinkButton9" />
+
+</Triggers>
+            </asp:UpdatePanel>
+            </div></div>
     <div class="container">
         
       

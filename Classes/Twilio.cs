@@ -16,7 +16,7 @@ namespace SMS
         public Boolean log;
         public Boolean testFuelAvaillability;
         public string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
-
+        public Boolean testFilter;
         public void testYesterMeter(string sql)
         {
             SqlConnection cont = new SqlConnection(str);
@@ -77,6 +77,31 @@ namespace SMS
             }
             else
             {
+                con.Close();
+
+            }
+
+
+        }
+        public void testFilters(string sql)
+        {
+            //LETS GET TWILIO CREDENTIALS
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            SqlDataReader myDataReadert = cmd.ExecuteReader();
+            if (myDataReadert.Read())
+            {
+                // ADD YESTERSAYS METER TO SESSION
+                testFilter = true;
+                con.Close();
+
+            }
+            else
+            {
+                testFilter = false;
+
                 con.Close();
 
             }
