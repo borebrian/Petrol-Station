@@ -132,7 +132,7 @@ body {
     left: 0;
     padding: 3px;
     bottom: 0;
-    height:50px;
+    height:60px;
     width: 100%;
     border: 1px solid #68213A;
     border-bottom:none;
@@ -499,9 +499,9 @@ body {
 
 
 .btn-default {
-    -webkit-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
+    /*-webkit-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
-    box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.75);*/
 }
 .wellOveride {
     background-color: black;
@@ -638,6 +638,9 @@ html {
         margin:10px;
         width:200px;
     }
+.back {
+    border-radius: 20px;
+}
 .dialogCustome {
     width: auto;
     font-size: 20px;

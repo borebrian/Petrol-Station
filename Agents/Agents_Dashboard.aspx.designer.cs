@@ -609,15 +609,6 @@ namespace Petrol_Station.Agents
         protected global::System.Web.UI.WebControls.Label Label35;
 
         /// <summary>
-        /// Label36 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label36;
-
-        /// <summary>
         /// Label31 control.
         /// </summary>
         /// <remarks>

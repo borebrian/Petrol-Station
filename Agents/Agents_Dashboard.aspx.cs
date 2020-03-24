@@ -97,6 +97,7 @@ namespace Petrol_Station.Agents
         }
         protected void searchrecords(object sender, EventArgs e)
         {
+            LinkButton9.Visible = true;
             string CSY = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;
             using (SqlConnection cont = new SqlConnection(CSY))
             {
@@ -468,7 +469,7 @@ namespace Petrol_Station.Agents
         }
         void alreadySubmitted(string fuel)
         {
-            Label36.Text = "You have already subbmited todays " + fuel + " sales please contact manager for more information!!";
+            Label35.Text = "You have already submitted todays " + fuel + " sales please contact manager for more information!!";
         }
         void setLabels(String Fuel_type)
         {

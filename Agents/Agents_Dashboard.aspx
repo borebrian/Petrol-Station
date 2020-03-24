@@ -69,7 +69,7 @@
             <%--START OF PANEL BODY -TANK--%>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
-                <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div4">
+                <div class="panel panel-default " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div4">
                     <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
                         <asp:Image class="all-icons" ID="Image5" runat="server" ImageUrl="~/Images/account.png" />
                         &nbsp
@@ -88,7 +88,7 @@
                             <tr>
 
                                 <td colspan="2">
-                                    <asp:LinkButton ID="LinkButton17" class="btn btn-primary sales1" OnClick="logout" runat="server">Log out</asp:LinkButton></td>
+                                    <asp:LinkButton ID="LinkButton17" class="btn btn-default sales1" OnClick="logout" runat="server">Log out</asp:LinkButton></td>
                             </tr>
                         </table>
                     </div>
@@ -97,7 +97,7 @@
          
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
 
-                <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div1">
+                <div class="panel panel-default " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div1">
                     <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
                         <div class="row">
 
@@ -134,10 +134,10 @@
                                                 <div class="row">
                                                     <div class="col-lg-5 col-md-4 col-sm-5 col-xs-5" style="color: #5B5959; font-weight: bold; font-size: 20px;">
                                                         <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 " style="padding-top: 12px;">
-                                                                <asp:Image ID="Image34" runat="server" ImageUrl="~/Images/logo.png" Style="width: 30px; height: 30px;" />
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 " style="padding-top: 5px;">
+                                                               <span class="iconify" data-icon="vaadin:drop" data-inline="false"></span>
                                                             </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="font-size: 15px; padding-top: 15px;">
+                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="font-size: 15px; padding-top: 5px;">
 
                                                                 <asp:Label ID="Label44" runat="server" Text='<%#Eval("Fuel_type")%>'></asp:Label>
                                                             </div>
@@ -146,20 +146,19 @@
                                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="border-left: 2px solid #68213A;">
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
-                                                                <span class="iconify" data-icon="dashicons:location" data-inline="false"></span>&nbsp
-                                                                <asp:Label ID="Label5" runat="server" Text='<%#Eval("Location")%>'></asp:Label>
+                                                                &nbsp
+                                                                <asp:Label ID="Label5" style="font-size:20px;font-weight:bolder;color:red;margin-top:25px;" runat="server" Text='<%#Eval("PERCENTAGE")%>'></asp:Label>
+                                                                <asp:Label ID="Label41" style="font-size:20px;font-weight:bolder;color:red;margin-top:15px;" runat="server" Text="%"></asp:Label>
+
                                                             </div>
 
-                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
-                                                                <span class="iconify" data-icon="bx:bxs-cylinder" data-inline="false"></span>&nbsp<asp:Label ID="Label8" runat="server" Text='<%#Eval("Current_capacity")%>'></asp:Label>&nbsp
-                                                                <asp:Label ID="Label6" runat="server" Text="Litres."></asp:Label>
-                                                            </div>
+                                                            
                                                         </div>
                                                         <div class="row" style="margin-top: 5px;">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
 
                                                                 <%--<i class="glyphicon glyphicon-chevron-right"></i>--%>
-                                                                <%--<asp:LinkButton ID="LinkButton44" CssClass="btn btn-primary sales" runat="server">More</asp:LinkButton>--%>
+                                                                <%--<asp:LinkButton ID="LinkButton44" CssClass="btn btn-default sales" runat="server">More</asp:LinkButton>--%>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -179,7 +178,7 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 " id="actionTab" runat="server">
 
-                <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div3">
+                <div class="panel panel-default " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div3">
                     <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
                         <asp:Image class="all-icons" ID="Image7" runat="server" ImageUrl="~/Images/actions.png" />
                         &nbsp
@@ -192,10 +191,10 @@
                                 <div class="input-group">
                                     <span class="input-group-btn">
 
-                                        <asp:LinkButton ID="LinkButton19" OnClick="searchrecords" CssClass="btn btn-danger sales1" runat="server"><i class="glyphicon glyphicon-list"></i></asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton19" OnClick="searchrecords" CssClass="btn btn-danger sales1" runat="server"><span class="iconify" data-icon="si-glyph:money-coin" data-inline="false"></span></asp:LinkButton>
                                     </span>
                                     <span class="input-group-btn">
-                                        <asp:LinkButton ID="LinkButton20" OnClick="searchrecords" CssClass="btn btn-danger sales1" runat="server">Sales history</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton20" OnClick="searchrecords" CssClass="btn btn-default sales1" runat="server">Sales history</asp:LinkButton>
                                     </span>
                                     <%--<asp:LinkButton ID="LinkButton5"  runat="server" OnClick="refilling">Call Emergency</asp:LinkButton></span>--%>
                                 </div>
@@ -208,7 +207,7 @@
                                         <asp:LinkButton ID="LinkButton12" CssClass="btn btn-danger sales1" runat="server"><i class="glyphicon glyphicon-earphone"></i></asp:LinkButton>
                                     </span>
                                     <span class="input-group-btn">
-                                        <a href="tel:999" class="btn btn-primary sales1">Call Emergency</a>
+                                        <a href="tel:999" class="btn btn-default sales1">Call Emergency</a>
                                     </span>
                                     <%--<asp:LinkButton ID="LinkButton5"  runat="server" OnClick="refilling">Call Emergency</asp:LinkButton></span>--%>
                                 </div>
@@ -218,10 +217,10 @@
                                 <div class="input-group">
                                     <span class="input-group-btn">
 
-                                        <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-earphone"></i></asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton3" CssClass="btn btn-default sales1" runat="server"><i class="glyphicon glyphicon-earphone"></i></asp:LinkButton>
                                     </span>
                                     <span class="input-group-btn">
-                                        <a href="tel:0712035642" class="btn btn-primary sales1">Call Manager</a>
+                                        <a href="tel:0712035642" class="btn btn-default sales1">Call Manager</a>
                                     </span>
                                     <%--<asp:LinkButton ID="LinkButton5"  runat="server" OnClick="refilling">Call Emergency</asp:LinkButton></span>--%>
                                 </div>
@@ -255,7 +254,7 @@
     <div id="classic" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
-            <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div2">
+            <div class="panel panel-default " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div2">
                     <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
                         <asp:Image class="all-icons" ID="Image8" runat="server" ImageUrl="~/Images/tank2.png" />
                         &nbsp
@@ -318,7 +317,7 @@
                                     <tr>
 
                                         <td colspan="2">
-                                            <asp:LinkButton ID="LinkButton7" runat="server"  ValidationGroup="yy" OnClick="next33" class="btn btn-primary sales1">Next Page</asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton7" runat="server"  ValidationGroup="yy" OnClick="next33" class="btn btn-default sales1">Next Page</asp:LinkButton>
 
                                         
                                             </td>
@@ -365,7 +364,7 @@
                                     <tr>
 
                                         <td colspan="2">
-                                            <asp:LinkButton ValidationGroup="bn" ID="LinkButton10" OnClick="next11" class="btn btn-primary sales1" runat="server">Next page</asp:LinkButton></td>
+                                            <asp:LinkButton ValidationGroup="bn" ID="LinkButton10" OnClick="next11" class="btn btn-default sales1" runat="server">Next page</asp:LinkButton></td>
                                     </tr>
                                 </table>
                                 <%--//TABLE WITH ONE TEXTBOX BUT FOR CONFIRMATION PURPOSE--%>
@@ -399,7 +398,7 @@
                                         <td class="text-center"  colspan="2" >
                                         <Strong><asp:Label style="font-size:40px;font-weight:900"  ID="Label37" runat="server" Text=""></asp:Label></Strong></td>
                                     </tr>
-                                    <tr><td> <asp:LinkButton ValidationGroup="bn" ID="LinkButton6" OnClick="prev11" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-pencil"></i> &nbsp Modify</asp:LinkButton></td><td><asp:LinkButton ValidationGroup="bn" ID="LinkButton11" OnClick="finishSubmisiion" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-arrow-right"></i> &nbsp <i class="glyphicon glyphicon-saved"></i>&nbsp Finish</asp:LinkButton></td></tr>
+                                    <tr><td> <asp:LinkButton ValidationGroup="bn" ID="LinkButton6" OnClick="prev11" class="btn btn-default sales1" runat="server"><i class="glyphicon glyphicon-pencil"></i> &nbsp Modify</asp:LinkButton></td><td><asp:LinkButton ValidationGroup="bn" ID="LinkButton11" OnClick="finishSubmisiion" class="btn btn-default sales1" runat="server"><i class="glyphicon glyphicon-arrow-right"></i> &nbsp <i class="glyphicon glyphicon-saved"></i>&nbsp Finish</asp:LinkButton></td></tr>
                                 </table>
                                 <%--//TABLE WITH TWO TEXTBOXES  BUT FOR CONFIRMATION PURPOSE--%>
 
@@ -422,11 +421,11 @@
                                         <td colspan="2">
                                             <div class="btn  btn-group-justified">
                                                 <span class="input-group-btn">
-                                                    <asp:LinkButton ID="LinkButton8" OnClick="backDoubleTextbox" class="btn btn-primary sales1" runat="server"><i class="glyphicon glyphicon-arrow-left"></i> &nbsp Back</asp:LinkButton>
+                                                    <asp:LinkButton ID="LinkButton8" OnClick="backDoubleTextbox" class="btn btn-default sales1" runat="server"><i class="glyphicon glyphicon-arrow-left"></i> &nbsp Back</asp:LinkButton>
                                                 </span>
                                                 <span class="input-group-btn">
                                                   
-                                                    <asp:LinkButton ID="LinkButton16" class="btn btn-primary sales1"  OnClick="excecuteCode"  runat="server" >Finish</asp:LinkButton>
+                                                    <asp:LinkButton ID="LinkButton16" class="btn btn-default sales1"  OnClick="excecuteCode"  runat="server" >Finish</asp:LinkButton>
                                                 </span>
                                             </div>
                                         </td>
@@ -440,7 +439,7 @@
                                         <td colspan="2" class="text-center"><i class="glyphicon glyphicon-exclamation-sign"></i>
                                             <br />
                                             <strong>
-                                                <asp:Label ID="Label35" runat="server" Text=""></asp:Label>.&nbsp<asp:Label ID="Label36" runat="server" Text=""></asp:Label></strong></td>
+                                                <asp:Label ID="Label35" runat="server" Text=""></asp:Label>.&nbsp</strong></td>
                                     </tr>
                                     <tr>
                                         <td>Yesterday meter readings:</td>
@@ -472,7 +471,7 @@
 
                         <table class="table">
                             <tr>
-                                <td colspan="2"><asp:LinkButton ID="LinkButton15" class="btn btn-primary sales1" runat="server" ><i class="glyphicon glyphicon-ok"></i>&nbsp Close</asp:LinkButton></td>
+                                <td colspan="2"><asp:LinkButton ID="LinkButton15" class="btn btn-default sales1" runat="server" ><i class="glyphicon glyphicon-ok"></i>&nbsp Close</asp:LinkButton></td>
                             </tr>
                         </table>
                     </div>
@@ -497,11 +496,11 @@
             <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
 
         <ContentTemplate>
-              <div class="panel panel-primary " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div5">
+              <div class="panel panel-default " style="border: none; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" runat="server" id="div5">
                     <div class="panel-heading text-center" style="background-color: #68213A; border-top-left-radius: 15px; border-top-right-radius: 15px; color: white; font-weight: bold;">
-                        <div class="row text-left">
+                        <div class="row text-left" style="margin-bottom:10px;">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <asp:LinkButton ID="LinkButton13"  data-dismiss="modal" class="btn btn-default "  runat="server"><i class="glyphicon glyphicon-arrow-left"></i>&nbsp Back</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton13"  data-dismiss="modal" class="btn btn-default back "  runat="server"><i class="glyphicon glyphicon-arrow-left"></i>&nbsp Back</asp:LinkButton>
 
                             </div>
                             
@@ -609,7 +608,7 @@
                                 <asp:Label ID="Label30" runat="server" style="font-weight:900;font-size:15px;" Text="Results"></asp:Label>
 
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> <asp:LinkButton ID="LinkButton9" OnClick="pdf" class="btn btn-default " style="margin-right:30px;margin-bottom:10px;" runat="server"><i class="glyphicon glyphicon-print"></i></asp:LinkButton></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> <asp:LinkButton ID="LinkButton9" OnClick="pdf" class="btn btn-default " style="margin-right:30px;margin-bottom:10px;" runat="server"><i class="glyphicon glyphicon-print"></i>&nbsp Download PDF</asp:LinkButton></div>
 
                            
                         </div>
@@ -626,12 +625,12 @@
                                         <div class="fuel">
                                             <div class="alert alert-info myalert1 text-center" style="color: #68213A; opacity: 1;">
                                                 <div class="row">
-                                                    <div class="col-lg-5 col-md-4 col-sm-5 col-xs-5" style="color: #5B5959; font-weight: bold; font-size: 20px;">
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="color: #5B5959; font-weight: bold; font-size: 20px;">
                                                         <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 " style="padding-top: 12px;">
+                                                           <%-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 " style="padding-top: 40px;">
                                                                 <asp:Image ID="Image34" runat="server" ImageUrl="~/Images/calender.png" Style="width: 20px; height: 20px;" />
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="font-size: 11px; padding-top: 15px;">
+                                                            </div>--%>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="font-size: 20px; padding-top: 30px;">
 
                                                                 <asp:Label ID="Label44" runat="server" Text='<%#Eval("Date")%>'></asp:Label>/
                                                                 <asp:Label ID="Label11" runat="server" Text='<%#Eval("Month")%>'></asp:Label>/
@@ -639,12 +638,24 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="border-left: 2px solid #68213A;">
+                                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="border-left: 2px solid #68213A;">
                                                         <div class="row">
+                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #68213A; font-weight: bold;">
+                                                                <span class="iconify" data-icon="fxemoji:fuelpump" data-inline="false"></span>&nbsp
+                                                                <strong><asp:Label ID="Label40" style="color: #68213A;font-weight:900" runat="server" Text='<%#Eval("FUEL")%>'></asp:Label></strong>&nbsp
+                                                               
+
+                                                            </div>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
                                                                 <i class="glyphicon glyphicon-flash"></i>&nbsp
                                                                 <asp:Label ID="Label4" runat="server" Text='<%#Eval("[VOLUME SOLD]")%>'></asp:Label>&nbsp
                                                                 <asp:Label ID="Label15" runat="server" Text="Litres:"></asp:Label>
+
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
+                                                                <span class="iconify" data-icon="whh:price" data-inline="false"></span>&nbsp
+                                                                <asp:Label ID="Label36" runat="server" Text='<%#Eval("Price_itre")%>'></asp:Label>&nbsp
+                                                                <asp:Label ID="Label39" runat="server" Text="/Litre"></asp:Label>
 
                                                             </div>
 
@@ -656,11 +667,11 @@
                                                             </div>
                                                         </div>
                                                         <div class="row" style="margin-top: 5px;">
-                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
+                                                            <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="color: #5B5959; font-weight: bold;">
 
-                                                                <i class="glyphicon glyphicon-chevron-right"></i>
-                                                                <asp:LinkButton ID="LinkButton44" CssClass="btn btn-primary sales" runat="server">More</asp:LinkButton>
-                                                            </div>
+                                                                
+                                                                <asp:LinkButton ID="LinkButton44" CssClass="btn btn-default sales" runat="server">More</asp:LinkButton>
+                                                            </div>--%>
                                                         </div>
                                                     </div>
                                                 </div>
