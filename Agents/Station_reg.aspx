@@ -105,7 +105,7 @@
                                         ForeColor="Red" ValidationGroup="ff"></asp:RequiredFieldValidator>
                                     <br />
                                     <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator8" ErrorMessage="Invalid characters" runat="server"
-                                        ValidationGroup="ff" Visible="true"   ControlToValidate="DropDownList2" ValidationExpression="^[a-zA-Z ,]{1,60}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                        ValidationGroup="ff" Visible="true"   ControlToValidate="DropDownList2" ValidationExpression="^[a-zA-Z ,12]{1,60}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Fuel_systemConnectionString %>" SelectCommand="SELECT count(Station_name) as total,Station_name FROM Station_registration group by Station_name"></asp:SqlDataSource>
                 </div>
@@ -121,7 +121,7 @@
                                         ForeColor="Red" ValidationGroup="ff"></asp:RequiredFieldValidator>
                                     <br />
                                     <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator7" ErrorMessage="Invalid characters" runat="server"
-                                        ValidationGroup="ff" Visible="true"   ControlToValidate="DropDownList2" ValidationExpression="^[a-z ,A-Z]{1,60}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                        ValidationGroup="ff" Visible="true"   ControlToValidate="DropDownList2" ValidationExpression="^[a-z 12,A-Z]{1,60}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                                     </asp:RegularExpressionValidator>
             </div>
             <div class="col-lg-3 col-lg-3 col-lg-3 col-lg-12 " style="color:#68213A">
