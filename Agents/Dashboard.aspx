@@ -21,7 +21,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+   
 
     <nav class="navbar navbar-inverse navbar-fixed-top" style="color: white; background-color: #68213A">
         <a class="navbar-brand" href="#" style="font-weight: bolder; color: white; padding: 0px; margin: 0px;">
@@ -474,7 +474,7 @@
         </div>
 
     </div>
-        </div>
+      
     <div class="container">
          <div class="footer">
  <div class="hover">

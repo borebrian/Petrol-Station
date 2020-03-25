@@ -427,6 +427,7 @@ namespace Petrol_Station.Agents
                         generalClass.inserting("INSERT INTO Meter_records(Station_ref,Date,Month,Year,Previous_meter,Current_meter,Agent_ID,Fuel_Type,Ref) VALUES('" + Session["Station_Ref"] + "','" + date + "','" + month + "','" + year + "','" + dr1["Meter"] + "','" + TextBox5.Text + "','" + Session["National_ID"] + "','" + Session["Fuel_category"] + "','" + randomnumber + "')");
                         Session.Add("Records_ref", randomnumber);
                         updateTank();
+                        sendMessageFunction();
                         //generalClass.inserting("UPDATE Meter_Readingss SET Date='" + date + "',Month='" + month + "',Year='" + year + "',Meter='" + Label37.Text + "',Agent_ID='" + Session["National_ID"] + "' WHERE Fuel_Type='" + Session["Fuel_category"] + "' AND Station_Ref='" + Session["Station_Ref"] + "'");
                         //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "nofuel()", true);
                     }
@@ -438,8 +439,9 @@ namespace Petrol_Station.Agents
                     //1.0 Lets insert into metter readings
                     generalClass.inserting("INSERT INTO  Meter_Readingss(Date,Month,Year,Prev_meter,Meter,Agent_ID,Station_ref,Fuel_Type)VALUES('" + date + "','" + month + "','" + year + "','" + Label25.Text + "','" + Label26.Text + "','" + Session["National_ID"] + "','" + Session["Station_Ref"] + "','" + Session["Fuel_category"] + "')");
                     //1.1 Lets insert into meter records
-                    generalClass.inserting("INSERT INTO Meter_records(Station_ref,Date,Month,Year,Previous_meter,Current_meter,Agent_ID,Fuel_type,Ref)VALUES('" + Session["Station_Ref"] + "','" + date + "','" + month + "','" + year + "','" + Label26.Text + "','" + Label25.Text + "','" + Session["National_ID"] + "','" + Session["Fuel_category"] + "','" + randomnumber + "')");
+                    generalClass.inserting("INSERT INTO Meter_records(Station_ref,Date,Month,Year,Previous_meter,Current_meter,Agent_ID,Fuel_type,Ref)VALUES('" + Session["Station_Ref"] + "','" + date + "','" + month + "','" + year + "','" + Label25.Text + "','" + Label26.Text + "','" + Session["National_ID"] + "','" + Session["Fuel_category"] + "','" + randomnumber + "')");
                     Session.Add("Records_ref", randomnumber);
+                    sendMessageFunction();
                     updateTank();
                     //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "nofuel()", true);
                 }
@@ -539,7 +541,7 @@ namespace Petrol_Station.Agents
                         if (dr1.Read())
                         {
                             Session.Add("myMeter", dr1["Current_capacity"]);
-                            TextBox1.Text = Session["myMeter"].ToString();
+
                         }
                         cont.Close();
                     }
@@ -621,9 +623,9 @@ namespace Petrol_Station.Agents
                                     "<td >" + dt.Rows[i]["PREVIOUS METER"].ToString() + "</td>" +
                                     "<td >" + dt.Rows[i]["CURRENT METER"].ToString() + "</td>" +
                                     "<td >" + dt.Rows[i]["VOLUME SOLD"].ToString() + "</td>" +
-                                    "<td >" + dt.Rows[i]["SALES"].ToString() + "/=</td>"; 
+                                    "<td >" + dt.Rows[i]["SALES"].ToString() + "/=</td>";
 
-                                
+
                                 strActualRecords += "</tr>";
                             }
                             strActualRecords += "</table>";
@@ -696,12 +698,12 @@ namespace Petrol_Station.Agents
 
         protected void finishSubmisiion(object sender, EventArgs e)
         {
-           
-            
+
+
             getYesterdayMeter();
 
             insertingMeters();
-            
+
             populatefinal(Session["Fuel_category"].ToString());
 
             table1.Visible = false;
@@ -724,7 +726,7 @@ namespace Petrol_Station.Agents
                 int prev = int.Parse(dr["Meter"].ToString());
                 int sold = current - prev;
                 Session.Add("sold", sold);
-                TextBox1.Text = sold.ToString();
+
                 con.Close();
             }
             else
@@ -766,7 +768,7 @@ namespace Petrol_Station.Agents
             populatefinal(Session["Fuel_category"].ToString());
             tableconfirm.Visible = true;
         }
-       
+
         protected void next33(object sender, EventArgs e)
         {
             int prev = int.Parse(TextBox2.Text.ToString());
@@ -795,7 +797,7 @@ namespace Petrol_Station.Agents
             }
         }
 
-       
+
 
         public void populatefinal(String fuel)
         {
@@ -809,30 +811,13 @@ namespace Petrol_Station.Agents
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                string message="Good evening "+dr["Full_names"].ToString();
-                message += "Sales submitted: \n";
-                message += "STATION NAME: " + dr["Station_name"].ToString() +"\n";
-                message += "FUEL TYPE: " + dr["Fuel_type"] + "\n";
-            
 
-                message += "PREVIOUS METER: " + dr["Previous_meter"] + "\n";
 
-                message += "TODAY METER: " + dr["Current_meter"] + "\n";
-
-                message += "PRICE/Ltr: " + dr["Price_itre"] + "\n";
-                message += "LITRES SOLD: " + dr["Litres_sold"] + "\n";
-
-                message += "TOTAL SALES: " + dr["Sales"] + "\n";
-                message += "AGENT NAME: " + dr["AGENT NAME"] + "\n";
-                message += "REMAINING FUEL: " + dr["Current_capacity"] + "\n";
-                message += "Powered by Fuela.";
-                
 
                 Label31.Text = dr["Previous_meter"].ToString();
                 Label32.Text = dr["Current_meter"].ToString();
                 Label34.Text = dr["Price_itre"].ToString();
                 Label33.Text = dr["Sales"].ToString();
-                sendMessage(message, dr["Phone"].ToString());
 
                 con.Close();
             }
@@ -841,9 +826,44 @@ namespace Petrol_Station.Agents
                 con.Close();
             }
         }
-        void sendMessage(string message,string phone)
+        void sendMessageFunction()
         {
-            generalClass.SendMessage(phone, message);
+            string today = DateTime.Now.ToString("dd");
+            string month = DateTime.Now.ToString("MM");
+            string year = DateTime.Now.ToString("yyyy");
+            string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand("SELECT *from Sales WHERE Fuel_type='" + Session["Fuel_category"] + "' AND  Station_Ref='" + Session["Station_ref"] + "' AND Date='" + today + "' AND Month='" + month + "' AND Year='" + year + "'", con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                string message = "Good evening " + dr["Full_names"].ToString();
+                message += "\n Fuel sales submission details: \n";
+                message += "STATION NAME: " + dr["Station_name"].ToString() + "\n";
+                message += "FUEL TYPE: " + dr["Fuel_type"] + "\n";
+
+
+                message += "PREVIOUS METER: " + dr["Previous_meter"] + "\n";
+
+                message += "TODAY METER: " + dr["Current_meter"] + "\n";
+
+                message += "PRICE/Ltr: " + dr["Price_itre"] + "\n";
+                message += "LITRES SOLD: " + dr["Litres_sold"] + "\n";
+
+                message += "TOTAL SALES: " + dr["Sales"] + "/=\n";
+                message += "AGENT NAME: " + dr["AGENT NAME"] + "\n";
+                message += "AGENT NUMBER: " + dr["Agent_phone"] + "\n";
+                message += "AGENT Number: " + dr["AGENT NAME"] + "\n";
+
+                message += "REMAINING FUEL: " + dr["Current_capacity"] + " Litres\n";
+                message += "Powered by Fuela.";
+                sendMessage(message, dr["Phone"].ToString());
+            }
+            void sendMessage(string message, string phone)
+            {
+                generalClass.SendMessage(phone, message);
+            }
         }
     }
 }

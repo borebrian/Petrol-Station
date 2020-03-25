@@ -76,10 +76,7 @@
                         <asp:Label ID="Label20" runat="server" Text="Useer details"></asp:Label>
                     </div>
                     <div class="panel-body">
-                        SOLD:
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                      
 
                         <table class="table">
                             <tr>
@@ -465,11 +462,7 @@
                                 <tr>
                                     <td>Price per litre:</td>
                                     <td class="success"><strong>
-                                         <asp:Label ID="Label42" runat="server" Text="Label"></asp:Label>
-
-                                        <asp:Label ID="Label43" runat="server" Text="Label"></asp:Label>
-
-                                        <asp:Label ID="Label45" runat="server" Text="Label"></asp:Label>
+                                       
                                         <asp:Label ID="Label34" runat="server" Text=""></asp:Label></strong></td>
                                 </tr>
                             </table>
@@ -685,12 +678,12 @@
 
                 <asp:LinkButton class="social-link" OnClick="submitpetrol" runat="server">
                     &nbsp
-                    <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/Diesel.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>Petrol1</strong>
+                    <asp:Image ID="Image4" runat="server" ImageUrl="~/Images/Diesel.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>P.Tank 1</strong>
                 </asp:LinkButton>
 
                 <asp:LinkButton class="social-link" ID="LinkButton2" runat="server" OnClick="submitparafin">
                     &nbsp
-                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/parafin.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>Petrol2</strong>
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/Diesel.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>P.Tank 2</strong>
                 </asp:LinkButton>
                 <asp:LinkButton class="social-link" ID="LinkButton4" runat="server" OnClick="submitdiesel">
                     &nbsp
