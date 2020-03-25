@@ -17,6 +17,9 @@ namespace SMS
         public Boolean testFuelAvaillability;
         public string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
         public Boolean testFilter;
+        public Boolean testIfNegative;
+        public Boolean testIfNegativeFinal;
+
         public void testYesterMeter(string sql)
         {
             SqlConnection cont = new SqlConnection(str);
@@ -35,30 +38,30 @@ namespace SMS
 
             }
         }
-            public void InitTwilio()
+        public void InitTwilio()
         {
             //LETS GET TWILIO CREDENTIALS
             string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
             SqlConnection con = new SqlConnection(str);
             SqlCommand cmd = new SqlCommand("select *from Twilio_config", con);
             con.Open();
-           SqlDataReader myDataReadert = cmd.ExecuteReader();
-                if (myDataReadert.Read())
-                {
-                    Session.Add("Auth", myDataReadert["Twilio_Auth"]);
-                    Session.Add("TwilioPhone", myDataReadert["Twilio_phone"]);
-                    Session.Add("TwilioSid", myDataReadert["Twilio_SID"]);
+            SqlDataReader myDataReadert = cmd.ExecuteReader();
+            if (myDataReadert.Read())
+            {
+                Session.Add("Auth", myDataReadert["Twilio_Auth"]);
+                Session.Add("TwilioPhone", myDataReadert["Twilio_phone"]);
+                Session.Add("TwilioSid", myDataReadert["Twilio_SID"]);
 
-                    con.Close();
+                con.Close();
 
-                }
-                else
-                {
-                    con.Close();
+            }
+            else
+            {
+                con.Close();
 
-                }
-            
-           
+            }
+
+
         }
         public void getYesterMeter(string sql)
         {
@@ -83,6 +86,59 @@ namespace SMS
 
 
         }
+        //public void testIfNegative1(string sql)
+        //{
+        //    //LETS GET TWILIO CREDENTIALS
+        //    string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+        //    SqlConnection con = new SqlConnection(str);
+        //    SqlCommand cmd = new SqlCommand(sql, con);
+        //    con.Open();
+        //    SqlDataReader myDataReadert = cmd.ExecuteReader();
+        //    if (myDataReadert.Read())
+        //    {
+        //        // ADD YESTERSAYS METER TO SESSION
+        //        testIfNegative = true;
+        //        con.Close();
+        //        Session.Add("RemainingAmmount", myDataReadert["Current_capacity"]);
+        //    }
+        //    else
+        //    {
+        //        testIfNegative = false;
+        //        con.Close();
+
+        //    }
+
+        //     }
+        //public void testIfNegativeFinal1(string sql)
+        //{
+        //    if (testIfNegative)
+        //    {
+        //        //LETS GET TWILIO CREDENTIALS
+        //        string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
+        //        SqlConnection con = new SqlConnection(str);
+        //        SqlCommand cmd = new SqlCommand(sql, con);
+        //        con.Open();
+        //        SqlDataReader myDataReadert = cmd.ExecuteReader();
+        //        if (myDataReadert.Read())
+        //        {
+        //            // ADD YESTERSAYS METER TO SESSION
+              
+        //            con.Close();
+        //            Session.Add("RemainingAmmount", myDataReadert["Current_capacity"]);
+        //        }
+        //        else
+        //        {
+        //            testIfNegative = false;
+        //            con.Close();
+
+        //        }
+        //    }
+        //    else
+        //    {
+
+        //    }
+
+        //}
         public void testFilters(string sql)
         {
             //LETS GET TWILIO CREDENTIALS

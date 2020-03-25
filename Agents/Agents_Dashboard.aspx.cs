@@ -621,9 +621,9 @@ namespace Petrol_Station.Agents
                                     "<td >" + dt.Rows[i]["PREVIOUS METER"].ToString() + "</td>" +
                                     "<td >" + dt.Rows[i]["CURRENT METER"].ToString() + "</td>" +
                                     "<td >" + dt.Rows[i]["VOLUME SOLD"].ToString() + "</td>" +
-                                    "<td >" + dt.Rows[i]["SALES"].ToString() + "/=</td>";
+                                    "<td >" + dt.Rows[i]["SALES"].ToString() + "/=</td>"; 
 
-                                ;
+                                
                                 strActualRecords += "</tr>";
                             }
                             strActualRecords += "</table>";
@@ -696,6 +696,8 @@ namespace Petrol_Station.Agents
 
         protected void finishSubmisiion(object sender, EventArgs e)
         {
+           
+            
             getYesterdayMeter();
 
             insertingMeters();
@@ -807,10 +809,30 @@ namespace Petrol_Station.Agents
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
+                string message="Good evening "+dr["Full_names"].ToString();
+                message += "Sales submitted: \n";
+                message += "STATION NAME: " + dr["Station_name"].ToString() +"\n";
+                message += "FUEL TYPE: " + dr["Fuel_type"] + "\n";
+            
+
+                message += "PREVIOUS METER: " + dr["Previous_meter"] + "\n";
+
+                message += "TODAY METER: " + dr["Current_meter"] + "\n";
+
+                message += "PRICE/Ltr: " + dr["Price_itre"] + "\n";
+                message += "LITRES SOLD: " + dr["Litres_sold"] + "\n";
+
+                message += "TOTAL SALES: " + dr["Sales"] + "\n";
+                message += "AGENT NAME: " + dr["AGENT NAME"] + "\n";
+                message += "REMAINING FUEL: " + dr["Current_capacity"] + "\n";
+                message += "Powered by Fuela.";
+                
+
                 Label31.Text = dr["Previous_meter"].ToString();
                 Label32.Text = dr["Current_meter"].ToString();
                 Label34.Text = dr["Price_itre"].ToString();
                 Label33.Text = dr["Sales"].ToString();
+                sendMessage(message, dr["Phone"].ToString());
 
                 con.Close();
             }
@@ -818,6 +840,10 @@ namespace Petrol_Station.Agents
             {
                 con.Close();
             }
+        }
+        void sendMessage(string message,string phone)
+        {
+            generalClass.SendMessage(phone, message);
         }
     }
 }
