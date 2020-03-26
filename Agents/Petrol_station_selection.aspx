@@ -15,7 +15,10 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">--%>
             <div class="well wellOveride" >
-               
+                <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
+                    <ContentTemplate>
+                <%--<asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick">
+</asp:Timer>--%>
                 <div class="row text-center">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" style="height:90px; width:90px;" />
                     <h3></h3>
@@ -30,7 +33,7 @@
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
     
       <div class = "input-group">
-                                <asp:TextBox ID="TextBox1" CssClass="form-control rounded1" placeholder="Please enter station name to search" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                                <asp:TextBox ID="TextBox1" CssClass="form-control rounded1" placeholder="Please enter station name to search" runat="server" AutoPostBack="true" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
            <span class = "input-group-btn">
 
                                                      <asp:LinkButton ID="LinkButton16" CssClass="btn btn-default" runat="server" ValidationGroup="nm" OnClick="LinkButton16_Click"><i class="glyphicon glyphicon-search"></i> &nbsp Search</asp:LinkButton>
@@ -59,6 +62,10 @@
                 <div class="row text-center">
                     <%--<asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary mycolor" runat="server">Back</asp:LinkButton>--%>
                 </div>
+                        </ContentTemplate>
+
+                </asp:UpdatePanel>
+               
             </div>
                     <%--</asp:UpdatePanel>--%>
 

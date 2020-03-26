@@ -24,6 +24,7 @@
 
     <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
         <ContentTemplate>
+            
             <nav class="navbar navbar-inverse navbar-fixed-top" style="color: white; background-color: #68213A">
                 <a class="navbar-brand" href="#" style="font-weight: bolder; color: white; padding: 0px; margin: 0px;">
                     <%--<div class="container">--%>

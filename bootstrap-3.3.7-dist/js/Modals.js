@@ -54,6 +54,14 @@ function refill() {
     });
     $('#refill').modal("show");
 }
+function reset() {
+    $("#modal132").modal({
+        show: false,
+        backdrop: 'static'
+
+    });
+    $('#modal132').modal("show");
+}
 function showSubmitDialog() {
     $("#modal12").modal({
         show: false,

@@ -242,6 +242,7 @@ namespace SMS
         }
         public void SendMessage(String number,String message)
         {
+            InitTwilio();
 
               TwilioClient.Init(Session["TwilioSid"].ToString(), Session["Auth"].ToString());
 

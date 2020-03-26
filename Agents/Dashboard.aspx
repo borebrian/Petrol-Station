@@ -196,7 +196,7 @@
 
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 " style="margin-left: 0px; margin-right: 0px;">
                                         <div class="row">
-                                            <asp:Label ID="Label10" runat="server" Text="Enough" Style="color: green; font-weight: bold;"></asp:Label>
+                                            <asp:Label ID="Label10" runat="server" Text="Full" Style="color: green; font-weight: bold;"></asp:Label>
                                         </div>
                                         <div class="row">
                                             <div style="height: 50px; width: 10px; background-color: #0F7E2C; border-top-left-radius: 15px; border-top-right-radius: 15px;"></div>
@@ -212,7 +212,7 @@
 
                                         </div>
                                         <div class="row">
-                                            <asp:Label ID="Label11" runat="server" Text="Less" Style="color: red; font-weight: bold;"></asp:Label>
+                                            <asp:Label ID="Label11" runat="server" Text="Empty" Style="color: red; font-weight: bold;"></asp:Label>
                                         </div>
                                     </div>
 
@@ -279,7 +279,7 @@
                         </div>
                         <div class="row">
                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left" style="padding: 10px; color: #483F42; ">
-                                <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary sales1" runat="server" OnClick="refilling"><i class="glyphicon glyphicon-dashboard"></i> &nbsp Sales analysis</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary sales1" runat="server" OnClick="refilling"><i class="glyphicon glyphicon-dashboard"></i> &nbsp Sales graph</asp:LinkButton>
                                
                             </div>
                             </div>
@@ -330,12 +330,12 @@
 
                 <!-- Modal content-->
                 <%--    <div class="modal-content">--%>
-                <div class="well" style="background-color: white; opacity: 0.9; border-radius: 30px;">
+                <div class="well wellOveride" >
                     <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 text-right">
                         <asp:LinkButton ID="LinkButton6" CssClass="btn btn-default" runat="server"><i class="glyphicon glyphicon-remove-sign"></i></asp:LinkButton>
                     </div>
                     <div class="row text-center">
-                        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/fuelaviolet.png" Style="height: 50px; width: 50px;" />
+                        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/fuelachebiemitwhite.png" Style="height: 50px; width: 50px;" />
                         <h3></h3>
 
 
@@ -347,12 +347,12 @@
                     </div>
                     <div class="row text-center" style="margin-bottom: 20px;">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                            <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded1" MaxLength="3" placeholder="Enter price here" Style="border: 1px #707070 solid;"></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" runat="server" class="form-control rounded1" MaxLength="6" placeholder="Enter price here" Style="border: 1px #707070 solid;"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" Display="Dynamic" runat="server" ControlToValidate="TextBox1" ErrorMessage="Enter price" SetFocusOnError="true"
                                 ForeColor="Red" ValidationGroup="bb"></asp:RequiredFieldValidator>
                             <br />
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ErrorMessage="Are you sure what you have typed is correct?Please confirm!." runat="server"
-                                ValidationGroup="bb" Visible="true" Display="Dynamic" ControlToValidate="TextBox1" ValidationExpression="^[0-9]{2,3}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                                ValidationGroup="bb" Visible="true" Display="Dynamic" ControlToValidate="TextBox1" ValidationExpression="^[0-9.]{2,6}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                             </asp:RegularExpressionValidator>
                         </div>
 
@@ -373,7 +373,7 @@
 
                 <!-- Modal content-->
                 <%--    <div class="modal-content">--%>
-                <div class="well" style="background-color: white; opacity: 1; border-radius: 10px;">
+                <div class="well wellOveride" style="background-color: white; opacity: 1; border-radius: 10px;">
                     <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12 text-right">
                         <asp:LinkButton ID="LinkButton8" CssClass="btn btn-default" runat="server"><i class="glyphicon glyphicon-remove-sign"></i></asp:LinkButton>
                     </div>
@@ -478,7 +478,7 @@
     <div class="container">
          <div class="footer">
  <div class="hover">
-     <span><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/more.png" class="more"/><i class="glyphicon glyphicon-option-vertical"></i>&nbsp More</span>
+     <span><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/more.png" class="more"/><i class="glyphicon glyphicon-triangle-left"></i>&nbsp Menu</span>
      <a class="social-link" href="https://twitter.com/twitter"c><i class="glyphicon glyphicon-home"></i></a>
      <a class="social-link" href="#" target="_blank"  runat="server" onclientclick="changeStation"><i class="glyphicon glyphicon-retweet"></i></a>
      <a class="social-link" href="https://www.instagram.com/joshuaward/" target="_blank"><i class="glyphicon glyphicon-user"></i></a>

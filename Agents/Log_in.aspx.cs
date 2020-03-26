@@ -29,6 +29,8 @@ namespace Petrol_Station.Agents
             {
                 if (TextBox1.Text == "12345678")
                 {
+                    Session.Add("User", TextBox5.Text);
+
                     Response.Redirect("../Agents/Set_new_password.aspx");
                 }
                 else
@@ -49,6 +51,7 @@ namespace Petrol_Station.Agents
                 {
                     if (TextBox1.Text == "12345678")
                     {
+                        Session.Add("User", TextBox5.Text);
                         Response.Redirect("../Agents/Set_new_password.aspx");
                     }
                     else

@@ -34,8 +34,8 @@ namespace Petrol_Station.Agents
         protected void changeStation(object sender, EventArgs e)
         {
             Response.Redirect("../Agents/Petrol_station_selection.aspx");
-           
-            //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Clicked')", true);
+
+            //ClientScript.RegisterStartupScript(this.GetType(), "alert", " reset()", true);
         }
         protected void changePrice(object sender, EventArgs e)
         {
@@ -236,7 +236,32 @@ namespace Petrol_Station.Agents
             Response.Redirect("../Agents/Sales_category.aspx");
 
         }
+        //CHECK IF SALES HAVE BEEN SUBMITTED
         public void setTank()
+        {
+            string today = DateTime.Now.ToString("dd");
+            string month = DateTime.Now.ToString("MM");
+            string year = DateTime.Now.ToString("yyyy");
+            SqlConnection con = new SqlConnection(str);
+            SqlCommand cmd = new SqlCommand("SELECT *FROM Meter_records WHERE Station_ref='"+Session["Station_ref"]+"' and date='"+today+"' AND Month='"+month+"' AND YEAR='"+year+"'", con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                con.Close();
+
+
+
+
+            }
+            else
+            {
+
+                con.Close();
+
+            }
+        }
+        public void setTank1()
         {
             SqlConnection con = new SqlConnection(str);
             SqlCommand cmd = new SqlCommand("SELECT *FROM Station_registration WHERE Station_ref", con);

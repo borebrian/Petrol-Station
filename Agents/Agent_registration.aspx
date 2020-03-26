@@ -86,12 +86,12 @@
                     </div>
 
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12  ">
-                        <asp:TextBox ID="TextBox7" runat="server" class="form-control rounded1" type="number" MaxLength="10" placeholder="Enter phone number here" Text="07"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextBox7" ErrorMessage="Enter password"
+                        <asp:TextBox ID="TextBox7" runat="server" class="form-control rounded1" type="text" MaxLength="10" placeholder="Enter phone number here" Text="07"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextBox7" ErrorMessage="Enter phone number"
                             ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
                         <br />
                         <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator7" ErrorMessage="Invalid characters" runat="server"
-                            ValidationGroup="nl" Visible="true" ControlToValidate="TextBox7" ValidationExpression="^[0-9]{10,10}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
+                            ValidationGroup="nl" Visible="true" ControlToValidate="TextBox7" ValidationExpression="^[0-9 + ]{10,10}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
                         </asp:RegularExpressionValidator>
                     </div>
                 </div>

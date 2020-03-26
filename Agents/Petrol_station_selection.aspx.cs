@@ -94,7 +94,12 @@ namespace Petrol_Station.Agents
 
             }
         }
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            
 
+            
+        }
         protected void TextBox1_TextChanged(object sender, EventArgs e)
         {
             string CSY = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;

@@ -12,7 +12,7 @@
     <div class="container-fluid" style="padding:0px;">
         <div class="well"  style="background-color:transparent;border:none;">
 
-            <
+            
               <div class="row text-center" style="margin-bottom:20px;">
                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  hidden-xs"></div>
                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
