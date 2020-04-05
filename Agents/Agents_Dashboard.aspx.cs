@@ -539,7 +539,7 @@ namespace Petrol_Station.Agents
                         if (dr1.Read())
                         {
                             Session.Add("myMeter", dr1["Current_capacity"]);
-                            //TextBox1.Text = Session["myMeter"].ToString();
+                            TextBox1.Text = Session["myMeter"].ToString();
                         }
                         cont.Close();
                     }
@@ -718,12 +718,11 @@ namespace Petrol_Station.Agents
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                int current = int.Parse(Label24.Text.ToString());
+                int current = int.Parse(Label37.Text.ToString());
                 int prev = int.Parse(dr["Meter"].ToString());
                 int sold = current - prev;
-                Session.Add("sold", current);
-
-                //TextBox1.Text = Session["sold"].ToString();
+                Session.Add("sold", sold);
+                TextBox1.Text = sold.ToString();
                 con.Close();
             }
             else

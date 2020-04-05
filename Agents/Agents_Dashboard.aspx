@@ -76,6 +76,7 @@
                         <asp:Label ID="Label20" runat="server" Text="Useer details"></asp:Label>
                     </div>
                     <div class="panel-body">
+                        SOLD:
                         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                         <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
                         <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
@@ -263,8 +264,8 @@
                 </div>
 
                 <div class="panel-body wellOveride" style="border-top-left-radius: unset; border-top-right-radius: unset;">
-             <%--       <asp:UpdatePanel ID="UpdatePanel3" UpdateMode="Conditional" runat="server">
-                        <ContentTemplate>--%>
+                    <asp:UpdatePanel ID="UpdatePanel3" UpdateMode="Conditional" runat="server">
+                        <ContentTemplate>
 
                             <%--//TABLE WITH TWO TEXTBOXES--%>
                             <table class="table" id="table1" runat="server" style="border: none" border="0">
@@ -474,8 +475,8 @@
                             </table>
 
                             <asp:Label ID="Label38" runat="server" Text=""></asp:Label>
-                      <%--  </ContentTemplate>
-                    </asp:UpdatePanel>--%>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
 
                     <table class="table">
                         <tr>
