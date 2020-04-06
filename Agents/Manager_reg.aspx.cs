@@ -53,10 +53,10 @@ namespace Petrol_Station.Agents
                 SqlDataReader myDataReadert = cmd.ExecuteReader();
                 if (myDataReadert.Read())
                 {
-                    string message1 = "Welcome to Fuela Petrol Stattion Management System \n";
+                    string message1 = "You have been registered with Fuela as Fuel station manager.  \n";
                     string message2 = "Your Username is:YOUR NATIONAL ID";
                     string message3 = "Password is:";
-                    string message4 = "Please use the credentials above to log in.NB:Remember to delete this message after recording it in a safe place!.";
+                    string message4 = "Please use the credentials above to log in.Call:0712035642 for queries.";
                     OpenClass send = new OpenClass();
                     send.SendMessage(myDataReadert["Twilio_phone"].ToString(), p.Add254(TextBox7.Text), myDataReadert["Twilio_SID"].ToString(), myDataReadert["Twilio_Auth"].ToString(), "Hae " + TextBox2.Text + message1 + "," + message2+ "','" + message3 + TextBox4.Text + "." + message4);
                     con.Close();

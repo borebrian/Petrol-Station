@@ -101,17 +101,12 @@
 
                 <asp:DropDownList ID="DropDownList1" runat="server" class="form-control rounded1"  DataSourceID="SqlDataSource2" DataTextField="Station_name" DataValueField="Station_ref"></asp:DropDownList>
                  <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Fuel_systemConnectionString %>" SelectCommand="SELECT Station_ref, Station_name FROM Station_registration"></asp:SqlDataSource>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Select fuel station"
-                                        ForeColor="Red" ValidationGroup="ff"></asp:RequiredFieldValidator>
-                                    <br />
-                                    <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator8" ErrorMessage="Invalid characters" runat="server"
-                                        ValidationGroup="ff" Visible="true"   ControlToValidate="DropDownList2" ValidationExpression="^[a-zA-Z ,12]{1,60}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
-                                    </asp:RegularExpressionValidator>
+               
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Fuel_systemConnectionString %>" SelectCommand="SELECT count(Station_name) as total,Station_name FROM Station_registration group by Station_name"></asp:SqlDataSource>
                 </div>
             <div class="col-lg-3 col-lg-3 col-lg-3 col-lg-12 " style="color:#68213A">
                  Fuel type:
-           <asp:DropDownList ID="DropDownList2" runat="server" class="form-control rounded1" >
+           <asp:DropDownList ID="DropDownList2" runat="server" class="form-control rounded1" DataSourceID="SqlDataSource3" DataTextField="Description" DataValueField="Fuel_ref" >
                <asp:ListItem>PETROL1</asp:ListItem>
                <asp:ListItem>PETROL2</asp:ListItem>
                <asp:ListItem>PETROL</asp:ListItem>
@@ -120,12 +115,8 @@
 
                 </asp:DropDownList>
                
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="DropDownList2" ErrorMessage="Select fuel"
-                                        ForeColor="Red" ValidationGroup="ff"></asp:RequiredFieldValidator>
-                                    <br />
-                                    <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator7" ErrorMessage="Invalid characters" runat="server"
-                                        ValidationGroup="ff" Visible="true"   ControlToValidate="DropDownList2" ValidationExpression="^[a-z 12,A-Z]{1,60}$" SetFocusOnError="true" CssClass="validator" ForeColor="Red">
-                                    </asp:RegularExpressionValidator>
+                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Fuel_systemConnectionString %>" SelectCommand="SELECT [Fuel_ref], [Fuel_type], [Description] FROM [Fuel_category]"></asp:SqlDataSource>
+               
             </div>
             <div class="col-lg-3 col-lg-3 col-lg-3 col-lg-12 " style="color:#68213A">
 

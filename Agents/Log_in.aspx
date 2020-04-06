@@ -68,7 +68,9 @@
                          <div class="row text-center">
               
                                                                 <asp:LinkButton ID="LinkButton1" CssClass="btn btn-default white " ValidationGroup="nl" runat="server" OnClick="LinkButton1_Click">Log in</asp:LinkButton>
-                                                                <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-default white " OnClick="LinkButton4_Click">Forgot password</asp:LinkButton><br />
+                                                                <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-default white " OnClick="LinkButton4_Click">Forgot password</asp:LinkButton>
+                              <asp:LinkButton ID="LinkButton5" runat="server" CssClass="btn btn-default white " OnClick="signup">Sign up</asp:LinkButton>
+                             <br />
                         <asp:Label ID="Label4" runat="server" Text="" ForeColor="red"></asp:Label>
                         </div><br />
 

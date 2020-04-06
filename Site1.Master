@@ -14,7 +14,7 @@
         <link href="bootstrap-3.3.7-dist/css/Custome.css" rel="stylesheet" />
     </asp:ContentPlaceHolder>
 </head>
-<body style="background-image:url('../Images/bg11.jpg');background-repeat:no-repeat;background-size:cover;background-attachment:fixed">
+<body style="background-image:url('../Images/bg11.jpg');background-repeat:no-repeat;background-size:cover;background-attachment:fixed;">
     <form id="form1" runat="server">
         <div>
            

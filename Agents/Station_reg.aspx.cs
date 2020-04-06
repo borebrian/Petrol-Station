@@ -86,7 +86,7 @@ namespace Petrol_Station.Agents
 
             string str = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ToString();
             SqlConnection con = new SqlConnection(str);
-            SqlCommand cmd = new SqlCommand("SELECT *FROM Fuel WHERE Station_ref='"+ DropDownList1.SelectedItem.Value + "' AND Fuel_type='"+ DropDownList2.SelectedItem.Value + "'", con);
+            SqlCommand cmd = new SqlCommand("SELECT *FROM Fuel WHERE Station_ref='"+ DropDownList1.SelectedItem.Value + "' AND Fuel_ref='" + DropDownList2.SelectedItem.Value + "'", con);
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
@@ -99,7 +99,10 @@ namespace Petrol_Station.Agents
             {
                 con.Close();
                 OpenClass p = new OpenClass();
-                p.inserting("INSERT INTO  Fuel(Station_ref,Fuel_type,Tank_capacity,Current_capacity,Price_itre) VALUES('" + DropDownList1.SelectedItem.Value + "','" + DropDownList2.SelectedItem.Value + "','" + TextBox4.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "')");
+                Random random = new Random();
+                int rand =random.Next(100000, 999999);
+               
+                p.inserting("INSERT INTO  Fuel(Station_ref,Fuel_ref,Tank_capacity,Current_capacity,Price_itre) VALUES('" + DropDownList1.SelectedItem.Value + "','" + DropDownList2.SelectedItem.Value + "','" + TextBox4.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "')");
                 Session["firepopup"] = null;
                 response.Text = "Submitted successfully!";
 

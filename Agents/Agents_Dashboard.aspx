@@ -262,8 +262,8 @@
                 </div>
 
                 <div class="panel-body wellOveride" style="border-top-left-radius: unset; border-top-right-radius: unset;">
-                    <asp:UpdatePanel ID="UpdatePanel3" UpdateMode="Conditional" runat="server">
-                        <ContentTemplate>
+                    <%--<asp:UpdatePanel ID="UpdatePanel3" UpdateMode="Conditional" runat="server">
+                        <ContentTemplate>--%>
 
                             <%--//TABLE WITH TWO TEXTBOXES--%>
                             <table class="table" id="table1" runat="server" style="border: none" border="0">
@@ -425,7 +425,7 @@
                                     <td colspan="2">
                                         <div class="btn  btn-group-justified">
                                             <span class="input-group-btn">
-                                                <asp:LinkButton ID="LinkButton8" OnClick="backDoubleTextbox" class="btn btn-default sales1" runat="server"><i class="glyphicon glyphicon-arrow-left"></i> &nbsp Back</asp:LinkButton>
+                                                <asp:LinkButton ID="LinkButton8" class="btn btn-default sales1" runat="server"><i class="glyphicon glyphicon-arrow-left"></i> &nbsp Back</asp:LinkButton>
                                             </span>
                                             <span class="input-group-btn">
 
@@ -469,8 +469,8 @@
                             </table>
 
                             <asp:Label ID="Label38" runat="server" Text=""></asp:Label>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
+                        <%--</ContentTemplate>
+                    </asp:UpdatePanel>--%>
 
                     <table class="table">
                         <tr>
@@ -688,7 +688,7 @@
                 </asp:LinkButton>
                 <asp:LinkButton class="social-link" ID="LinkButton4" runat="server" OnClick="submitdiesel">
                     &nbsp
-                    <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/Diesel.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>Diesel</strong>
+                    <asp:Image ID="Image6" runa="server" ImageUrl="~/Images/Diesel.png" Style="height: 20px; width: 20px;" />&nbsp&nbsp<strong>Diesel</strong>
                 </asp:LinkButton>
 
                 <%--                <asp:LinkButton class="social-link" ID="LinkButton15"  runat="server" >&nbsp

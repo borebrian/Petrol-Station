@@ -1,6 +1,16 @@
-﻿@font-face {
+﻿ 
+
+@font-face {
     font-family: Century Gothic1;
     src: url('/Fonts/Century.ttf');
+}
+
+@font-face {
+    font-family: Century Gothic1;
+    src: url('/Fonts/Century.ttf');
+}
+.categoryselector{
+    margin:15px;
 }
 
 @font-face {
@@ -137,6 +147,7 @@ body {
     -moz-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
     box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
 }
+
 }
 
 .imageside {
@@ -176,6 +187,7 @@ body {
 .imageside {
     background-color
 }
+
 }
 
 .categoryselector:hover {
@@ -200,6 +212,7 @@ body {
     -moz-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
     box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
 }
+
 }
 
 .categoryselector1:hover {
@@ -330,6 +343,7 @@ body {
     -moz-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
     box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
 }
+
 }
 
 .capacity {
@@ -408,6 +422,7 @@ body {
     /*color: #68213A;*/
     font-size: 10px;
 }
+
 }
 
 .image-repeater {
@@ -419,6 +434,7 @@ body {
 .imageside {
     background-color
 }
+
 }
 
 .categoryselector:hover {
@@ -443,6 +459,7 @@ body {
     -moz-box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
     box-shadow: 2px 3px 7px -2px rgba(0,0,0,0.75);
 }
+
 }
 
 .categoryselector1:hover {
@@ -573,6 +590,7 @@ body {
     -moz-box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
     box-shadow: 0px -1px 13px 2px rgba(0,0,0,0.75);
 }
+
 }
 
 .capacity {

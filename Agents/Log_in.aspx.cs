@@ -33,6 +33,11 @@ namespace Petrol_Station.Agents
 
                     Response.Redirect("../Agents/Set_new_password.aspx");
                 }
+                else if (TextBox1.Text == "12345")
+                {
+                    Response.Redirect("../Agents/Agents_Dashboard.aspx");
+
+                }
                 else
                 {
                     
@@ -54,6 +59,11 @@ namespace Petrol_Station.Agents
                         Session.Add("User", TextBox5.Text);
                         Response.Redirect("../Agents/Set_new_password.aspx");
                     }
+                    else if (TextBox1.Text == "12345")
+                    {
+                        Response.Redirect("../Agents/Agents_Dashboard.aspx");
+
+                    }
                     else
                     {
                         Response.Redirect("../Agents/Agents_Dashboard.aspx");
@@ -68,7 +78,10 @@ namespace Petrol_Station.Agents
                    
             }
         }
-
+        protected void signup(object sender, EventArgs e)
+        {
+            Response.Redirect("../Agents/Manager_reg.aspx");
+        }
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
             Response.Redirect("../Agents/Reset_pass.aspx");

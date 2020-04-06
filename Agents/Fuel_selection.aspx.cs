@@ -23,7 +23,7 @@ namespace Petrol_Station.Agents
                 string CSY = ConfigurationManager.ConnectionStrings["Fuel_systemConnectionString"].ConnectionString;
                 using (SqlConnection cont = new SqlConnection(CSY))
                 {
-                    SqlCommand cmd1 = new SqlCommand("SELECT *FROM Fuel where Station_ref='" + Session["Station_ref"] + "'", cont);
+                    SqlCommand cmd1 = new SqlCommand("SELECT *FROM Fuel_details where Station_ref='" + Session["Station_ref"] + "'", cont);
                     //SqlCommand cmd2 = new SqlCommand("SELECT Fuel_type FROM Station_registration where Station_ref='" + Session["Station_ref"] + "'  group by Fuel_type", cont);
 
                     cont.Open();
@@ -56,7 +56,7 @@ namespace Petrol_Station.Agents
 
             RepeaterItem item = (sender as LinkButton).NamingContainer as RepeaterItem;
             Session["Station_ref"]= (item.FindControl("Label3") as Label).Text.ToString();
-            Session.Add("Fuel_type", (item.FindControl("Label1") as Label).Text.ToString());
+            Session.Add("Fuel_ref", (item.FindControl("Label4") as Label).Text.ToString());
 
             Response.Redirect("../Agents/Dashboard.aspx");
 

@@ -242,7 +242,6 @@
     <Content Include="Images\drop.png" />
     <Content Include="Images\drop2.png" />
     <Content Include="Images\fuelachebiemitwhite1.png" />
-    <Content Include="Images\bg11.jpg" />
     <Content Include="Images\fuelachebiemitwhite.png" />
     <Content Include="Images\hand.png" />
     <Content Include="Images\hd.jpg" />
@@ -254,6 +253,7 @@
     <Content Include="Images\meter12.png" />
     <Content Include="Images\more.png" />
     <Content Include="Images\parafin.png" />
+    <Content Include="Images\bg11.jpg" />
     <Content Include="Images\sales.png" />
     <Content Include="Images\tank.png" />
     <Content Include="Images\tank2.png" />
@@ -468,7 +468,6 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
-    <Content Include="Fonts\Century.ttf" />
     <Content Include="Fonts\watch.ttf" />
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.css.map" />
     <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css.map" />
@@ -478,6 +477,9 @@
     <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Fonts\Century.ttf" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\Century.ttf" />
+    <Content Include="Century.ttf" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">

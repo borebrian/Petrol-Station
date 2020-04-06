@@ -67,7 +67,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12  ">
-                        <asp:TextBox ID="TextBox4" runat="server" ReadOnly="true" Text="12345678" class="form-control rounded1" placeholder="Set password"></asp:TextBox>
+                        <asp:TextBox ID="TextBox4" runat="server" Text="12345678" class="form-control rounded1" placeholder="Set password"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" type="password" ErrorMessage="Enter password"
                             ForeColor="Red" ValidationGroup="nl"></asp:RequiredFieldValidator>
                         <br />

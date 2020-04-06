@@ -27,6 +27,7 @@
                   <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-default categoryselector" OnClick="SelectFuel">
                       <strong>
                   <asp:Label ID="Label3" runat="server" Text='<%#Eval("Station_ref")%>' style="font-size:0px;"></asp:Label>
+                          <asp:Label ID="Label4" runat="server" Text='<%#Eval("Fuel_ref")%>' style="font-size:0px;"></asp:Label>
                       <asp:Label ID="Label1" style="font-size:10px;" runat="server" Text='<%#Eval("Fuel_type")%>'></asp:Label></strong>
                   </asp:LinkButton>
               </div>

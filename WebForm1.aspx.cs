@@ -13,6 +13,9 @@ namespace Petrol_Station
         {
             //Response.Redirect("/Agents/Log_in.aspx");
             //TextBox1.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            string i = "3.45";
+            float t = float.Parse(i);
+            TextBox1.Text = t.ToString();
 
         }
     }

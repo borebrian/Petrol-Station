@@ -9,6 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
       <span class="iconify" data-icon="fa-solid:globe-asia" data-inline="false"></span>
     </form>
 </body>
